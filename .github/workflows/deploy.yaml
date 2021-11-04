@@ -1,5 +1,5 @@
 
-name : Deploy to testing env finance project
+name : Deploy to testing env UT LOMBA
 on:
   push:
     branches: [ main ]
@@ -9,7 +9,7 @@ jobs:
     name: Pull from github
     runs-on: ubuntu-latest
     steps:
-    - name: deploy dev finance project
+    - name: deploy dev UT LOMBA
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
