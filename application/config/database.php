@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'finance',
-	'password' => '1sampaifinance',
-	'database' => 'finance',
+	'hostname' => 'ut-lomba.kristomoyo.com',
+	'username' => 'ut_lomba',
+	'password' => '1sampaiut',
+	'database' => 'ut_lomba',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
