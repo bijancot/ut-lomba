@@ -13,4 +13,11 @@ class Template {
         $this->_ci->load->view($content, $data); // Content
         $this->_ci->load->view('adm/template/footer', $data); // Footer
     }
+    public function index($content, $data) {
+        $this->_ci->load->view('_components/Header', $data); // Header
+        $this->_ci->load->view('_components/nav_header', $data); // Header
+        $this->_ci->load->view($content, $data); // Header
+        $this->_ci->load->view('_components/nav_footer', $data); // Header
+        $this->_ci->load->view('_components/Footer', $data); // Header
+    }
 }

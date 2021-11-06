@@ -53,8 +53,11 @@ $route['default_controller'] = '';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// --- GUEST ---
+$route['login'] = 'guest/AuthController';
+$route['register'] = 'guest/AuthController/register';
 
 // --- ADMIN ---
-$route['login'] = 'adm/AuthController/vLogin';
+$route['adm-login'] = 'adm/AuthController/vLogin';
 
 $route['course'] = 'adm/CourseController';
