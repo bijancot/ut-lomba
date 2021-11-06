@@ -1,6 +1,23 @@
+input {
+    outline: none;
+}
+
 .footer-input {
     border-radius: 40px;
     border: none;
     height: 40px;
     padding-left: 20px;
-} 
+}
+
+.auth-input {
+    width: 100%;
+    padding: 10px 0;
+    
+    border: none;
+    border-bottom: 1px solid $light-grey3;
+    
+    &:focus {
+        
+        border-bottom: 1px solid $primary;
+    }
+}
