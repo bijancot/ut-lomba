@@ -29,11 +29,16 @@
                 </div>
 
                 <div class="px-2">
-
-                    
                     <p class="font-w-600 mt-4">Deskripsi :</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae dolores perspiciatis inventore obcaecati ullam laborum corrupti quas consectetur, cupiditate molestias sapiente amet sequi quos nesciunt nulla minima? Tenetur, atque necessitatibus?</p>
                 </div>
+
+                <div class="px-2">
+                    <?php
+                    $this->load->view('_components/course/question');
+                    ?>
+                </div>
+
             </div>
         </div>
     </div>

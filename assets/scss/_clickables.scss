@@ -180,8 +180,17 @@
     -moz-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    background: white;
+
+    width: 100%;
 
     &.active {
         background: $primary;
+    }
+
+    &.option {
+        width: auto;
+
+        margin-right: .75rem;
     }
 }
