@@ -1,6 +1,6 @@
 <footer class="footer pb-5">
     <div class="container h-100 d-flex flex-column">
-        <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column flex-lg-row justify-content-between">
             <div>
                 <p class="brand">UTNGL</p>
                 <p class="footer-links">Be Yourself, Become a Leader</p>
@@ -31,6 +31,6 @@
                 </div>
             </div>
         </div>
-        <p class="mt-auto mb-0 small text-lightgrey2 opacity-6">Copyright © 2021 UTNGL. All Rights Reserved.</p>
+        <p class="mt-5 mb-0 small text-lightgrey2 opacity-6">Copyright © 2021 UTNGL. All Rights Reserved.</p>
     </div>
 </footer>
