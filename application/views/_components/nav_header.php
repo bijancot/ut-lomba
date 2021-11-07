@@ -5,12 +5,15 @@
         <button class="links border-0 bg-transparent position-relative" id="nav-sublink">
             Became a <span class="iconify ms-3" data-icon="akar-icons:chevron-down"></span>
 
-            <nav class="sub-nav p-2 py-2 position-absolute d-flex flex-column align-items-start" id="sub-nav">
-                <span class="sub-link"><a href="#">Leader</a></span>
-                <span class="sub-link active"><a href="#">Management</a></span>
-                <span class="sub-link"><a href="#">Administrasi</a></span>
-                <span class="sub-link"><a href="#">Ekonomi</a></span>
-                <span class="sub-link"><a href="#">Psikologi</a></span>
+            <nav class="sub-nav p-2 position-absolute d-flex flex-column align-items-start" id="sub-nav">
+
+                <!-- Tambahin parameter di link nya  -->
+
+                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Leader</a></span>
+                <span class="sub-link active"><a href="<?= site_url()?>home/course_list">Management</a></span>
+                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Administrasi</a></span>
+                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Ekonomi</a></span>
+                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Psikologi</a></span>
             </nav>
         </button>
         <a href="#" class="links">Event</a>
@@ -23,7 +26,7 @@
         <a href="#" class="links font-w-600">Masuk</a>
     </div>
     <!-- IF LOGGED IN -->
-    <div class="d-flex flex-row align-items-center h-100">
+    <div class="d-flex ms-n5 flex-row align-items-center h-100">
         <a href="#" class="links circle font-w-600"><span class="badge"></span><img class="icon" src="<?= site_url()?>assets/src/img/bell-icon.svg" alt=""></a>
         <a href="#" class="links mx-1 circle-photo font-w-600"><img class="icon" src="<?= site_url()?>assets/src/img/cat.jpg" alt=""></a>
         <a href="#" class="links mx-2 font-w-600">Alfian Mengsedih</a>
