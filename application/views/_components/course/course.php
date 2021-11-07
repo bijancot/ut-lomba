@@ -27,6 +27,13 @@
                 <div class="course-video">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Jntfo3rJ5F8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+
+                <div class="px-2">
+
+                    
+                    <p class="font-w-600 mt-4">Deskripsi :</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae dolores perspiciatis inventore obcaecati ullam laborum corrupti quas consectetur, cupiditate molestias sapiente amet sequi quos nesciunt nulla minima? Tenetur, atque necessitatibus?</p>
+                </div>
             </div>
         </div>
     </div>
