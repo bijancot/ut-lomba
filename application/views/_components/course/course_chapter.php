@@ -2,7 +2,7 @@
     <p class="fs-4 font-w-600">Materi 1 : Intro Management</p>
 
     <div class="course-video">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Jntfo3rJ5F8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Jntfo3rJ5F8?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <div class="px-2">

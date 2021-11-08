@@ -32,9 +32,9 @@
                 <img class="course-image" src="<?= site_url() ?>assets/src/img/course.png">
                 <div class="d-flex flex-row justify-content-end align-items-center mt-4">
                     <p class="font-w-600 mb-0">Share :</p>
-                    <span class="iconify fs-5 ms-3" data-icon="brandico:facebook"></span>   
-                    <span class="iconify fs-5 ms-3" data-icon="brandico:twitter-bird"></span>   
-                    <span class="iconify fs-4 ms-3" data-icon="ant-design:instagram-filled"></span>   
+                    <button class="border-0 bg-transparent"><span class="iconify fs-5 ms-3" data-icon="brandico:facebook"></span></button>   
+                    <button class="border-0 bg-transparent"><span class="iconify fs-5 ms-3" data-icon="brandico:twitter-bird"></span></button>   
+                    <button class="border-0 bg-transparent"><span class="iconify fs-4 ms-3" data-icon="ant-design:instagram-filled"></span></button>   
                 </div>
             </div>
         </div>
