@@ -1,0 +1,27 @@
+.auth-img {
+    height: 100%;
+
+    img {
+        height: 100%;
+        width: 100%;
+
+        object-fit: cover;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    }
+}
+
+.course-image {
+    height: auto;
+    width: 100%;
+
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.course-video {
+    height: 425px;
+    width: 100%;
+
+    border-radius: 15px;
+    overflow: hidden;
+}

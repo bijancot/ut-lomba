@@ -1,0 +1,228 @@
+.brand {
+    font-weight: 600;
+    font-size: 1.75em;
+}
+
+.links {
+    font-weight: 500;
+    margin: 0 1rem;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 2px solid transparent;
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &.active {
+        border-bottom: 2px solid $primary;
+    }
+
+    &.circle {
+        width: 36px;
+        height: 36px;
+        padding: 5px;
+        position: relative;
+        border-radius: 50%;
+        background: $light-grey4;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+            width: 20px;
+            height: auto;
+        }
+
+        &:hover {
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        &-photo {
+            width: 36px;
+            height: 36px;
+
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+        }
+
+        .badge {
+            position: absolute;
+
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+
+            right: -2px;
+            top: -2px;
+
+            background: red;
+            display: block;
+
+            &:empty {
+                display: block;
+            }
+        }
+    }
+}
+
+.sub-link {
+    padding: 0 0.75rem;
+    width: 100%;
+    border-radius: 4px;
+    text-align: left;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    &:hover {
+        position: relative;
+        background: $primary;
+
+        a {
+            border: none;
+        }
+
+        &::before {
+            content: " ";
+            pointer-events: none;
+            position: absolute;
+            border: 2px solid $primary !important;
+            border-radius: 8px;
+
+            top: -2px;
+            right: -2px;
+            left: -2px;
+            bottom: -2px;
+        }
+    }
+
+    a {
+        padding: 0.5rem 0;
+
+        display: block;
+        width: 100%;
+        border-bottom: 0.5px solid $light-grey;
+    }
+
+    &:last-child {
+        a {
+            border: none;
+        }
+    }
+}
+
+.footer {
+    color: white;
+
+    .sub-title {
+        font-weight: 600;
+        font-size: 1.125em !important;
+
+        padding-bottom: 1rem;
+    }
+
+    .footer-links {
+        margin-bottom: 1rem;
+        font-size: 0.875em;
+
+        color: $light-grey2;
+    }
+
+    .iconify {
+        font-size: 18px;
+    }
+
+    .send-icon {
+        position: absolute;
+        top: 50%;
+        right: 4px;
+        transform: translateY(-50%);
+    }
+}
+
+.auth-btn {
+    background: $primary;
+    border: none;
+
+    width: 100%;
+    height: 50px;
+
+    border-radius: 15px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav-tabs {
+    .nav-link {
+        border: 0 !important;
+        padding: 0.75rem 4rem;
+
+        font-size: 1.5em;
+        font-weight: 600;
+
+        color: $dark-grey;
+
+        &.active {
+            border-bottom: 4px solid $primary !important;
+            color: $dark;
+        }
+    }
+}
+
+.course-card-title {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+
+    $shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -ms-box-shadow: $shadow;
+    -o-box-shadow: $shadow;
+    box-shadow: $shadow;
+
+    text-align: left;
+    border: none;
+    border-radius: 15px;
+    background: white;
+
+    width: 100%;
+    cursor: pointer;
+
+    &.active {
+        background: $primary;
+    }
+
+    &.question {
+        cursor: initial;
+    }
+    &.option {
+        width: auto;
+        max-width: 100%;
+
+        margin-right: 0.75rem;
+    }
+}
