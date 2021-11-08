@@ -20,15 +20,22 @@
                         <br><br>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam totam laudantium, repellat perspiciatis consectetur repellendus, veritatis illo maiores dolor commodi dolorem doloremque fugit voluptate perferendis similique omnis autem delectus doloribus!
                     </p>
-                    <div class="see-more gradient-decor d-flex justify-content-center align-items-end">
-                        <button class="border-0 outline-none bg-transparent fs-5 font-w-500 d-flex align-items-center">
-                            Selengkapnya <span class="iconify ms-3" data-icon="akar-icons:chevron-down"></span>
+                    <div class="gradient-decor d-flex justify-content-center align-items-end">
+                        <button class="border-0 outline-none bg-transparent fs-5 font-w-500 d-flex align-items-center" id="toggleSee">
+                            <span class="see-more">Selengkapnya <span class="iconify ms-3" data-icon="akar-icons:chevron-down"></span></span>
+                            <span class="see-less">Lebih Sedikit <span class="iconify ms-3" data-icon="akar-icons:chevron-up"></span></span>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
                 <img class="course-image" src="<?= site_url() ?>assets/src/img/course.png">
+                <div class="d-flex flex-row justify-content-end align-items-center mt-4">
+                    <p class="font-w-600 mb-0">Share :</p>
+                    <span class="iconify fs-5 ms-3" data-icon="brandico:facebook"></span>   
+                    <span class="iconify fs-5 ms-3" data-icon="brandico:twitter-bird"></span>   
+                    <span class="iconify fs-4 ms-3" data-icon="ant-design:instagram-filled"></span>   
+                </div>
             </div>
         </div>
 

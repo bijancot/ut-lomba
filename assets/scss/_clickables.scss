@@ -176,20 +176,30 @@
     margin-bottom: .75rem;
     font-weight: 600;
 
-    -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    $shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -ms-box-shadow: $shadow;
+    box-shadow: $shadow;
+
+    text-align: left;
+    border: none;
     border-radius: 15px;
     background: white;
 
     width: 100%;
+    cursor: pointer;
 
     &.active {
         background: $primary;
     }
 
+    &.question {
+        cursor: initial;
+    }
     &.option {
         width: auto;
+        max-width: 100%;
 
         margin-right: .75rem;
     }

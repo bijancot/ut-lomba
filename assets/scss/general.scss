@@ -128,8 +128,11 @@ a:hover {
 
 .desc-text-container {
     height: 200px;
+    padding-bottom: 50px;
     overflow: hidden;
     position: relative;
+
+    transition: .5s ease;
 
     .gradient-decor {
         position: absolute;
@@ -139,14 +142,36 @@ a:hover {
         height: 120px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 80%);
     
+        .see-more {
+            display: block !important;
+        }
+        
+        .see-less {
+            display: none !important;
+        }
+
         &.inactive {
-            opacity: 0;
-            pointer-events: none;
+            background: transparent;
+            .see-more {
+                display: none !important;
+            }
+            .see-less {
+                display: block !important;
+            }
         }
     }
 
     &.active {
         height: auto;
+    }
+}
+
+.question-wrapper{
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $light-grey;
+
+    &:last-child {
+        border: none;
     }
 }
 
