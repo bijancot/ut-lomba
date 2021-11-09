@@ -30,6 +30,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0-rc.1/dist/chartjs-plugin-datalabels.min.js"></script>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?= base_url('assets/adm/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/adm/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+
 </head>
 
 <body id="page-top">

@@ -61,5 +61,7 @@ $route['login'] = 'guest/AuthController';
 $route['register'] = 'guest/AuthController/register';
 
 // --- ADMIN ---
-$route['adm-login'] = 'adm/AuthController/vLogin';
-$route['course'] = 'adm/CourseController';
+$route['adm-login']             = 'adm/AuthController/vLogin';
+$route['admin/course']          = 'adm/CourseController';
+$route['admin/course/add']      = 'adm/CourseController/vAdd';
+$route['admin/course/store']    = 'adm/CourseController/store';

@@ -10,8 +10,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link <?= $sidebar == "course" ? "active" : "" ?>" href="<?= site_url('course'); ?>">
+    <li class="nav-item <?= $sidebar == "course" ? "active" : "" ?>">
+        <a class="nav-link" href="<?= site_url('admin/course'); ?>">
             <i class="fas fa-tachometer-alt"></i>
             <span>Course</span>
         </a>
@@ -20,8 +20,8 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <li class="nav-item active">
-        <a class="nav-link <?= $sidebar == "event" ? "active" : "" ?>" href="<?= site_url('event'); ?>">
+    <li class="nav-item <?= $sidebar == "event" ? "active" : "" ?>">
+        <a class="nav-link" href="<?= site_url('event'); ?>">
             <i class="fas fa-align-justify"></i>
             <span>Event</span>
         </a>
