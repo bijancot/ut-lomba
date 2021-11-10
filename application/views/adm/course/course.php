@@ -56,7 +56,7 @@
                                         <td>'.$statusMateri.'</td>
                                         <td>'.$status.'</td>
                                         <td>
-                                            <a class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-sm btn-primary" href="'.site_url('admin/course/edit/'.$item->ID_COURSE).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                             <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Atur Materi"><i class="fa fa-stream"></i></a>
                                             <a class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
                                             <a class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>

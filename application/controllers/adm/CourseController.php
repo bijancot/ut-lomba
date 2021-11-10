@@ -22,6 +22,14 @@ class CourseController extends CI_Controller{
         $this->template->admin('adm/course/course_add', $data);
     }
 
+    public function vEdit($id){
+        $data['title']      = "Ubah Course";
+        $data['sidebar']    = 'course';
+        $data['course']     = $this->Course->getById($id);
+
+        $this->template->admin('adm/course/course_edit', $data);
+    }
+
     public function store(){
         $upload = $this->upload_image();
         if($upload['status'] == true){ // cek if upload success
@@ -39,6 +47,34 @@ class CourseController extends CI_Controller{
 
             $this->session->set_flashdata('err_msg', $upload['msg']);
             $this->template->admin('adm/course/course_add', $data);
+        }
+    }
+
+    public function update(){
+        $formData['ID_COURSE']          = $_POST['idCourse'];
+        $formData['NAMA_COURSE']        = $_POST['nama'];
+        $formData['DESKRIPSI_COURSE']   = $_POST['deskripsi'];
+
+        if(!empty($_FILES['poster']['name'])){ // cek if edit img / poster
+            $upload = $this->upload_image();
+            if($upload['status'] == true){ // cek if upload success
+                $formData['IMG_COURSE'] = $upload['link'];
+                $this->Course->update($formData);
+                
+                $this->session->set_flashdata('succ_msg', 'Berhasil mengubah course!');
+                redirect('admin/course');
+            }else{
+                $data['title']                  = 'Ubah Course';
+                $data['sidebar']                = 'course';
+                $data['dataTemp']               = $_POST;
+
+                $this->session->set_flashdata('err_msg', $upload['msg']);
+                $this->template->admin('adm/course/course_edit', $data);
+            }
+        }else{
+            $this->Course->update($formData);
+            $this->session->set_flashdata('succ_msg', 'Berhasil mengubah course!');
+            redirect('admin/course');
         }
     }
 
