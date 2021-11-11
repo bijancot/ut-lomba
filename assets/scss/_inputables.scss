@@ -3,6 +3,7 @@ input {
 }
 
 .footer-input {
+    -webkit-border-radius: 40px;
     border-radius: 40px;
     border: none;
     height: 40px;
@@ -38,6 +39,8 @@ input {
     input:checked{
         &+label {
             background: $primary;
+
+            font-weight: 600;
         }
     }
 
@@ -53,5 +56,51 @@ input {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+    }
+}
+.search-input-container {
+    width: 50%;
+    padding: 20px;
+    background: white;
+    
+    margin: 0px auto;
+    margin-top: -80px;
+
+    .search-input {
+        -webkit-border-radius: 90px;
+        border-radius: 90px;
+        border: none;
+        -webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+        -ms-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+        -o-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+    
+        width: 100%;
+        height: 60px;
+        background: white;
+
+        padding-left: 30px;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 16px;
+        height: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .spacer {
+            height: 28px;
+            border-left: 2px solid $light-grey3;
+        }
+    }
+
+    @media (max-width: 765px) {
+        width: 100%;
+        margin-top: 0;
     }
 }

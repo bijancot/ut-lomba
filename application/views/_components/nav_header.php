@@ -1,7 +1,7 @@
 <header class="header px-5 py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
     <a href="<?= site_url()?>home" class="brand mr-auto">UTNGL</a>
     <div class="d-flex flex-column flex-md-row align-items-center h-100">
-        <a href="#" class="links <?= uri_string() == 'nama_link' ? 'active':'' ?>">Pretest</a>
+        <a href="<?= site_url()?>home/pretest" class="links <?= uri_string() == 'pretest' ? 'active':'' ?>">Pretest</a>
         <button class="links border-0 bg-transparent position-relative" id="nav-sublink">
             Became a <span class="iconify ms-3" data-icon="akar-icons:chevron-down"></span>
 
@@ -10,19 +10,19 @@
                 <!-- Tambah parameter di link nya  -->
 
                 <span class="sub-link"><a href="<?= site_url()?>home/course_list">Leader</a></span>
-                <span class="sub-link"><a href="<?= site_url()?>home/course">Management</a></span>
-                <span class="sub-link"><a href="asdasdasd">Administrasi</a></span>
+                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Management</a></span>
+                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Administrasi</a></span>
                 <span class="sub-link"><a href="<?= site_url()?>home/course_list">Ekonomi</a></span>
                 <span class="sub-link"><a href="<?= site_url()?>home/course_list">Psikologi</a></span>
             </nav>
         </button>
-        <a href="#" class="links <?= uri_string() == 'nama_link' ? 'active':'' ?>">Event</a>
-        <a href="#" class="links <?= uri_string() == 'nama_link' ? 'active':'' ?>">About</a>
+        <a href="<?= site_url()?>home/eventList" class="links <?= uri_string() == 'home/eventList' ? 'active':'' ?>">Event</a>
+        <a href="<?= site_url()?>home/about" class="links <?= uri_string() == 'home/about' ? 'active':'' ?>">About</a>
     </div>
     <!-- IF NOT LOGGED IN -->
     <div class="d-flex flex-row align-items-center h-100">
         <a href="<?= site_url()?>register" class="links font-w-600 <?= uri_string() == 'register' ? 'active':'' ?>">Daftar</a>
-        <span class="border border-start border-1 border-dark h-1"></span>
+        <span class="spacer"></span>
         <a href="<?= site_url()?>login" class="links font-w-600 <?= uri_string() == 'login' ? 'active':'' ?>">Masuk</a>
     </div>
     <!-- IF LOGGED IN -->

@@ -55,8 +55,12 @@ $route['translate_uri_dashes'] = FALSE;
 
 // --- GUEST --- wkwk sorry ngasal
 $route['home'] = 'guest/MainController';
-$route['home/course'] = 'guest/MainController/course';
 $route['home/course_list'] = 'guest/MainController/course_list';
+$route['home/course'] = 'guest/MainController/course';
+$route['home/eventList'] = 'guest/MainController/eventList';
+$route['home/event'] = 'guest/MainController/event';
+$route['home/pretest'] = 'guest/MainController/pretest';
+$route['home/about'] = 'guest/MainController/about';
 $route['login'] = 'guest/AuthController';
 $route['register'] = 'guest/AuthController/register';
 
