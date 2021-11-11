@@ -5,13 +5,13 @@
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <div class="d-sm-flex align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-warning mb-2">Daftar Course</h6>
-                <a href="<?= site_url('admin/course/add')?>" class="btn btn-sm btn-warning shadow-sm">
-                    <i class="fas fa-plus fa-sm text-white-50"></i>
-                    Tambah
-                </a>
-            </div>
+            <a href="<?= site_url('admin/course/add')?>" style="float: right;" class="btn btn-sm btn-warning shadow-sm">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
+                Tambah
+            </a>
+            <!-- <div class="d-sm-flex align-items-center justify-content-between"> -->
+                <!-- <h6 class="m-0 font-weight-bold text-warning mb-2">Daftar Course</h6> -->
+            <!-- </div> -->
         </div>
         <div class="card-body">
             <?php
@@ -57,7 +57,7 @@
                                         <td>'.$status.'</td>
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="'.site_url('admin/course/edit/'.$item->ID_COURSE).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                            <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Atur Materi"><i class="fa fa-stream"></i></a>
+                                            <a class="btn btn-sm btn-info" href="'.site_url('admin/material/'.$item->ID_COURSE).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Atur Materi"><i class="fa fa-stream"></i></a>
                                             <a class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
                                             <a class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>
                                         </td>                            
@@ -72,7 +72,7 @@
         </div>
     </div>
 </div>
-<!-- Modal Approve -->
+<!-- Modal Pratinjau -->
 <div class="modal fade" id="mdlPoster" tabindex="-1" aria-labelledby="mdlPoster" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

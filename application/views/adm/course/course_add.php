@@ -26,7 +26,7 @@
                     <div id="boxImg" class="text-center mt-3 mb-3 p-3" style="border: 1px solid #ddd;border-radius: 10px;cursor: pointer;">
                         <img style="max-width: 250px;" id="blah" class="" src="<?= base_url('assets/adm/img/dummy-post.jpg')?>" />
                     </div>
-                    <input type="file" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster" required>
+                    <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster" required>
                 </div>
                 <div class="form-group">
                     <label>Nama</label><span class="text-warning">*</span>

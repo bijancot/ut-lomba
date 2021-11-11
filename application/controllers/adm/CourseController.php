@@ -88,17 +88,6 @@ class CourseController extends CI_Controller{
         $this->upload->initialize($conf);
         if($this->upload->do_upload('poster')){
             $img = $this->upload->data();
-
-            // Compress Image
-            // $conf['image_library']    ='gd2';
-            // $conf['source_image']     ='./uploads/course/'.$img['file_name'];
-            // $conf['create_thumb']     = FALSE;
-            // $conf['maintain_ratio']   = true;
-            // $conf['width']            = 600;
-            // $conf['new_image']        = './uploads/course/'.$img['file_name'];
-            // $this->load->library('image_lib', $conf);
-            // $this->image_lib->resize();
-            
             return [
                     'status'=> true,
                     'msg'   => 'Data berhasil terupload',

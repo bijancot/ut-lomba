@@ -61,9 +61,17 @@ $route['login'] = 'guest/AuthController';
 $route['register'] = 'guest/AuthController/register';
 
 // --- ADMIN ---
+// COURSE
 $route['adm-login']                 = 'adm/AuthController/vLogin';
 $route['admin/course']              = 'adm/CourseController';
 $route['admin/course/add']          = 'adm/CourseController/vAdd';
 $route['admin/course/edit/(:any)']  = 'adm/CourseController/vEdit/$1';
 $route['admin/course/store']        = 'adm/CourseController/store';
 $route['admin/course/update']       = 'adm/CourseController/update';
+
+// MATERIAL
+$route['admin/material/store']          = 'adm/MaterialController/store';
+$route['admin/material/update']         = 'adm/MaterialController/update';
+$route['admin/material/(:any)']         = 'adm/MaterialController/vMaterial/$1';
+$route['admin/material/add/(:any)']     = 'adm/MaterialController/vAdd/$1';
+$route['admin/material/edit/(:any)']    = 'adm/MaterialController/vEdit/$1';
