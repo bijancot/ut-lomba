@@ -1,8 +1,8 @@
-
 @import "variables";
 @import "clickables";
 @import "inputables";
 @import "images";
+@import "overwrite";
 
 * {
     margin: 0;
@@ -50,6 +50,7 @@ a:hover {
 
         width: 200px;
         top: 40px;
+        -webkit-border-radius: 15px;
         border-radius: 15px;
 
         box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
@@ -57,20 +58,20 @@ a:hover {
         -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
         background: $light;
 
-        -webkit-transition: .2s ease;
-        -moz-transition: .2s ease;
-        transition: .2s ease;
-        
+        -webkit-transition: 0.2s ease;
+        -moz-transition: 0.2s ease;
+        transition: 0.2s ease;
+
         opacity: 0;
         pointer-events: none;
-        
+
         &.active {
             opacity: 1;
             pointer-events: all;
-            
-            -webkit-transition: .2s ease;
-            -moz-transition: .2s ease;
-            transition: .2s ease;
+
+            -webkit-transition: 0.2s ease;
+            -moz-transition: 0.2s ease;
+            transition: 0.2s ease;
         }
     }
 }
@@ -80,7 +81,7 @@ a:hover {
 
     width: 100%;
     height: auto;
-    
+
     padding: 5rem;
 }
 
@@ -97,6 +98,7 @@ a:hover {
 }
 
 .b-radius-28 {
+    -webkit-border-radius: 28px;
     border-radius: 28px;
 }
 
@@ -118,7 +120,7 @@ a:hover {
     -webkit-transition: 1.5s ease;
     -moz-transition: 1.5s ease;
     transition: 1.5s ease;
-    
+
     &.active {
         opacity: 1;
 
@@ -132,7 +134,7 @@ a:hover {
     overflow: hidden;
     position: relative;
 
-    transition: .5s ease;
+    transition: 0.5s ease;
 
     .gradient-decor {
         position: absolute;
@@ -140,12 +142,12 @@ a:hover {
         left: 0;
         right: 0;
         height: 120px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 80%);
-    
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 80%);
+
         .see-more {
             display: block !important;
         }
-        
+
         .see-less {
             display: none !important;
         }
@@ -166,13 +168,105 @@ a:hover {
     }
 }
 
-.question-wrapper{
-    padding: 1.5rem 0;
+.question-wrapper {
+    padding: 1.5rem 0 1.5rem 0;
     border-bottom: 1px solid $light-grey;
+
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+
+    &.with-number {
+        flex-direction: row;
+        padding: 1.5rem 1.5rem 1.5rem 0;
+
+        .course-card-title {
+            border-top-left-radius: 0;
+
+            &.option {
+                border-top-left-radius: 15px !important;
+            }
+        }
+    }
+
+    .question-numbering {
+        padding: 1rem;
+
+        -webkit-border-top-left-radius: 15px;
+        border-top-left-radius: 15px;
+        -webkit-border-bottom-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        height: 50px;
+        background: $light-grey5;
+
+        font-weight: 600;
+    }
 
     &:last-child {
         border: none;
     }
+}
+
+.row-card {
+    .col {
+        padding: 0.75rem;
+    }
+}
+.event-card {
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+
+    $shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -o-box-shadow: $shadow;
+    box-shadow: $shadow;
+
+    display: flex;
+    flex-direction: column;
+
+    &:hover .event-card-preview {
+        transform: scale(1.1);
+    }
+
+    p {
+        &.event-date {
+            margin-bottom: 0.5rem;
+            color: $secondary-dark;
+        }
+        &.event-title {
+            font-size: 1.125em;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: capitalize;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        &.paragraph {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+
+.spacer {
+    display: block;
+    border-left: 1.5px solid $dark;
+    height: 16px;
 }
 
 .color-success {

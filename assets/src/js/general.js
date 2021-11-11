@@ -35,3 +35,4 @@ $(document).ready(function () {
         $(".gradient-decor").toggleClass("inactive");
     });
 });
+
