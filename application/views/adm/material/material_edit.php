@@ -18,6 +18,13 @@
                         </div>
                     ';        
                 }
+                if(!empty($this->session->flashdata('succ_msg'))){
+                    echo '
+                        <div class="alert alert-success" role="alert">
+                           '.$this->session->flashdata('succ_msg').'
+                        </div>
+                    ';        
+                }
             ?>
             <form action="<?= site_url('admin/material/update')?>" enctype='multipart/form-data' method="post">
                 <div class="form-group">
@@ -40,11 +47,13 @@
                         $link = explode('/', $item);
                         $link = $link[count($link) - 1];
 
+                        $paramLink = "'".$link."'";
+
                         echo '
                             <div class="input-group">
                                 <input type="text" class="form-control" value="'.$link.'" disabled style="cursor: pointer;" id="">
                                 <div class="input-group-append">
-                                    <button class="btn btn-danger" type="button"><i class="fa fa-trash"></i></button>
+                                    <a class="btn btn-danger" onclick="desRes('.$material->ID_MATERIAL.', '.$paramLink.')"><i class="fa fa-trash"></i></a>
                                 </div>
                             </div>
                             <a class="mb-3" href="'.$item.'"><small><i>Pratinjau</i></small></a>
@@ -65,6 +74,31 @@
                     <button style="float: right;" type="submit" class="btn btn-sm btn-warning">Simpan</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Hapus -->
+<div class="modal fade" id="mdlDelete" tabindex="-1" aria-labelledby="mdlDelete" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mdlDelete">Hapus Resource</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Apakah anda yakin untuk menghapus resource <code id="mdlDelete_resTitle" style="font-weight: bold;"></code></p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <form action="<?= site_url('admin/material/destroy-res')?>" method="post">
+                    <input type="hidden" name="idMaterial" id="mdlDelete_id">
+                    <input type="hidden" name="resource" id="mdlDelete_resource">
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -102,6 +136,12 @@
         `);
         countFile++;
     })
+    function desRes(idMaterial, title){
+        $('#mdlDelete_id').val(idMaterial);
+        $('#mdlDelete_resource').val(title);
+        $('#mdlDelete_resTitle').html(title);
+        $('#mdlDelete').modal('show');
+    }
     function delRes(id){
         $('#resGroup_'+id).remove();
     }

@@ -68,27 +68,47 @@ class MaterialController extends CI_Controller{
         $formData['CONTENT_MATERIAL']    = $_POST['konten'];
         $formData['DESKRIPSI_MATERIAL']  = $_POST['deskripsi'];
 
-        if(!empty($_FILES['poster']['name'])){ // cek if edit img / poster
-            $upload = $this->upload_image();
-            if($upload['status'] == true){ // cek if upload success
-                $formData['IMG_COURSE'] = $upload['link'];
-                $this->Course->update($formData);
-                
-                $this->session->set_flashdata('succ_msg', 'Berhasil mengubah materi!');
-                redirect('admin/course');
+        if(!empty($_FILES['file']['name'][0])){ // cek if edit img / poster
+            $upload = $this->upload_files($_POST['idCourse'], $_FILES['file']);
+            if($upload['status'] == true){
+                $resources = $this->Material->getById($_POST['idMaterial'])->RESOURCE_MATERIAL;
+                $formData['RESOURCE_MATERIAL']  = $resources.';'.$upload['link'];
+
+                $this->session->set_flashdata('succ_msg', 'Berhasil menambah materi baru!');
+                $this->Material->update($formData);
+                redirect('admin/material/'.$_POST['idCourse']);
             }else{
-                $data['title']                  = 'Ubah Course';
+                $data['title']                  = 'Tambah Materi';
                 $data['sidebar']                = 'course';
                 $data['dataTemp']               = $_POST;
 
                 $this->session->set_flashdata('err_msg', $upload['msg']);
-                $this->template->admin('adm/course/course_edit', $data);
+                $this->template->admin('adm/material/material_edit', $data);
             }
         }else{
             $this->Material->update($formData);
             $this->session->set_flashdata('succ_msg', 'Berhasil mengubah materi!');
             redirect('admin/material/'.$_POST['idCourse']);
         }
+    }
+
+    public function destroyResource(){
+        $material = $this->Material->getById($_POST['idMaterial']);
+        $resources = explode(';', $material->RESOURCE_MATERIAL);
+
+        $newResource = array();
+        foreach ($resources as $item) {
+            $resource = explode('/', $item);
+            if($_POST['resource'] == $resource[count($resource) - 1]){
+                unlink('./uploads/material/course_'.$material->ID_COURSE.'/'.$_POST['resource']);
+            }else{
+                array_push($newResource, $item);
+            }
+        }
+
+        $this->Material->update(['ID_MATERIAL' => $_POST['idMaterial'], 'RESOURCE_MATERIAL' => implode(';', $newResource)]);
+        $this->session->set_flashdata('succ_msg', 'Berhasil menghapus resource tambahan!');
+        redirect('admin/material/edit/'.$_POST['idMaterial']);
     }
 
     public function upload_files($idCourse, $files){

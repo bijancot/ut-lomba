@@ -40,6 +40,7 @@
                     <table class="table table-bordered" id="tableMaterial" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th style="">Materi</th>
                             <th style="">Topik</th>
                             <th style="">Konten File</th>
                             <th style="">Deskripsi</th>
@@ -49,9 +50,11 @@
                     </thead>
                     <tbody>
                         <?php
+                            $no = 1;
                             foreach ($materials as $item) {
                                 echo '
                                     <tr>
+                                        <td class="text-center">'.$no.'</td>
                                         <td>'.$item->NAMA_MATERIAL.'</td>
                                         <td>'.$item->NAMA_MATERIAL.'</td>
                                         <td>'.$item->DESKRIPSI_MATERIAL.'</td>
@@ -61,28 +64,8 @@
                                         </td>
                                     </tr>
                                 ';
+                                $no++;
                             }
-                            // foreach ($courses as $item) {
-                            //     $status         = ($item->ISPUBLISHED_COURSE == "0" ? '<span class="badge badge-danger">Unpublished</span>' : '<span class="badge badge-success">Published</span>');
-                            //     $statusMateri   = ($item->ISMATREADY_COURSE == "0" ? '<span class="badge badge-danger">Not Ready</span>' : '<span class="badge badge-success">Ready</span>');
-
-                            //     echo '
-                            //         <tr>
-                            //             <td class="text-center"><a class="btn btn-sm btn-primary mdlPoster" data-toggle="modal" data-target="#mdlPoster" data-src="'.$item->IMG_COURSE.'"><i class="fa fa-image"></i></a></td>
-                            //             <td>'.$item->NAMA_COURSE.'</td>
-                            //             <td>'.$item->DESKRIPSI_COURSE.'</td>
-                            //             <td>'.$statusMateri.'</td>
-                            //             <td>'.$status.'</td>
-                            //             <td>
-                            //                 <a class="btn btn-sm btn-primary" href="'.site_url('admin/course/edit/'.$item->ID_COURSE).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            //                 <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Atur Materi"><i class="fa fa-stream"></i></a>
-                            //                 <a class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
-                            //                 <a class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>
-                            //             </td>                            
-                            //         </tr>
-                                
-                            //     ';
-                            // }
                         ?>
                     </tbody>
                 </table>
