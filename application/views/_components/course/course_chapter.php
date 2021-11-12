@@ -4,6 +4,12 @@
     <div class="course-video">
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Jntfo3rJ5F8?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <div class="course-pdf d-flex flex-wrap flex-col justify-content-center py-5">
+        <button class="course-card-title option">
+            <img src="<?= site_url() ?>assets/src/img/pdf.svg" width="24" height="24" class="me-2">
+            Lihat Dokumen
+        </button>
+    </div>
 
     <div class="px-2">
         <p class="font-w-600 mt-4">Deskripsi :</p>
@@ -88,6 +94,7 @@
                 </div>
             </div>
         </div>
+        <a href="#" type="submit" class="auth-btn">Submit Kuis</a>
     </div>
 
 </div>
