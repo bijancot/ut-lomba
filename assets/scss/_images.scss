@@ -73,3 +73,16 @@
         }
     }
 }
+
+
+#g-maps {
+    width: 100%;
+    height: 256px;
+    overflow: hidden;
+
+    background: rgb(241, 241, 241);
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.5) 0%, rgba(220, 220, 220, 1) 100%);
+
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}

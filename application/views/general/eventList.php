@@ -14,12 +14,12 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-card mt-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
 
             <!-- CARD -->
             <div class="col">
                 <div class="event-card">
-                    <a href="<?= site_url()?>home/eventList">
+                    <a href="<?= site_url()?>home/event">
                         <div class="event-img-container">
                             <img src="<?= site_url() ?>assets/src/img/course.png" onerror='$(this).hide();' alt="" class="event-card-preview">
                         </div>
@@ -35,7 +35,7 @@
             <!-- CARD -->
             <div class="col">
                 <div class="event-card">
-                    <a href="<?= site_url()?>home/eventList">
+                    <a href="<?= site_url()?>home/event">
                         <div class="event-img-container">
                             <img src="<?= site_url() ?>assets/src/img/login-image.png" onerror='$(this).hide();' alt="" class="event-card-preview">
                         </div>
@@ -51,7 +51,7 @@
             <!-- CARD -->
             <div class="col">
                 <div class="event-card">
-                    <a href="<?= site_url()?>home/eventList">
+                    <a href="<?= site_url()?>home/event">
                         <div class="event-img-container">
                             <img src="<?= site_url() ?>assets/src/img/no.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
                         </div>
@@ -67,7 +67,7 @@
             <!-- CARD -->
             <div class="col">
                 <div class="event-card">
-                    <a href="<?= site_url()?>home/eventList">
+                    <a href="<?= site_url()?>home/event">
                         <div class="event-img-container">
                             <img src="<?= site_url() ?>assets/src/img/beluga.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
                         </div>
@@ -83,7 +83,7 @@
             <!-- CARD -->
             <div class="col">
                 <div class="event-card">
-                    <a href="<?= site_url()?>home/eventList">
+                    <a href="<?= site_url()?>home/event">
                         <div class="event-img-container">
                             <img src="<?= site_url() ?>assets/src/img/sus.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
                         </div>
@@ -99,7 +99,7 @@
             <!-- CARD -->
             <div class="col">
                 <div class="event-card">
-                    <a href="<?= site_url()?>home/eventList">
+                    <a href="<?= site_url()?>home/event">
                         <div class="event-img-container">
                             <img src="<?= site_url() ?>assets/src/img/cat.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
                         </div>

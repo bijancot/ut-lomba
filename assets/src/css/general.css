@@ -160,6 +160,50 @@
     max-width: 100%;
     font-weight: 400;
     margin-right: 0.75rem; }
+  .course-card-title.collapsable .head {
+    position: relative; }
+    .course-card-title.collapsable .head .iconify {
+      color: #ECCB00;
+      font-size: 1.75em;
+      margin-right: 1rem; }
+    .course-card-title.collapsable .head .minus {
+      display: inline-block;
+      transform: rotate(90deg);
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
+    .course-card-title.collapsable .head .plus {
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
+    .course-card-title.collapsable .head.active .minus {
+      transform: rotate(0); }
+    .course-card-title.collapsable .head.active .plus {
+      opacity: 0;
+      position: absolute; }
+  .course-card-title.collapsable .body {
+    padding-top: 1rem;
+    padding-left: 1.5rem;
+    font-weight: 400;
+    display: none; }
+    .course-card-title.collapsable .body.active {
+      display: block; }
+    .course-card-title.collapsable .body table {
+      color: #676767 !important; }
+      .course-card-title.collapsable .body table td {
+        border: none; }
+        .course-card-title.collapsable .body table td:nth-child(2) {
+          text-align: end; }
+      .course-card-title.collapsable .body table.table-striped > tbody > tr:nth-of-type(odd) {
+        color: #676767; }
 
 input {
   outline: none; }
@@ -293,8 +337,21 @@ input {
     .mini-photo-container .mini-photo:first-child {
       margin-left: 0; }
 
+#g-maps {
+  width: 100%;
+  height: 256px;
+  overflow: hidden;
+  background: #f1f1f1;
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.5) 0%, gainsboro 100%);
+  -webkit-border-radius: 15px;
+  border-radius: 15px; }
+
 .fs-5 {
   font-size: 1.125em !important; }
+
+@media (min-width: 1280px) {
+  .ps-10 {
+    padding-left: 6rem !important; } }
 
 * {
   margin: 0;
