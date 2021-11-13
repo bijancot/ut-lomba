@@ -3,10 +3,10 @@
         <div class="border-bottom w-100 py-3">
             <p class="fs-4 font-w-600">Event</p>
         </div>
-        <div class="row mt-5">
-            <div class="col-12 col-lg-6">
-                <img class="course-image" src="<?= site_url() ?>assets/src/img/course.png">
-                <div class="d-flex flex-row justify-content-end align-items-center mt-4">
+        <div class="row my-5">
+            <div class="col-12 col-lg-6 ps-5 ps-10 ps-md-0">
+                <img class="course-image" src="<?= site_url() ?>assets/src/img/event.png">
+                <div class="d-flex flex-row justify-content-start align-items-center mt-4">
                     <p class="font-w-600 mb-0">Share :</p>
                     <button class="border-0 bg-transparent"><span class="iconify fs-5 ms-3" data-icon="brandico:facebook"></span></button>
                     <button class="border-0 bg-transparent"><span class="iconify fs-5 ms-3" data-icon="brandico:twitter-bird"></span></button>
@@ -15,21 +15,65 @@
             </div>
             <div class="col-12 col-lg-6 pe-5 pt-5">
                 <p>12 November 2021</p>
-                <p class="fs-2 font-w-600 mt-3">Strategi Mengembangkan dan Mempertahankan Karyawan </p>
-                <div class="desc-text-container mb-5">
-
-                    <p class="color-secondary-dark">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, consequuntur? Asperiores commodi esse natus doloremque corrupti architecto consequatur accusamus voluptatem aperiam earum sunt sit quas consectetur quibusdam beatae, ut laudantium?
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam totam laudantium, repellat perspiciatis consectetur repellendus, veritatis illo maiores dolor commodi dolorem doloremque fugit voluptate perferendis similique omnis autem delectus doloribus!
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam totam laudantium, repellat perspiciatis consectetur repellendus, veritatis illo maiores dolor commodi dolorem doloremque fugit voluptate perferendis similique omnis autem delectus doloribus!
-                    </p>
-                    <div class="gradient-decor d-flex justify-content-center align-items-end">
-                        <button class="border-0 outline-none bg-transparent fs-5 font-w-500 d-flex align-items-center" id="toggleSee">
-                            <span class="see-more">Selengkapnya <span class="iconify ms-3" data-icon="akar-icons:chevron-down"></span></span>
-                            <span class="see-less">Lebih Sedikit <span class="iconify ms-3" data-icon="akar-icons:chevron-up"></span></span>
-                        </button>
+                <p class="fs-2 font-w-600 mt-3">Talkshow Kesehatan Cerebal Palsy Days</p>
+                <div class="course-card-title collapsable">
+                    <div class="head collapse-card active">
+                        <span class="iconify minus" data-icon="akar-icons:minus"></span>
+                        <span class="iconify plus" data-icon="akar-icons:minus"></span>
+                        Keterangan
+                    </div>
+                    <div class="body active">
+                        <table class="table table-striped table-responsive">
+                            <tbody class="tbody-card">
+                                <tr>
+                                    <!-- tr jangan di hapus -->
+                                </tr>
+                                <tr>
+                                    <td>Tempat</td>
+                                    <td>:</td>
+                                    <td>Online</td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal</td>
+                                    <td>: </td>
+                                    <td>22 Oktober 2020</td>
+                                </tr>
+                                <tr>
+                                    <td>Penyelenggara</td>
+                                    <td>: </td>
+                                    <td>UGM</td>
+                                </tr>
+                                <tr>
+                                    <td>Narahubung</td>
+                                    <td>: </td>
+                                    <td>098765456789 (Alex)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="course-card-title collapsable">
+                    <div class="head collapse-card">
+                        <span class="iconify minus" data-icon="akar-icons:minus"></span>
+                        <span class="iconify plus" data-icon="akar-icons:minus"></span>
+                        Deskripsi
+                    </div>
+                    <div class="body">
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sequi reiciendis odit explicabo fugiat, corrupti voluptatum ratione sunt similique, tempora voluptatibus cumque nostrum distinctio adipisci hic dolores est quibusdam quisquam.
+                        </p>
+                    </div>
+                </div>
+                <div class="course-card-title collapsable">
+                    <div class="head collapse-card">
+                        <span class="iconify minus" data-icon="akar-icons:minus"></span>
+                        <span class="iconify plus" data-icon="akar-icons:minus"></span>
+                        Link Video Conference
+                    </div>
+                    <div class="body">
+                        <a href="#" class="text-decoration-underline text-primary">
+                            https://us02web.zoom.us/j/83991567456?pwd=aDJUOTk5OGZQcDNwVmVSUlM5aDasda
+                        </a>
                     </div>
                 </div>
             </div>
@@ -38,7 +82,7 @@
             <p class="fs-4 font-w-600">Event Lainnya</p>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-card mt-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4  mt-5">
 
             <!-- CARD -->
             <div class="col">
