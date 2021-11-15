@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <?php
-                if(!empty($this->session->flashdata('error'))){
+                if(!empty($this->session->flashdata('err_msg'))){
                     echo '
                         <div class="alert alert-danger" role="alert">
                            '.$this->session->flashdata('err_msg').'
@@ -58,8 +58,8 @@
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="'.site_url('admin/course/edit/'.$item->ID_COURSE).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                             <a class="btn btn-sm btn-info" href="'.site_url('admin/material/'.$item->ID_COURSE).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Atur Materi"><i class="fa fa-stream"></i></a>
-                                            <a class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
-                                            <a class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-sm btn-success mdlPublish" data-id="'.$item->ID_COURSE.'" data-stat="'.$item->ISPUBLISHED_COURSE.'" data-toggle="modal" data-target="#mdlPublish" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
+                                            <a class="btn btn-sm btn-danger mdlHapus" data-id="'.$item->ID_COURSE.'" data-label="'.$item->NAMA_COURSE.'" data-toggle="modal" data-target="#mdlHapus" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>
                                         </td>                            
                                     </tr>
                                 
@@ -92,6 +92,55 @@
         </div>
     </div>
 </div>
+<!-- Modal Publish -->
+<div class="modal fade" id="mdlPublish" tabindex="-1" aria-labelledby="mdlPublish" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Publish Course</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Apakah anda yakin untuk <span id="mdlPublish_label"></span> course ?</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <form action="<?= site_url('admin/course/publish')?>" method="post">
+                    <input type="hidden" name="idCourse" id="mdlPublish_id">
+                    <input type="hidden" name="stat" id="mdlPublish_stat">
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete -->
+<div class="modal fade" id="mdlHapus" tabindex="-1" aria-labelledby="mdlHapus" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Course</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Apakah anda yakin untuk menghapus course <span></span> ?</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <form action="<?= site_url('admin/course/destroy')?>" method="post">
+                    <input type="hidden" name="idCourse" id="mdlHapus_id">
+                    <button type="submit" class="btn btn-success">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function(){
         $('#tableCourse').DataTable();
@@ -99,5 +148,20 @@
     $('#tableCourse tbody').on('click', '.mdlPoster', function(){
         const src = $(this).data('src');
         $('#mdlPoster_src').attr('src', src);
+    })
+    $('#tableCourse tbody').on('click', '.mdlPublish', function(){
+        const id = $(this).data('id');
+        const stat = $(this).data('stat');
+
+        $('#mdlPublish_id').val(id);
+        $('#mdlPublish_stat').val(stat == "1" ? "0" : "1");
+        $('#mdlPublish_label').html(stat == "1" ? "meunpublish" : "mepublish");
+    })
+    $('#tableCourse tbody').on('click', '.mdlHapus', function(){
+        const id = $(this).data('id');
+        const label = $(this).data('label');
+
+        $('#mdlHapus_id').val(id);
+        $('#mdlHapus_label').html(label);
     })
 </script>

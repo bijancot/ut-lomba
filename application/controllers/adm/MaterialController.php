@@ -92,6 +92,12 @@ class MaterialController extends CI_Controller{
         }
     }
 
+    public function finish(){
+        $this->Course->update(['ID_COURSE' => $_POST['idCourse'], 'ISMATREADY_COURSE' => '1']);
+        $this->session->set_flashdata('succ_msg', 'Berhasil mengubah status materi menjadi selesai!');
+        redirect('admin/material/'.$_POST['idCourse']);
+    }
+
     public function destroyResource(){
         $material = $this->Material->getById($_POST['idMaterial']);
         $resources = explode(';', $material->RESOURCE_MATERIAL);

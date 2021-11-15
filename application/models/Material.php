@@ -13,4 +13,7 @@ class Material extends CI_Model{
     public function update($param){
         $this->db->where('ID_MATERIAL', $param['ID_MATERIAL'])->update('material', $param);
     }
+    public function delete($param){
+        $this->db->delete('material', $param);
+    }
 }

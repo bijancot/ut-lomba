@@ -12,10 +12,22 @@
                         <i class="fas fa-plus fa-sm text-white-50"></i>
                         Tambah
                     </a>
-                    <a href="<?= site_url('admin/course/add')?>" class="btn btn-sm btn-info shadow-sm">
-                        <i class="fas fa-check fa-sm text-white-50"></i>
-                        Selesai
-                    </a>
+                    <?php
+                        if($course->ISMATREADY_COURSE == "0"){
+                            echo '
+                                <button data-toggle="modal" data-target="#mdlSelesai" class="btn btn-sm btn-info shadow-sm">
+                                    <i class="fas fa-check fa-sm text-white-50"></i>
+                                    Validasi
+                                </button>
+                                ';
+                        }else{
+                            echo '
+                                <button class="btn btn-sm btn-success shadow-sm" disabled>
+                                    Tervalidasi
+                                </button>
+                            ';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -73,22 +85,25 @@
         </div>
     </div>
 </div>
-<!-- Modal Approve -->
-<div class="modal fade" id="mdlPoster" tabindex="-1" aria-labelledby="mdlPoster" aria-hidden="true">
+<!-- Modal Selesai -->
+<div class="modal fade" id="mdlSelesai" tabindex="-1" aria-labelledby="mdlSelesai" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="mdlPoster">Pratinjau Poster</h5>
+                <h5 class="modal-title" >Konfirmasi Materi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body text-center">
-                <img id="mdlPoster_src" style="max-width: 250px;" />
+                <p>Apakah anda yakin untuk mevalidasi materi?</p>
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <form action="<?= site_url('admin/material/finish')?>" method="post">
+                    <input type="hidden" name="idCourse" value="<?= $course->ID_COURSE?>" />
+                    <button type="submit" class="btn btn-success">Validasi</button>
+                </form>
             </div>
         </div>
     </div>
@@ -96,9 +111,5 @@
 <script>
     $(document).ready(function(){
         $('#tableMaterial').DataTable();
-    })
-    $('#tableMaterial tbody').on('click', '.mdlPoster', function(){
-        const src = $(this).data('src');
-        $('#mdlPoster_src').attr('src', src);
     })
 </script>

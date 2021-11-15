@@ -5,6 +5,8 @@ class CourseController extends CI_Controller{
         parent::__construct();
         $this->load->library('upload');
         $this->load->model('Course');
+        $this->load->model('CourseUser');
+        $this->load->model('Material');
     }
 
     public function index(){
@@ -76,6 +78,31 @@ class CourseController extends CI_Controller{
             $this->session->set_flashdata('succ_msg', 'Berhasil mengubah course!');
             redirect('admin/course');
         }
+    }
+
+    public function destroy(){
+        $courseUsers = $this->CourseUser->get(['ID_COURSE' => $_POST['idCourse']]);
+        if($courseUsers != null){// check if course user exist
+            $this->session->set_flashdata('err_msg', 'Opps, terdapat transaksi user terhadap course!');
+            redirect('admin/course');
+        }
+
+        $this->Material->delete(['ID_COURSE' => $_POST['idCourse']]);
+        $this->Course->delete(['ID_COURSE' => $_POST['idCourse']]);
+        $this->session->set_flashdata('succ_msg', 'Course berhasil dihapus');
+        redirect('admin/course');
+    }
+
+    public function publish(){
+        $statMateri = $this->Course->getById($_POST['idCourse'])->ISMATREADY_COURSE;
+        if($statMateri == "0"){ // check if materi not ready
+            $this->session->set_flashdata('err_msg', 'Materi course belum tervalidasi!');
+            redirect('admin/course');
+        }
+
+        $this->Course->update(['ID_COURSE' => $_POST['idCourse'], 'ISPUBLISHED_COURSE' => $_POST['stat']]);
+        $this->session->set_flashdata('succ_msg', 'Berhasil mengubah status publish!');
+        redirect('admin/course');
     }
 
     public function upload_image(){
