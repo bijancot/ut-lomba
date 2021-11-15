@@ -36,3 +36,10 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $(".collapse-card").click(function () {
+        $(this).toggleClass("active");
+        $(this).siblings("div").toggleClass("active");
+    });
+});
+
