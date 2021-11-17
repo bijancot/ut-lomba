@@ -61,6 +61,7 @@ $route['home/eventList'] = 'guest/MainController/eventList';
 $route['home/event'] = 'guest/MainController/event';
 $route['home/pretest'] = 'guest/MainController/pretest';
 $route['home/about'] = 'guest/MainController/about';
+$route['profile'] = 'guest/UserController/profile';
 $route['login'] = 'guest/AuthController';
 $route['register'] = 'guest/AuthController/register';
 

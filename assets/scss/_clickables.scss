@@ -22,6 +22,16 @@
     &:hover,
     &.active {
         border-bottom: 2px solid $primary;
+        &.username {
+            border-bottom: 2px solid transparent;
+        }
+    }
+
+    &.username {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     &.circle {
@@ -123,7 +133,7 @@
     }
 
     a {
-        padding: 0.5rem 0;
+        padding: 0.5rem;
 
         display: block;
         width: 100%;
@@ -202,6 +212,63 @@
     }
 }
 
+.vertical-tab {
+    display: flex;
+    flex-direction: column;
+
+    .nav-link {
+        color: $dark;
+        padding: 1.5rem 1.75rem;
+        text-align: left;
+        background: transparent;
+        border: 0;
+        border-bottom: 0.5px solid $light-grey;
+        margin: 0 1rem;
+        position: relative;
+        font-weight: 500;
+
+        display: flex;
+        align-items: center;
+        
+        .icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 1rem;
+            color: $dark-grey;
+            
+            svg path {
+                fill: $dark-grey;
+            }
+        }
+        &.active {
+            background: $brighter-primary;
+            padding: 1.5rem 2.75rem;
+            margin: 0;
+            
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 6px;
+                background: $primary;
+
+                border-radius: 0 10px 10px 0;
+            }
+
+            svg path {
+                fill: $primary;
+                color: $primary;
+            }
+        }
+        
+        &:last-child {
+            border-bottom: 0.5px solid transparent;
+        }
+    }
+}
+
 .course-card-title {
     padding: 1rem;
     margin-bottom: 0.75rem;
@@ -222,6 +289,15 @@
 
     width: 100%;
     cursor: pointer;
+
+    &.smaller-shadow {
+        $shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: $shadow;
+        -moz-box-shadow: $shadow;
+        -ms-box-shadow: $shadow;
+        -o-box-shadow: $shadow;
+        box-shadow: $shadow;
+    }
 
     &.active {
         background: $primary;
@@ -251,7 +327,7 @@
             .minus {
                 display: inline-block;
                 transform: rotate(90deg);
-                
+
                 -webkit-transition: all 0.2s ease;
                 -moz-transition: all 0.2s ease;
                 -ms-transition: all 0.2s ease;

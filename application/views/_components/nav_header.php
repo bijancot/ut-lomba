@@ -2,10 +2,10 @@
     <a href="<?= site_url()?>home" class="brand mr-auto">UTNGL</a>
     <div class="d-flex flex-column flex-md-row align-items-center h-100">
         <a href="<?= site_url()?>home/pretest" class="links <?= uri_string() == 'pretest' ? 'active':'' ?>">Pretest</a>
-        <button class="links border-0 bg-transparent position-relative" id="nav-sublink">
+        <button class="links border-0 bg-transparent position-relative nav-sublink">
             Became a <span class="iconify ms-3" data-icon="akar-icons:chevron-down"></span>
 
-            <nav class="sub-nav p-2 position-absolute d-flex flex-column align-items-start" id="sub-nav">
+            <nav class="sub-nav p-2 position-absolute d-flex flex-column align-items-start">
 
                 <!-- Tambah parameter di link nya  -->
 
@@ -20,16 +20,27 @@
         <a href="<?= site_url()?>home/about" class="links <?= uri_string() == 'home/about' ? 'active':'' ?>">About</a>
     </div>
     <!-- IF NOT LOGGED IN -->
-    <div class="d-flex flex-row align-items-center h-100">
+    <div class="d-flex d-none flex-row align-items-center h-100">
         <a href="<?= site_url()?>register" class="links font-w-600 <?= uri_string() == 'register' ? 'active':'' ?>">Daftar</a>
         <span class="spacer"></span>
         <a href="<?= site_url()?>login" class="links font-w-600 <?= uri_string() == 'login' ? 'active':'' ?>">Masuk</a>
     </div>
     <!-- IF LOGGED IN -->
-    <div class="d-flex d-none ms-n5 flex-row align-items-center h-100">
+    <div class="d-flex ms-n5 flex-row align-items-center h-100">
         <a href="#" class="links circle font-w-600"><span class="badge"></span><img class="icon" src="<?= site_url()?>assets/src/img/bell-icon.svg" alt=""></a>
-        <a href="#" class="links mx-1 circle-photo font-w-600"><img class="icon" src="<?= site_url()?>assets/src/img/cat.jpg" alt=""></a>
-        <a href="#" class="links mx-2 font-w-600">Alfian Mengsedih</a>
-        <button class="border-0 bg-transparent ms-3"><span class="iconify fs-4" data-icon="bi:three-dots-vertical"></span></button>
+        <a class="links mx-1 circle-photo font-w-600"><img class="icon" src="<?= site_url()?>assets/src/img/cat.jpg" alt=""></a>
+        <a class="links username mx-2 font-w-600">Alfian Mengsedih</a>
+        <div class="nav-sublink c-pointer">
+            <button class="border-0 bg-transparent ms-3"><span class="iconify fs-4" data-icon="bi:three-dots-vertical"></span></button>
+
+            <nav class="sub-nav profile p-2 position-absolute d-flex flex-column align-items-start">
+
+                <!-- Tambah parameter di link nya  -->
+
+                <span class="sub-link"><a href="<?= site_url()?>profile">Profile</a></span>
+                <span class="sub-link"><a href="<?= site_url()?>home/#">Help</a></span>
+                <span class="sub-link text-danger c-pointer"><a data-bs-toggle="modal" data-bs-target="#logoutModal">Keluar</a></span>
+            </nav>
+        </div>
     </div>
 </header>
