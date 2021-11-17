@@ -21,8 +21,8 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item <?= $sidebar == "event" ? "active" : "" ?>">
-        <a class="nav-link" href="<?= site_url('event'); ?>">
-            <i class="fas fa-align-justify"></i>
+        <a class="nav-link" href="<?= site_url('admin/event'); ?>">
+            <i class="fas fa-calendar-check"></i>
             <span>Event</span>
         </a>
     </li>

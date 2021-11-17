@@ -27,7 +27,7 @@
                         <img style="max-width: 250px;" id="blah" class="" src="<?= (!empty($course->IMG_COURSE) ? $course->IMG_COURSE : (!empty($dataTemp['imgCourse']) ? $dataTemp['imgCourse'] : "")) ?>" />
                         <input type="hidden" name="imgCourse" value="<?= (!empty($course->IMG_COURSE) ? $course->IMG_COURSE : (!empty($dataTemp['imgCourse']) ? $dataTemp['imgCourse'] : "")) ?>">
                     </div>
-                    <input type="file" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
+                    <input type="file" class="form-control" accept=".jpg,.png,.jpeg,.bmp" name="poster" style="cursor: pointer;" id="imgPoster">
                 </div>
                 <div class="form-group">
                     <label>Nama</label><span class="text-warning">*</span>

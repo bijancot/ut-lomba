@@ -75,7 +75,6 @@ $route['admin/course/update']       = 'adm/CourseController/update';
 $route['admin/course/publish']      = 'adm/CourseController/publish';
 $route['admin/course/destroy']      = 'adm/CourseController/destroy';
 
-
 // MATERIAL
 $route['admin/material/store']          = 'adm/MaterialController/store';
 $route['admin/material/update']         = 'adm/MaterialController/update';
@@ -84,3 +83,10 @@ $route['admin/material/finish']         = 'adm/MaterialController/finish';
 $route['admin/material/(:any)']         = 'adm/MaterialController/vMaterial/$1';
 $route['admin/material/add/(:any)']     = 'adm/MaterialController/vAdd/$1';
 $route['admin/material/edit/(:any)']    = 'adm/MaterialController/vEdit/$1';
+
+// EVENT
+$route['admin/event']               = 'adm/EventController';
+$route['admin/event/add']           = 'adm/EventController/vAdd';
+$route['admin/event/edit/(:any)']   = 'adm/EventController/vEdit/$1';
+$route['admin/event/store']         = 'adm/EventController/store';
+$route['admin/event/update']         = 'adm/EventController/update';
