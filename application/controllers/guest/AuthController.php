@@ -9,14 +9,14 @@ class AuthController extends CI_Controller
 
     public function index()
     {
-        $data['login']  = 'login'; // PLACEHOLDER VARIABLE DATA
+        $data['title']  = 'login'; // PLACEHOLDER VARIABLE DATA
 
         $this->template->index('auth/login', $data);
     }
 
     public function register()
     {
-        $data['register']  = 'register'; // PLACEHOLDER VARIABLE DATA
+        $data['title']  = 'register'; // PLACEHOLDER VARIABLE DATA
 
         $this->template->index('auth/register', $data);
     }

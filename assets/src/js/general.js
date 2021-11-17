@@ -1,15 +1,15 @@
 // NAVBAR BUTTON
 $(document).ready(function () {
-    $("#nav-sublink").click(function () {
-        $("#sub-nav").toggleClass("active");
+    $(".nav-sublink").click(function () {
+        $(this).children().toggleClass("active");
     });
 });
 $(document).mouseup(function (e) {
-    var container = $("#nav-sublink");
+    var container = $(".nav-sublink");
 
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
-        $("#sub-nav").removeClass("active");
+        $(".sub-nav").removeClass("active");
     }
 });
 

@@ -48,7 +48,7 @@ a:hover {
     .sub-nav {
         position: relative;
 
-        width: 200px;
+        min-width: 200px;
         top: 40px;
         -webkit-border-radius: 15px;
         border-radius: 15px;
@@ -64,6 +64,10 @@ a:hover {
 
         opacity: 0;
         pointer-events: none;
+
+        &.profile {
+            right: 0;
+        }
 
         &.active {
             opacity: 1;
@@ -275,8 +279,15 @@ a:hover {
 .color-secondary-dark {
     color: $secondary-dark;
 }
+.bgc-primary {
+    background: $primary;
+}
 .bg-light-grey5 {
     background: $light-grey5;
+}
+
+.c-pointer {
+    cursor: pointer;
 }
 
 @media (min-width: 992px) {
