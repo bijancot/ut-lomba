@@ -41,8 +41,9 @@ input {
     align-items: center;
     overflow: hidden;
     
-    button {
+    .button-file {
         position: relative;
+        display: block;
         padding: 10px 1rem;
         width: auto;
         border-radius: 8px;
@@ -63,9 +64,6 @@ input {
         text-transform: none;
         font-weight: 600;
         text-overflow: ellipsis;
-    }
-    span {
-        z-index: 2;
     }
 }
 
