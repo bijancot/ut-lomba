@@ -20,14 +20,14 @@
                                 </div>
 
 
-                                <button type="submit" class="auth-btn py-3 mt-3 goToStep2" id="">Selanjutnya</button>
+                                <button type="submit" class="auth-btn py-3 mt-3 goToStep2">Selanjutnya</button>
                                 <p class="text-center w-100">Sudah punya akun ? <a href="<?= site_url('/login') ?>" class="font-w-600">Masuk</a></p>
                             </div>
 
                             <div class="register-slide" id="register-step-2">
 
                                 <div class="d-flex align-items-center w-100 mb-5">
-                                    <button class="border-0 bg-transparent goToStep1" id=""><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
+                                    <button class="border-0 bg-transparent goToStep1"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">2/4</p>
                                 </div>
@@ -73,12 +73,12 @@
                                     <input class="auth-input mb-4" type="number" placeholder="NIK">
                                 </div>
 
-                                <button type="submit" class="auth-btn py-3 mt-3 goToStep3" id="">Selanjutnya</button>
+                                <button type="submit" class="auth-btn py-3 mt-3 goToStep3">Selanjutnya</button>
                             </div>
 
                             <div class="register-slide" id="register-step-3">
                                 <div class="d-flex align-items-center w-100 mb-5">
-                                    <button class="border-0 bg-transparent goToStep2" id=""><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
+                                    <button class="border-0 bg-transparent goToStep2"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">3/4</p>
                                 </div>
@@ -91,12 +91,12 @@
                                     <input class="auth-input mb-4" type="number" placeholder="Semester">
                                 </div>
 
-                                <button type="submit" class="auth-btn py-3 mt-3 goToStep4" id="">Selanjutnya</button>
+                                <button type="submit" class="auth-btn py-3 mt-3 goToStep4">Selanjutnya</button>
                             </div>
 
                             <div class="register-slide" id="register-step-4">
                                 <div class="d-flex align-items-center w-100 mb-5">
-                                    <button class="border-0 bg-transparent goToStep3" id=""><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
+                                    <button class="border-0 bg-transparent goToStep3"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">4/4</p>
                                 </div>
