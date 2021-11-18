@@ -17,8 +17,80 @@ input {
     border: none;
     border-bottom: 1px solid $light-grey3;
 
+    position: relative;
+
     &:focus {
         border-bottom: 1px solid $primary;
+    }
+
+    &.error {
+        border-bottom: 1px solid $danger;
+    }
+}
+
+.input-file {
+    width: 100%;
+    height: 100px;
+    padding: 1rem;
+
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border: 1px dashed $light-grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    button {
+        position: relative;
+        padding: 10px 1rem;
+        width: auto;
+        border-radius: 8px;
+        background: $primary;
+    }
+    input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 1;
+        cursor: pointer;
+    }
+    i {
+        width: 70%;
+        text-transform: none;
+        font-weight: 600;
+        text-overflow: ellipsis;
+    }
+    span {
+        z-index: 2;
+    }
+}
+
+.togglePassword {
+    transition: .5s ease;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: -5px;
+        height: 50px;
+        width: 2px;
+        background: $dark;
+
+        transform: rotate(75deg);
+        transition: .2s ease;
+        opacity: 0;
+    }
+    &.inactive {
+        &::before {
+            opacity: 1;
+        }
+
     }
 }
 
@@ -28,7 +100,7 @@ input {
     cursor: pointer;
     overflow: hidden;
 
-    input[type=radio] {
+    input[type="radio"] {
         opacity: 0;
         position: absolute;
 
@@ -36,8 +108,8 @@ input {
         left: 5px;
     }
 
-    input:checked{
-        &+label {
+    input:checked {
+        & + label {
             background: $primary;
 
             font-weight: 600;
@@ -49,7 +121,7 @@ input {
         background: white;
         width: 100%;
         height: 100%;
-        padding: .75rem 1rem;
+        padding: 0.75rem 1rem;
         cursor: pointer;
 
         -webkit-user-select: none;
@@ -62,7 +134,7 @@ input {
     width: 50%;
     padding: 20px;
     background: white;
-    
+
     margin: 0px auto;
     margin-top: -80px;
 
@@ -75,7 +147,7 @@ input {
         -ms-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
         -o-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
         box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
-    
+
         width: 100%;
         height: 60px;
         background: white;

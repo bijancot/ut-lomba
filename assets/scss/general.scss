@@ -48,7 +48,7 @@ a:hover {
     .sub-nav {
         position: relative;
 
-        width: 200px;
+        min-width: 200px;
         top: 40px;
         -webkit-border-radius: 15px;
         border-radius: 15px;
@@ -64,6 +64,10 @@ a:hover {
 
         opacity: 0;
         pointer-events: none;
+
+        &.profile {
+            right: 0;
+        }
 
         &.active {
             opacity: 1;
@@ -97,6 +101,10 @@ a:hover {
     color: $light-grey2;
 }
 
+.b-radius-6 {
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
 .b-radius-28 {
     -webkit-border-radius: 28px;
     border-radius: 28px;
@@ -104,23 +112,32 @@ a:hover {
 
 .form-container {
     height: 80vh;
+    
+    @media (max-width: 576px) {
+        height: 100vh;
+    }
 }
 
 .register-slide {
     left: 120%;
     opacity: 0;
+    top: 0;
     height: 100%;
     width: 100%;
+    padding: 1rem;
+    overflow-y: scroll;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
+    position: absolute;
+    
     -webkit-transition: 1.5s ease;
     -moz-transition: 1.5s ease;
     transition: 1.5s ease;
-
+    
     &.active {
         opacity: 1;
 
@@ -275,8 +292,21 @@ a:hover {
 .color-secondary-dark {
     color: $secondary-dark;
 }
+.color-danger {
+    color: $danger;
+}
+.bgc-primary {
+    background: $primary;
+}
 .bg-light-grey5 {
     background: $light-grey5;
+}
+.bg-lighter-danger {
+    background: $lighter-danger
+}
+
+.c-pointer {
+    cursor: pointer;
 }
 
 @media (min-width: 992px) {
