@@ -15,104 +15,29 @@
         </div>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
-
+            <?php
+                foreach ($events as $item) {
+                    echo '
+                        <div class="col">
+                            <div class="event-card">
+                                <a href="'.site_url('event/'.$item->ID_EVENT).'">
+                                    <div class="event-img-container">
+                                        <img src="'.$item->IMG_EVENT.'" onerror="$(this).hide();" alt="" class="event-card-preview">
+                                    </div>
+            
+                                    <div class="px-2">
+                                        <p class="event-date">'.date_format(date_create($item->TGL_EVENT), 'j F Y').'</p>
+                                        <p class="event-title">'.$item->NAMA_EVENT.'</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>        
+                    ';
+                }
+            ?>
             <!-- CARD -->
-            <div class="col">
-                <div class="event-card">
-                    <a href="<?= site_url()?>home/event">
-                        <div class="event-img-container">
-                            <img src="<?= site_url() ?>assets/src/img/course.png" onerror='$(this).hide();' alt="" class="event-card-preview">
-                        </div>
-
-                        <div class="px-2">
-                            <p class="event-date">12 November 2021</p>
-                            <p class="event-title">Strategi Mengembangkan dan Mempertahankan Karyawan</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            
             <!-- END OF CARD -->
-            <!-- CARD -->
-            <div class="col">
-                <div class="event-card">
-                    <a href="<?= site_url()?>home/event">
-                        <div class="event-img-container">
-                            <img src="<?= site_url() ?>assets/src/img/login-image.png" onerror='$(this).hide();' alt="" class="event-card-preview">
-                        </div>
-
-                        <div class="px-2">
-                            <p class="event-date">12 November 2021</p>
-                            <p class="event-title">Strategi Mengembangkan dan Mempertahankan Karyawan Adalah Nomor 5 Akan Membuat Anda Mengembangkan dan Mempertahankan</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- END OF CARD -->
-            <!-- CARD -->
-            <div class="col">
-                <div class="event-card">
-                    <a href="<?= site_url()?>home/event">
-                        <div class="event-img-container">
-                            <img src="<?= site_url() ?>assets/src/img/no.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
-                        </div>
-
-                        <div class="px-2">
-                            <p class="event-date">12 November 2021</p>
-                            <p class="event-title">Strategi Mengembangkan dan Mempertahankan Karyawan</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- END OF CARD -->
-            <!-- CARD -->
-            <div class="col">
-                <div class="event-card">
-                    <a href="<?= site_url()?>home/event">
-                        <div class="event-img-container">
-                            <img src="<?= site_url() ?>assets/src/img/beluga.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
-                        </div>
-
-                        <div class="px-2">
-                            <p class="event-date">12 November 2021</p>
-                            <p class="event-title">Strategi Mengembangkan dan Mempertahankan Karyawan</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- END OF CARD -->
-            <!-- CARD -->
-            <div class="col">
-                <div class="event-card">
-                    <a href="<?= site_url()?>home/event">
-                        <div class="event-img-container">
-                            <img src="<?= site_url() ?>assets/src/img/sus.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
-                        </div>
-
-                        <div class="px-2">
-                            <p class="event-date">12 November 2021</p>
-                            <p class="event-title">Strategi Mengembangkan dan Mempertahankan Karyawan</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- END OF CARD -->
-            <!-- CARD -->
-            <div class="col">
-                <div class="event-card">
-                    <a href="<?= site_url()?>home/event">
-                        <div class="event-img-container">
-                            <img src="<?= site_url() ?>assets/src/img/cat.jpg" onerror='$(this).hide();' alt="" class="event-card-preview">
-                        </div>
-
-                        <div class="px-2">
-                            <p class="event-date">12 November 2021</p>
-                            <p class="event-title">Strategi Mengembangkan dan Mempertahankan Karyawan</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- END OF CARD -->
-
 
         </div>
     </div>

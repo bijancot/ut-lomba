@@ -20,6 +20,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['home']  = 'Home'; // PLACEHOLDER VARIABLE DATA
+
+		$this->template->index('general/home', $data);
 	}
 }

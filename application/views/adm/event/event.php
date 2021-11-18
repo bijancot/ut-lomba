@@ -36,7 +36,6 @@
                         <tr>
                             <th style="width: 5%;">Poster</th>
                             <th>Judul</th>
-                            <th>Deskripsi</th>
                             <th>Tanggal</th>
                             <th>Status</th>
                             <th>Aksi</th>                            
@@ -45,15 +44,15 @@
                     <tbody>
                         <?php
                             foreach ($events as $item) {
-                                $date = date_create($item->TGL_EVENT);
-
+                                $date           = date_create($item->TGL_EVENT);
+                                $status         = ($item->ISPUBLISHED_EVENT == "0" ? '<span class="badge badge-danger">Unpublished</span>' : '<span class="badge badge-success">Published</span>');
+                                
                                 echo '
                                     <tr>
                                         <td class="text-center"><a class="btn btn-sm btn-primary mdlPoster" data-toggle="modal" data-target="#mdlPoster" data-src="'.$item->IMG_EVENT.'"><i class="fa fa-image"></i></a></td>
                                         <td>'.$item->NAMA_EVENT.'</td>
-                                        <td>'.$item->DESKRIPSI_EVENT.'</td>
                                         <td>'.date_format($date, 'd M Y').'</td>
-                                        <td>status</td>
+                                        <td>'.$status.'</td>
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="'.site_url('admin/event/edit/'.$item->ID_EVENT).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                             <a class="btn btn-sm btn-info mdlInfo" data-id="'.$item->ID_EVENT.'" data-toggle="modal" data-target="#mdlInfo" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="fa fa-info"></i></a>
@@ -96,19 +95,19 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Publish Course</h5>
+                <h5 class="modal-title">Publish Event</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body text-center">
-                <p>Apakah anda yakin untuk <span id="mdlPublish_label"></span> course ?</p>
+                <p>Apakah anda yakin untuk <span id="mdlPublish_label"></span> event ?</p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <form action="<?= site_url('admin/course/publish')?>" method="post">
-                    <input type="hidden" name="idCourse" id="mdlPublish_id">
+                <form action="<?= site_url('admin/event/publish')?>" method="post">
+                    <input type="hidden" name="idEvent" id="mdlPublish_id">
                     <input type="hidden" name="stat" id="mdlPublish_stat">
                     <button type="submit" class="btn btn-success">Simpan</button>
                 </form>
@@ -127,13 +126,13 @@
                 </button>
             </div>
             <div class="modal-body text-center">
-                <p>Apakah anda yakin untuk menghapus course <span></span> ?</p>
+                <p>Apakah anda yakin untuk menghapus event <span></span> ?</p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <form action="<?= site_url('admin/course/destroy')?>" method="post">
-                    <input type="hidden" name="idCourse" id="mdlHapus_id">
+                <form action="<?= site_url('admin/event/destroy')?>" method="post">
+                    <input type="hidden" name="idEvent" id="mdlHapus_id">
                     <button type="submit" class="btn btn-success">Hapus</button>
                 </form>
             </div>

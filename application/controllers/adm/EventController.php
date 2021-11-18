@@ -84,6 +84,16 @@ class EventController extends CI_Controller{
             redirect('admin/event');
         }
     }
+    public function publish(){
+        $this->Event->update(['ID_EVENT' => $_POST['idEvent'], 'ISPUBLISHED_EVENT' => $_POST['stat']]);
+        $this->session->set_flashdata('succ_msg', 'Berhasil mengubah status publish!');
+        redirect('admin/event');
+    }
+    public function destroy(){
+        $this->Event->delete(['ID_EVENT' => $_POST['idEvent']]);
+        $this->session->set_flashdata('succ_msg', 'Berhasil menghapus event!');
+        redirect('admin/event');
+    }
     public function upload_image(){
         $conf['upload_path']    = "./uploads/event/";
         $conf['allowed_types']  = "jpg|png|jpeg|bmp";

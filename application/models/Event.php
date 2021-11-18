@@ -8,7 +8,16 @@ class Event extends CI_Model{
         return $this->db->get_where('event', ['ID_EVENT' => $id])->row();
     }
     public function get($param){
-        return $this->db->get('event', $param)->result();
+        if(!empty($param['orderBy'])){ // order by
+            $this->db->order_by($param['orderBy']);
+            unset($param['orderBy']);
+        }
+        if(!empty($param['limit'])){ // limit
+            $this->db->limit($param['limit']);
+            unset($param['limit']);
+        }
+
+        return $this->db->get_where('event', $param)->result();
     }
     public function insert($param){
         $this->db->insert('event', $param);

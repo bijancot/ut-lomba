@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = '';
+$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -57,12 +57,12 @@ $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'guest/MainController';
 $route['home/course_list'] = 'guest/MainController/course_list';
 $route['home/course'] = 'guest/MainController/course';
-$route['home/eventList'] = 'guest/MainController/eventList';
+// $route['home/eventList'] = 'guest/MainController/eventList';
 $route['home/event'] = 'guest/MainController/event';
 $route['home/pretest'] = 'guest/MainController/pretest';
 $route['home/about'] = 'guest/MainController/about';
 $route['login'] = 'guest/AuthController';
-$route['register'] = 'guest/AuthController/register';
+// $route['register'] = 'guest/AuthController/register';
 
 // --- ADMIN ---
 // COURSE
@@ -89,4 +89,12 @@ $route['admin/event']               = 'adm/EventController';
 $route['admin/event/add']           = 'adm/EventController/vAdd';
 $route['admin/event/edit/(:any)']   = 'adm/EventController/vEdit/$1';
 $route['admin/event/store']         = 'adm/EventController/store';
-$route['admin/event/update']         = 'adm/EventController/update';
+$route['admin/event/update']        = 'adm/EventController/update';
+$route['admin/event/publish']       = 'adm/EventController/publish';
+$route['admin/event/destroy']       = 'adm/EventController/destroy';
+
+
+// --- USER ---
+$route['register']      = 'usr/AuthController/vRegister';
+$route['event-list']    = 'usr/EventController/vEventList';
+$route['event/(:any)']  = 'usr/EventController/vEvent/$1';
