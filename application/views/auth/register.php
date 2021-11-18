@@ -20,14 +20,14 @@
                                 </div>
 
 
-                                <button type="submit" class="auth-btn py-3 mt-3 goToStep2">Selanjutnya</button>
+                                <span class="auth-btn py-3 mt-3 goToStep2">Selanjutnya</span>
                                 <p class="text-center w-100">Sudah punya akun ? <a href="<?= site_url('/login') ?>" class="font-w-600">Masuk</a></p>
                             </div>
 
                             <div class="register-slide" id="register-step-2">
 
                                 <div class="d-flex align-items-center w-100 mb-5">
-                                    <button class="border-0 bg-transparent goToStep1"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
+                                    <span class="border-0 bg-transparent goToStep1"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></span>
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">2/4</p>
                                 </div>
@@ -73,12 +73,12 @@
                                     <input class="auth-input mb-4" type="number" placeholder="NIK">
                                 </div>
 
-                                <button type="submit" class="auth-btn py-3 mt-3 goToStep3">Selanjutnya</button>
+                                <span class="auth-btn py-3 mt-3 goToStep3">Selanjutnya</span>
                             </div>
 
                             <div class="register-slide" id="register-step-3">
                                 <div class="d-flex align-items-center w-100 mb-5">
-                                    <button class="border-0 bg-transparent goToStep2"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
+                                    <span class="border-0 bg-transparent goToStep2"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></span>
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">3/4</p>
                                 </div>
@@ -91,12 +91,12 @@
                                     <input class="auth-input mb-4" type="number" placeholder="Semester">
                                 </div>
 
-                                <button type="submit" class="auth-btn py-3 mt-3 goToStep4">Selanjutnya</button>
+                                <span class="auth-btn py-3 mt-3 goToStep4">Selanjutnya</span>
                             </div>
 
                             <div class="register-slide" id="register-step-4">
                                 <div class="d-flex align-items-center w-100 mb-5">
-                                    <button class="border-0 bg-transparent goToStep3"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></button>
+                                    <span class="border-0 bg-transparent goToStep3"><span class="iconify me-3 h4 mb-0" data-icon="akar-icons:chevron-left"></span></span>
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">4/4</p>
                                 </div>
@@ -105,10 +105,10 @@
                                     <p class="mb-2">Curriculum Vitae</p>
                                     <p class="small color-secondary-dark">Unggah dengan format PDF dengan ukuran maksimal 2 MB</p>
                                     <div class="input-file">
-                                        <button class="course-card-title mb-0" id="buttonCV">
+                                        <span class="course-card-title button-file mb-0" id="buttonCV">
                                             Pilih File
                                             <input type="file" id="cv">
-                                        </button>
+                                        </span>
                                         <div id="labelCV">
                                             <div>
                                                 <span class="iconify color-success fs-4" data-icon="akar-icons:circle-check-fill"></span>
@@ -123,10 +123,10 @@
                                     <p class="mb-2">Portfolio (Opsional)</p>
                                     <p class="small color-secondary-dark">Unggah dengan format PDF dengan ukuran maksimal 2 MB</p>
                                     <div class="input-file">
-                                        <button class="course-card-title mb-0" id="buttonPorto">
+                                        <span class="course-card-title button-file mb-0" id="buttonPorto">
                                             Pilih File
                                             <input type="file" id="porto">
-                                        </button>
+                                        </span>
                                         <div id="labelPorto">
                                             <div>
                                                 <span class="iconify color-success fs-4" data-icon="akar-icons:circle-check-fill"></span>
@@ -141,10 +141,10 @@
                                     <p class="mb-2">Sertifikat/Dokumen Pendukung</p>
                                     <p class="small color-secondary-dark">Unggah dengan format PDF dengan ukuran maksimal 2 MB</p>
                                     <div class="input-file">
-                                        <button class="course-card-title mb-0" id="buttonSertif1">
+                                        <span class="course-card-title button-file mb-0" id="buttonSertif1">
                                             Pilih File
                                             <input type="file" id="sertif1">
-                                        </button>
+                                        </span>
                                         <div id="labelSertif1">
                                             <div>
                                                 <span class="iconify color-success fs-4" data-icon="akar-icons:circle-check-fill"></span>
@@ -157,10 +157,10 @@
                                         </div>
                                     </div>
                                     <div class="input-file">
-                                        <button class="course-card-title mb-0" id="buttonSertif2">
+                                        <span class="course-card-title button-file mb-0" id="buttonSertif2">
                                             Pilih File
                                             <input type="file" id="sertif2">
-                                        </button>
+                                        </span>
                                         <div id="labelSertif2">
                                             <div>
                                                 <span class="iconify color-success fs-4" data-icon="akar-icons:circle-check-fill"></span>
@@ -173,10 +173,10 @@
                                         </div>
                                     </div>
                                     <div class="input-file">
-                                        <button class="course-card-title mb-0" id="buttonSertif3">
+                                        <span class="course-card-title button-file mb-0" id="buttonSertif3">
                                             Pilih File
                                             <input type="file" id="sertif3">
-                                        </button>
+                                        </span>
                                         <div id="labelSertif3">
                                             <div>
                                                 <span class="iconify color-success fs-4" data-icon="akar-icons:circle-check-fill"></span>
@@ -191,10 +191,10 @@
                                     <p class="mb-2">Surat Rekomendasi Universitas</p>
                                     <p class="small color-secondary-dark">Unggah dengan format PDF dengan ukuran maksimal 2 MB</p>
                                     <div class="input-file">
-                                        <button class="course-card-title mb-0" id="buttonRekom">
+                                        <span class="course-card-title button-file mb-0" id="buttonRekom">
                                             Pilih File
                                             <input type="file" id="rekom">
-                                        </button>
+                                        </span>
                                         <div id="labelRekom">
                                             <div>
                                                 <span class="iconify color-success fs-4" data-icon="akar-icons:circle-check-fill"></span>
