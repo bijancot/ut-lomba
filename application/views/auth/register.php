@@ -5,7 +5,7 @@
                 <section class="form-section p-3 p-md-4 h-100 d-flex flex-column justify-content-center align-items-start">
 
                     <div class="position-relative overflow-hidden d-flex align-items-center w-100 h-100">
-                        <form action="">
+                        <form action="<?= site_url('register')?>" method="post" enctype="multipart/form-data">
 
                             <div class="register-slide active" id="register-step-1">
                                 <div class="d-flex align-items-center w-100 mb-5">
@@ -13,15 +13,15 @@
                                     <p class="small opacity-5 ms-auto">1/4</p>
                                 </div>
                                 <div>
-                                    <input class="auth-input mb-4" type="text" placeholder="Alamat Email">
-                                    <input class="auth-input mb-4" type="number" placeholder="Nomor Hp">
-                                    <input class="auth-input mb-4" type="password" placeholder="Buat Password">
+                                    <input class="auth-input mb-4" type="text" name="email" placeholder="Alamat Email">
+                                    <input class="auth-input mb-4" type="number" name="telp" placeholder="Nomor Hp" onkeypress="return isNumberKey(event)">
+                                    <input class="auth-input mb-4" type="password" name="pass" placeholder="Buat Password">
                                     <input class="auth-input mb-4" type="password" placeholder="Konfirmasi Password">
                                 </div>
 
 
                                 <span class="auth-btn py-3 mt-3 goToStep2">Selanjutnya</span>
-                                <p class="text-center w-100">Sudah punya akun ? <a href="<?= site_url('/login') ?>" class="font-w-600">Masuk</a></p>
+                                <p class="text-center w-100">Sudah punya akun ? <a href="<?= site_url('sign-in') ?>" class="font-w-600">Masuk</a></p>
                             </div>
 
                             <div class="register-slide" id="register-step-2">
@@ -33,11 +33,12 @@
                                 </div>
 
                                 <div>
-                                    <input class="auth-input mb-4" type="text" placeholder="Nama Lengkap">
-                                    <input class="auth-input mb-4" type="text" placeholder="Jenis Kelamin">
-                                    <input class="auth-input mb-4" type="text" placeholder="Tempat Kelahiran">
+                                    <input class="auth-input mb-4" type="text" name="nama" placeholder="Nama Lengkap">
+                                    <input class="auth-input mb-4" type="text" name="jk" placeholder="Jenis Kelamin">
+                                    <input class="auth-input mb-4" type="text" name="alamat" placeholder="Alamat">
+                                    <input class="auth-input mb-4" type="text" name="tmpt_lahir" placeholder="Tempat Kelahiran">
                                     <div class="d-flex gap-3 mb-4">
-                                        <select id="tanggal">
+                                        <select id="tanggal" name="tgl_lahir">
                                             <option value="hide">Tanggal Lahir</option>
                                             <?php
                                             for ($x = 1; $x <= 31; $x++) {
@@ -45,22 +46,22 @@
                                             }
                                             ?>
                                         </select>
-                                        <select id="bulan">
+                                        <select id="bulan" name="bln_lahir">
                                             <option value="hide">Bulan</option>
-                                            <option value="january">January</option>
-                                            <option value="february">February</option>
-                                            <option value="march">March</option>
-                                            <option value="april">April</option>
-                                            <option value="may">May</option>
-                                            <option value="june">June</option>
-                                            <option value="july">July</option>
-                                            <option value="august">August</option>
-                                            <option value="september">September</option>
-                                            <option value="october">October</option>
-                                            <option value="november">November</option>
-                                            <option value="december">December</option>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
                                         </select>
-                                        <select id="tahun">
+                                        <select id="tahun" name="thn_lahir">
                                             <option value="hide">Tahun</option>
                                             <?php
                                             for ($x = 2021; $x >= 1900; $x--) {
@@ -69,8 +70,16 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <input class="auth-input mb-4" type="text" placeholder="Agama">
-                                    <input class="auth-input mb-4" type="number" placeholder="NIK">
+                                    <select id="agama" name="agama">
+                                        <option value="hide">Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Protestan">Protestan</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
+                                        <option value="Khonghucu">Khonghucu</option>
+                                    </select>
+                                    <input class="auth-input mb-4" type="number" name="nik" placeholder="NIK" onkeypress="return isNumberKey(event)">
                                 </div>
 
                                 <span class="auth-btn py-3 mt-3 goToStep3">Selanjutnya</span>
@@ -84,11 +93,11 @@
                                 </div>
 
                                 <div>
-                                    <input class="auth-input mb-4" type="text" placeholder="Perguruan Tinggi">
-                                    <input class="auth-input mb-4" type="number" placeholder="NIM">
-                                    <input class="auth-input mb-4" type="text" placeholder="Program Studi">
-                                    <input class="auth-input mb-4" type="text" placeholder="Jenjang">
-                                    <input class="auth-input mb-4" type="number" placeholder="Semester">
+                                    <input class="auth-input mb-4" type="text" name="pt" placeholder="Perguruan Tinggi">
+                                    <input class="auth-input mb-4" type="number" name="nim" placeholder="NIM" onkeypress="return isNumberKey(event)">
+                                    <input class="auth-input mb-4" type="text" name="ps" placeholder="Program Studi">
+                                    <input class="auth-input mb-4" type="text" name="jenjang" placeholder="Jenjang">
+                                    <input class="auth-input mb-4" type="number" name="semester" placeholder="Semester" onkeypress="return isNumberKey(event)">
                                 </div>
 
                                 <span class="auth-btn py-3 mt-3 goToStep4">Selanjutnya</span>
@@ -107,7 +116,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonCV">
                                             Pilih File
-                                            <input type="file" id="cv">
+                                            <input type="file" id="cv" name="cv" accept=".pdf">
                                         </span>
                                         <div id="labelCV">
                                             <div>
@@ -125,7 +134,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonPorto">
                                             Pilih File
-                                            <input type="file" id="porto">
+                                            <input type="file" id="porto" name="porto" accept=".pdf">
                                         </span>
                                         <div id="labelPorto">
                                             <div>
@@ -143,7 +152,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif1">
                                             Pilih File
-                                            <input type="file" id="sertif1">
+                                            <input type="file" id="sertif1" name="serti[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif1">
                                             <div>
@@ -159,7 +168,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif2">
                                             Pilih File
-                                            <input type="file" id="sertif2">
+                                            <input type="file" id="sertif2" name="serti[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif2">
                                             <div>
@@ -175,7 +184,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif3">
                                             Pilih File
-                                            <input type="file" id="sertif3">
+                                            <input type="file" id="sertif3" name="serti[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif3">
                                             <div>
@@ -193,7 +202,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonRekom">
                                             Pilih File
-                                            <input type="file" id="rekom">
+                                            <input type="file" id="rekom" name="rekom" accept=".pdf">
                                         </span>
                                         <div id="labelRekom">
                                             <div>

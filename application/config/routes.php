@@ -96,6 +96,10 @@ $route['admin/event/destroy']       = 'adm/EventController/destroy';
 
 
 // --- USER ---
-$route['register']      = 'usr/AuthController/vRegister';
+// AUTH
+$route['sign-up']   = 'usr/AuthController/vSignUp';
+$route['register']  = 'usr/AuthController/register';
+
+// EVENT
 $route['event-list']    = 'usr/EventController/vEventList';
 $route['event/(:any)']  = 'usr/EventController/vEvent/$1';
