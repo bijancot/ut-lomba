@@ -16,7 +16,7 @@
                 <span class="sub-link"><a href="<?= site_url()?>home/course_list">Psikologi</a></span>
             </nav>
         </button>
-        <a href="<?= site_url()?>home/eventList" class="links <?= uri_string() == 'home/eventList' ? 'active':'' ?>">Event</a>
+        <a href="<?= site_url()?>event-list" class="links <?= uri_string() == 'home/eventList' ? 'active':'' ?>">Event</a>
         <a href="<?= site_url()?>home/about" class="links <?= uri_string() == 'home/about' ? 'active':'' ?>">About</a>
     </div>
     <!-- IF NOT LOGGED IN -->
@@ -26,21 +26,26 @@
         <a href="<?= site_url()?>login" class="links font-w-600 <?= uri_string() == 'login' ? 'active':'' ?>">Masuk</a>
     </div>
     <!-- IF LOGGED IN -->
+    <?php if($this->session->userdata('is_logged')){ ?>
     <div class="d-flex ms-n5 flex-row align-items-center h-100">
         <a href="#" class="links circle font-w-600"><span class="badge"></span><img class="icon" src="<?= site_url()?>assets/src/img/bell-icon.svg" alt=""></a>
         <a class="links mx-1 circle-photo font-w-600"><img class="icon" src="<?= site_url()?>assets/src/img/cat.jpg" alt=""></a>
-        <a class="links username mx-2 font-w-600">Alfian Mengsedih</a>
+        <a class="links username mx-2 font-w-600"><?= strtok($this->session->userdata('nama'), " ")?></a>
         <div class="nav-sublink c-pointer">
             <button class="border-0 bg-transparent ms-3"><span class="iconify fs-4" data-icon="bi:three-dots-vertical"></span></button>
 
             <nav class="sub-nav profile p-2 position-absolute d-flex flex-column align-items-start">
 
                 <!-- Tambah parameter di link nya  -->
-
                 <span class="sub-link"><a href="<?= site_url()?>profile">Profile</a></span>
                 <span class="sub-link"><a href="<?= site_url()?>home/#">Help</a></span>
                 <span class="sub-link text-danger c-pointer"><a data-bs-toggle="modal" data-bs-target="#logoutModal">Keluar</a></span>
             </nav>
         </div>
     </div>
+    <?php } else {?>
+    <div class="d-flex ms-n5 flex-row align-items-center h-100">
+        <a href="<?= site_url('sign-in')?>" class="auth-btn px-3">Masuk</a>
+    </div>
+    <?php }?>
 </header>

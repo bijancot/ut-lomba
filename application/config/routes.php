@@ -62,7 +62,7 @@ $route['home/event'] = 'guest/MainController/event';
 $route['home/pretest'] = 'guest/MainController/pretest';
 $route['home/about'] = 'guest/MainController/about';
 $route['profile'] = 'guest/UserController/profile';
-$route['login'] = 'guest/AuthController';
+// $route['login'] = 'guest/AuthController';
 // $route['register'] = 'guest/AuthController/register';
 
 // --- ADMIN ---
@@ -97,8 +97,11 @@ $route['admin/event/destroy']       = 'adm/EventController/destroy';
 
 // --- USER ---
 // AUTH
+$route['sign-in']   = 'usr/AuthController/vSignIn';
 $route['sign-up']   = 'usr/AuthController/vSignUp';
 $route['register']  = 'usr/AuthController/register';
+$route['login']     = 'usr/AuthController/login';
+$route['logout']    = 'usr/AuthController/logout';
 
 // EVENT
 $route['event-list']    = 'usr/EventController/vEventList';

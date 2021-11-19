@@ -16,6 +16,11 @@ class AuthController extends CI_Controller{
 
         $this->template->index('auth/register', $data);
     }
+    public function vSignIn(){
+        $data['title']  = 'login'; // PLACEHOLDER VARIABLE DATA
+
+        $this->template->index('auth/login', $data);
+    }
     public function register(){
         $formData['EMAIL_USER']             = $_POST['email'];
         $formData['TELP_USER']              = $_POST['telp'];
@@ -54,8 +59,39 @@ class AuthController extends CI_Controller{
         if($uploadDokPend['status'] == true){
             $formData['DOKPEND_USER'] = $uploadDokPend['link'];
         }
+
+        $this->setSession($_POST['email'], $_POST['nama']);
+
         $this->User->insert($formData);
         redirect('/');
+    }
+
+    public function login(){
+       $user = $this->User->get(['EMAIL_USER' => $_POST['email']]);
+       
+       if($user == null){ // cek email is exist
+            $this->session->set_flashdata('err_msg', 'Email atau Password salah!');
+            redirect('sign-in');
+       }
+
+       if($user[0]->PASSWORD_USER != hash('sha256', md5($_POST['pass']))){ // cek password is correct
+            $this->session->set_flashdata('err_msg', 'Email atau Password salah!');
+            redirect('sign-in');
+        }
+    
+        $this->setSession($user[0]->EMAIL_USER, $user[0]->NAMA_USER);
+        redirect('/');
+    }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('/');
+    }
+
+    public function setSession($email, $nama){
+        $this->session->set_userdata('email', $email);
+        $this->session->set_userdata('nama', $nama);
+        $this->session->set_userdata('is_logged', true);
     }
 
     public function upload_file($email, $folder, $file){

@@ -8,7 +8,7 @@
       </div>
       <div class="modal-footer border-top-0">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Tidak</button>
-        <button type="button" class="btn btn-warning text-white">Ya</button>
+        <a href="<?= site_url('logout')?>" type="button" class="btn btn-warning text-white">Ya</a>
       </div>
     </div>
   </div>

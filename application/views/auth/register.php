@@ -9,7 +9,7 @@
                         </div>
                     </div>
                     <div class="position-relative overflow-hidden d-flex align-items-center w-100 h-100">
-                        <form action="<?= site_url('register')?>" method="post" enctype="multipart/form-data">
+                        <form id="formRegister" action="<?= site_url('register')?>" method="post" enctype="multipart/form-data">
 
                             <div class="register-slide active" id="register-step-1">
                                 <div class="d-flex align-items-center w-100 mb-5">
@@ -156,7 +156,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif1">
                                             Pilih File
-                                            <input type="file" id="sertif1" name="dokPend[0]" accept=".pdf">
+                                            <input type="file" id="sertif1" name="dokPend[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif1">
                                             <div>
@@ -172,7 +172,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif2">
                                             Pilih File
-                                            <input type="file" id="sertif2" name="dokPend[1]" accept=".pdf">
+                                            <input type="file" id="sertif2" name="dokPend[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif2">
                                             <div>
@@ -188,7 +188,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif3">
                                             Pilih File
-                                            <input type="file" id="sertif3" name="dokPend[2]" accept=".pdf">
+                                            <input type="file" id="sertif3" name="dokPend[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif3">
                                             <div>

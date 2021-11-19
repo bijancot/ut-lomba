@@ -21,67 +21,67 @@ $(document).ready(function () {
         }, 700);
     });
     $(".goToStep2").click(function () {
-        // const email         = $('input[name=email]').val();
-        // const telp          = $('input[name=telp]').val();
-        // const pass          = $('input[name=pass]').val();
-        // const confirmPass   = $('input[name=confirmPass]').val();
+        const email         = $('input[name=email]').val();
+        const telp          = $('input[name=telp]').val();
+        const pass          = $('input[name=pass]').val();
+        const confirmPass   = $('input[name=confirmPass]').val();
 
-        // if(email == "" || telp == "" || pass == "" || confirmPass == ""){
-        //     $('#alert').attr('hidden', false);
-        //     $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
-        // }else if(pass != confirmPass){
-        //     $('#alert').attr('hidden', false);
-        //     $('#alert #alert-msg').html('Opps, Password tidak cocok!');
-        // }else{
-        //     $('#alert').attr('hidden', true);
+        if(email == "" || telp == "" || pass == "" || confirmPass == ""){
+            $('#alert').attr('hidden', false);
+            $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
+        }else if(pass != confirmPass){
+            $('#alert').attr('hidden', false);
+            $('#alert #alert-msg').html('Opps, Password tidak cocok!');
+        }else{
+            $('#alert').attr('hidden', true);
             $("#register-step-1").removeClass("active");
             $("#register-step-3").removeClass("active");
             setTimeout(function () {
                 $("#register-step-2").addClass("active");
             }, 700);
-        // }
+        }
     });
     $(".goToStep3").click(function () {
-        // const nama          = $('input[name=nama]').val();
-        // const jk            = $('input[name=jk]').val();
-        // const alamat        = $('input[name=alamat]').val();
-        // const tmpt_lahir    = $('input[name=tmpt_lahir]').val();
-        // const tgl_lahir     = $('select[name=tgl_lahir]').val();
-        // const bln_lahir     = $('select[name=bln_lahir]').val();
-        // const thn_lahir     = $('select[name=thn_lahir]').val();
-        // const agama         = $('select[name=agama]').val();
-        // const nik           = $('input[name=nik]').val();
+        const nama          = $('input[name=nama]').val();
+        const jk            = $('input[name=jk]').val();
+        const alamat        = $('input[name=alamat]').val();
+        const tmpt_lahir    = $('input[name=tmpt_lahir]').val();
+        const tgl_lahir     = $('select[name=tgl_lahir]').val();
+        const bln_lahir     = $('select[name=bln_lahir]').val();
+        const thn_lahir     = $('select[name=thn_lahir]').val();
+        const agama         = $('select[name=agama]').val();
+        const nik           = $('input[name=nik]').val();
 
-        // if(nama == "" || jk == "" || alamat == "" || tmpt_lahir == "" || tgl_lahir == "" || bln_lahir == "" || thn_lahir == "" || agama == "" || nik == ""){
-        //     $('#alert').attr('hidden', false);
-        //     $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
-        // }else{
-        //     $('#alert').attr('hidden', true);
+        if(nama == "" || jk == "" || alamat == "" || tmpt_lahir == "" || tgl_lahir == "" || bln_lahir == "" || thn_lahir == "" || agama == "" || nik == ""){
+            $('#alert').attr('hidden', false);
+            $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
+        }else{
+            $('#alert').attr('hidden', true);
             $("#register-step-2").removeClass("active");
             $("#register-step-4").removeClass("active");
             setTimeout(function () {
                 $("#register-step-3").addClass("active");
             }, 700);
-        // }
+        }
 
     });
     $(".goToStep4").click(function () {
-        // const pt        = $('input[name=pt]').val();
-        // const nim       = $('input[name=nim]').val();
-        // const ps        = $('input[name=ps]').val();
-        // const jenjang   = $('input[name=jenjang]').val();
-        // const semester  = $('input[name=semester]').val();
+        const pt        = $('input[name=pt]').val();
+        const nim       = $('input[name=nim]').val();
+        const ps        = $('input[name=ps]').val();
+        const jenjang   = $('input[name=jenjang]').val();
+        const semester  = $('input[name=semester]').val();
 
-        // if(pt == "" || nim == "" || ps == "" || jenjang == "" || semester == ""){
-        //     $('#alert').attr('hidden', false);
-        //     $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
-        // }else{
-        //     $('#alert').attr('hidden', true);
+        if(pt == "" || nim == "" || ps == "" || jenjang == "" || semester == ""){
+            $('#alert').attr('hidden', false);
+            $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
+        }else{
+            $('#alert').attr('hidden', true);
             $("#register-step-3").removeClass("active");
             setTimeout(function () {
                 $("#register-step-4").addClass("active");
             }, 700);
-        // }
+        }
 
     });
     $(".finalStep").click(function () {
@@ -90,20 +90,19 @@ $(document).ready(function () {
         const dokPend2  = $('#sertif2').val();
         const dokPend3  = $('#sertif3').val();
         const rekom     = $('input[name=rekom]').val();
-        console.log(dokPend1)
 
-        if(cv == "" || rekom == "" || (dokPend1 == "" || dokPend2 == "" || dokPend3 == "")){
+        if(cv == "" || rekom == "" || (dokPend1 == "" && dokPend2 == "" && dokPend3 == "")){
             $('#alert').attr('hidden', false);
             $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
         }else{
             $('#alert').attr('hidden', true);
-            // $('form').submit();
+            $('#formRegister').submit();
         }
     });
-    $('input[name=cv]').bind('change', function() {
-        //this.files[0].size gets the size of your file.
-        alert(this.files[0].type);
-    });          
+    // $('input[name=cv]').bind('change', function() {
+    //     this.files[0].size gets the size of your file.
+    //     alert(this.files[0].type);
+    // });          
 });
 
 
