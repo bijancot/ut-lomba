@@ -76,6 +76,15 @@ $route['admin/course/update']       = 'adm/CourseController/update';
 $route['admin/course/publish']      = 'adm/CourseController/publish';
 $route['admin/course/destroy']      = 'adm/CourseController/destroy';
 
+// KATEGORI COURSE
+$route['admin/kategori-course']              = 'adm/KategoriCourseController';
+$route['admin/kategori-course/add']          = 'adm/KategoriCourseController/vAdd';
+$route['admin/kategori-course/edit/(:any)']  = 'adm/KategoriCourseController/vEdit/$1';
+$route['admin/kategori-course/store']        = 'adm/KategoriCourseController/store';
+$route['admin/kategori-course/update']       = 'adm/KategoriCourseController/update';
+$route['admin/kategori-course/publish']      = 'adm/KategoriCourseController/publish';
+$route['admin/kategori-course/destroy']      = 'adm/KategoriCourseController/destroy';
+
 // MATERIAL
 $route['admin/material/store']          = 'adm/MaterialController/store';
 $route['admin/material/update']         = 'adm/MaterialController/update';

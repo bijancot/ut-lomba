@@ -7,6 +7,7 @@ class CourseController extends CI_Controller{
         $this->load->model('Course');
         $this->load->model('CourseUser');
         $this->load->model('Material');
+        $this->load->model('KategoriCourse');
     }
 
     public function index(){
@@ -20,6 +21,7 @@ class CourseController extends CI_Controller{
     public function vAdd(){
         $data['title']      = 'Tambah Course';
         $data['sidebar']    = 'course';
+        $data['kategoris']   = $this->KategoriCourse->getAll();
 
         $this->template->admin('adm/course/course_add', $data);
     }
@@ -28,6 +30,7 @@ class CourseController extends CI_Controller{
         $data['title']      = "Ubah Course";
         $data['sidebar']    = 'course';
         $data['course']     = $this->Course->getById($id);
+        $data['kategoris']  = $this->KategoriCourse->getAll();
 
         $this->template->admin('adm/course/course_edit', $data);
     }
@@ -36,6 +39,7 @@ class CourseController extends CI_Controller{
         $upload = $this->upload_image();
         if($upload['status'] == true){ // cek if upload success
             $formData['NAMA_COURSE']        = $_POST['nama'];
+            $formData['ID_KATCOU']          = $_POST['kat'];
             $formData['DESKRIPSI_COURSE']   = $_POST['deskripsi'];
             $formData['IMG_COURSE']         = $upload['link'];
             $this->Course->insert($formData);
@@ -45,6 +49,7 @@ class CourseController extends CI_Controller{
         }else{
             $data['title']      = 'Tambah Course';
             $data['sidebar']    = 'course';
+            $data['kategoris']  = $this->KategoriCourse->getAll();
             $data['dataTemp']   = $_POST;
 
             $this->session->set_flashdata('err_msg', $upload['msg']);

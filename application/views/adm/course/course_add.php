@@ -33,6 +33,19 @@
                     <input class="form-control" type="text" value="<?= !empty($dataTemp['nama']) ? $dataTemp['nama'] : "" ?>" name="nama" id="" required>
                 </div>
                 <div class="form-group">
+                    <label>Kategori</label>
+                    <select class="form-control" name="kat" id="">
+                        <option value="">Tidak Ada Kategori</option>
+                        <?php
+                            foreach ($kategoris as $item) {
+                                echo '
+                                    <option value="'.$item->ID_KATCOU.'">'.$item->NAMA_KATCOU.'</option>
+                                ';
+                            }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Deskripsi</label><span class="text-warning">*</span>
                     <textarea class="form-control" type="text" name="deskripsi" id="" required><?= !empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "" ?></textarea>
                 </div>
