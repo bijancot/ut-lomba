@@ -152,7 +152,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif1">
                                             Pilih File
-                                            <input type="file" id="sertif1" name="serti[]" accept=".pdf">
+                                            <input type="file" id="sertif1" name="dokPend[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif1">
                                             <div>
@@ -168,7 +168,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif2">
                                             Pilih File
-                                            <input type="file" id="sertif2" name="serti[]" accept=".pdf">
+                                            <input type="file" id="sertif2" name="dokPend[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif2">
                                             <div>
@@ -184,7 +184,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif3">
                                             Pilih File
-                                            <input type="file" id="sertif3" name="serti[]" accept=".pdf">
+                                            <input type="file" id="sertif3" name="dokPend[]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif3">
                                             <div>

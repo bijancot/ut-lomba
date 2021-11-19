@@ -4,6 +4,7 @@ class AuthController extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('User');
+        $this->load->library('upload');
     }
     public function vHome(){
         $data['home']  = 'Home'; // PLACEHOLDER VARIABLE DATA
@@ -33,6 +34,98 @@ class AuthController extends CI_Controller{
         $formData['PROGRAMSTUDI_USER']      = $_POST['ps'];
         $formData['JENJANG_USER']           = $_POST['jenjang'];
         $formData['SEMESTER_USER']          = $_POST['semester'];
+
+        $uploadCV = $this->upload_file($_POST['email'], 'cv', 'cv');
+        if($uploadCV['status'] == true){
+            $formData['CV_USER'] = $uploadCV['link'];
+        }
+
+        $uploadPortfolio = $this->upload_file($_POST['email'], 'portfolio', 'porto');
+        if($uploadPortfolio['status'] == true){
+            $formData['PORTFOLIO_USER'] = $uploadPortfolio['link'];
+        }
+        
+        $uploadRekom = $this->upload_file($_POST['email'], 'surat-rekomendasi', 'rekom');
+        if($uploadRekom['status'] == true){
+            $formData['SURATREKOM_USER'] = $uploadRekom['link'];
+        }
+
+        $uploadDokPend = $this->upload_dokPend($_POST['email'], $_FILES['dokPend']);
+        if($uploadDokPend['status'] == true){
+            $formData['DOKPEND_USER'] = $uploadDokPend['link'];
+        }
         $this->User->insert($formData);
+
+    }
+
+    public function upload_file($email, $folder, $file){
+        $email = str_replace("@", "__", $email);
+        $path = 'uploads/user/'.$email.'/'.$folder;
+        if (!is_dir($path)) {
+            mkdir($path, 0777, TRUE);
+        }
+
+        $conf['upload_path']    = $path;
+        $conf['allowed_types']  = "pdf";
+        $conf['max_size']       = 2048;
+        $conf['file_name']      = str_replace(" ", "", $_FILES[$file]['name']);
+
+        $this->upload->initialize($conf);
+        if($this->upload->do_upload($file)){
+            $dataUpload = $this->upload->data();
+            return [
+                    'status'=> true,
+                    'msg'   => 'Data berhasil terupload',
+                    'link'  => base_url($path."/".$dataUpload['file_name'])
+                ];
+        }else{
+            return [
+                'status'=> false,
+                'msg'   => $this->upload->display_errors(),
+            ];
+        }
+    }
+
+    public function upload_dokPend($email, $files){
+        $email = str_replace("@", "__", $email);
+        $path = 'uploads/user/'.$email.'/dokumen-pendukung';
+        if (!is_dir($path)) {
+            mkdir($path, 0777, TRUE);
+        }
+
+        $dokPend = array();
+        $links     = array();
+        foreach ($files['name'] as $item => $file) { // upload multiple files
+            $_FILES['dokPend[]']['name']      = $files['name'][$item];
+            $_FILES['dokPend[]']['type']      = $files['type'][$item];
+            $_FILES['dokPend[]']['tmp_name']  = $files['tmp_name'][$item];
+            $_FILES['dokPend[]']['error']     = $files['error'][$item];
+            $_FILES['dokPend[]']['size']      = $files['size'][$item];
+
+            $fileName = str_replace(" ", "", $file);
+
+            $dokPend[] = $fileName;
+            $links[]     = base_url($path."/".$fileName);
+
+            $conf['upload_path']    = $path;
+            $conf['allowed_types']  = "pdf";
+            $conf['max_size']       = 2048;
+            $conf['file_name']      = $fileName;
+            $this->upload->initialize($conf);
+
+            if ($this->upload->do_upload('dokPend[]')) {
+                $this->upload->data();
+            } else {
+                return [
+                    'status'=> false,
+                    'msg'   => $this->upload->display_errors()
+                ];
+            }
+        }
+        return [
+            'status'=> true,
+            'msg'   => 'Data berhasil terupload',
+            'link'  => implode(';', $links)
+        ];
     }
 }
