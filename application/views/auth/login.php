@@ -21,7 +21,7 @@
 
                     <a href="#" class="font-w-600 my-3 ps-2">Forgot your password</a>
                     <button type="submit" class="auth-btn mt-3">Masuk</button>
-                    <p class="text-center w-100 mt-3">Belum punya akun ? <a href="<?= site_url('/register') ?>" class="font-w-600">Daftar</a></p>
+                    <p class="text-center w-100 mt-3">Belum punya akun ? <a href="<?= site_url('sign-up') ?>" class="font-w-600">Daftar</a></p>
                 </section>
             </div>
             <div class="auth-img ms-auto">

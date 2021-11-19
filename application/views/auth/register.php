@@ -3,7 +3,11 @@
         <div class="d-flex position-relative row h-100">
             <div class="col-12 col-lg-6 bg-white b-radius-28 position-absolute start-0 bottom-0 top-0">
                 <section class="form-section p-3 p-md-4 h-100 d-flex flex-column justify-content-center align-items-start">
-
+                    <div class="mb-4" id="alert" hidden>
+                        <div id="alert-msg" class="mb-3 bg-lighter-danger color-danger font-w-600 b-radius-6 p-3 py-2">
+                            Kamu sudah 3x gagal memasukkan password, coba lagi dalam ..
+                        </div>
+                    </div>
                     <div class="position-relative overflow-hidden d-flex align-items-center w-100 h-100">
                         <form action="<?= site_url('register')?>" method="post" enctype="multipart/form-data">
 
@@ -16,7 +20,7 @@
                                     <input class="auth-input mb-4" type="text" name="email" placeholder="Alamat Email">
                                     <input class="auth-input mb-4" type="number" name="telp" placeholder="Nomor Hp" onkeypress="return isNumberKey(event)">
                                     <input class="auth-input mb-4" type="password" name="pass" placeholder="Buat Password">
-                                    <input class="auth-input mb-4" type="password" placeholder="Konfirmasi Password">
+                                    <input class="auth-input mb-4" type="password" name="confirmPass" placeholder="Konfirmasi Password">
                                 </div>
 
 
@@ -39,7 +43,7 @@
                                     <input class="auth-input mb-4" type="text" name="tmpt_lahir" placeholder="Tempat Kelahiran">
                                     <div class="d-flex gap-3 mb-4">
                                         <select id="tanggal" name="tgl_lahir">
-                                            <option value="hide">Tanggal Lahir</option>
+                                            <option value="">Tanggal Lahir</option>
                                             <?php
                                             for ($x = 1; $x <= 31; $x++) {
                                                 echo "<option value='$x'>$x</option>";
@@ -47,7 +51,7 @@
                                             ?>
                                         </select>
                                         <select id="bulan" name="bln_lahir">
-                                            <option value="hide">Bulan</option>
+                                            <option value="">Bulan</option>
                                             <option value="1">January</option>
                                             <option value="2">February</option>
                                             <option value="3">March</option>
@@ -62,7 +66,7 @@
                                             <option value="12">December</option>
                                         </select>
                                         <select id="tahun" name="thn_lahir">
-                                            <option value="hide">Tahun</option>
+                                            <option value="">Tahun</option>
                                             <?php
                                             for ($x = 2021; $x >= 1900; $x--) {
                                                 echo "<option value='$x'>$x</option>";
@@ -71,7 +75,7 @@
                                         </select>
                                     </div>
                                     <select id="agama" name="agama">
-                                        <option value="hide">Agama</option>
+                                        <option value="">Agama</option>
                                         <option value="Islam">Islam</option>
                                         <option value="Protestan">Protestan</option>
                                         <option value="Katolik">Katolik</option>
@@ -152,7 +156,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif1">
                                             Pilih File
-                                            <input type="file" id="sertif1" name="dokPend[]" accept=".pdf">
+                                            <input type="file" id="sertif1" name="dokPend[0]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif1">
                                             <div>
@@ -168,7 +172,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif2">
                                             Pilih File
-                                            <input type="file" id="sertif2" name="dokPend[]" accept=".pdf">
+                                            <input type="file" id="sertif2" name="dokPend[1]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif2">
                                             <div>
@@ -184,7 +188,7 @@
                                     <div class="input-file">
                                         <span class="course-card-title button-file mb-0" id="buttonSertif3">
                                             Pilih File
-                                            <input type="file" id="sertif3" name="dokPend[]" accept=".pdf">
+                                            <input type="file" id="sertif3" name="dokPend[2]" accept=".pdf">
                                         </span>
                                         <div id="labelSertif3">
                                             <div>
@@ -217,7 +221,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="auth-btn py-3 mt-3">Daftar</button>
+                                <span class="auth-btn py-3 mt-3 finalStep">Daftar</span>
                             </div>
                         </form>
 

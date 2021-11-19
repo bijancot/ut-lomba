@@ -19,7 +19,7 @@ class AuthController extends CI_Controller{
     public function register(){
         $formData['EMAIL_USER']             = $_POST['email'];
         $formData['TELP_USER']              = $_POST['telp'];
-        $formData['PASSWORD_USER']          = $_POST['pass'];
+        $formData['PASSWORD_USER']          = hash('sha256', md5($_POST['pass']));
         $formData['NAMA_USER']              = $_POST['nama'];
         $formData['JK_USER']                = $_POST['jk'];
         $formData['ALAMAT_USER']            = $_POST['alamat'];
@@ -55,7 +55,7 @@ class AuthController extends CI_Controller{
             $formData['DOKPEND_USER'] = $uploadDokPend['link'];
         }
         $this->User->insert($formData);
-
+        redirect('/');
     }
 
     public function upload_file($email, $folder, $file){
