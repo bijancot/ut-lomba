@@ -36,7 +36,7 @@
                         <tr>
                             <th style="width: 5%;">Poster</th>
                             <th style="width: 20%;">Nama</th>
-                            <th style="width: 35%;">Deskripsi</th>
+                            <th style="width: 35%;">Kategori</th>
                             <th style="width: 10%;">Materi</th>
                             <th style="width: 10%;">Status</th>
                             <th style="width: 20%;">Aksi</th>                            
@@ -52,7 +52,7 @@
                                     <tr>
                                         <td class="text-center"><a class="btn btn-sm btn-primary mdlPoster" data-toggle="modal" data-target="#mdlPoster" data-src="'.$item->IMG_COURSE.'"><i class="fa fa-image"></i></a></td>
                                         <td>'.$item->NAMA_COURSE.'</td>
-                                        <td>'.$item->DESKRIPSI_COURSE.'</td>
+                                        <td>'.$item->NAMA_KATCOU.'</td>
                                         <td>'.$statusMateri.'</td>
                                         <td>'.$status.'</td>
                                         <td>

@@ -100,13 +100,13 @@
                 </button>
             </div>
             <div class="modal-body text-center">
-                <p>Apakah anda yakin untuk menghapus course <span></span> ?</p>
+                <p>Apakah anda yakin untuk menghapus kategori course <span></span> ?</p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <form action="<?= site_url('admin/course/destroy')?>" method="post">
-                    <input type="hidden" name="idCourse" id="mdlHapus_id">
+                <form action="<?= site_url('admin/kategori-course/destroy')?>" method="post">
+                    <input type="hidden" name="id" id="mdlHapus_id">
                     <button type="submit" class="btn btn-success">Hapus</button>
                 </form>
             </div>

@@ -34,6 +34,26 @@
                     <input class="form-control" type="text" value="<?= (!empty($course->NAMA_COURSE) ? $course->NAMA_COURSE : (!empty($dataTemp['nama']) ? $dataTemp['nama'] : "")) ?>" name="nama" id="" required>
                 </div>
                 <div class="form-group">
+                    <label>Kategori</label>
+                    <select class="form-control" name="kat" id="">
+                        <option value="">Tidak Ada Kategori</option>
+                        <?php
+                            foreach ($kategoris as $item) {
+                                $selected = "";
+                                if(!empty($course->ID_KATCOU)){
+                                    $selected = ($course->ID_KATCOU == $item->ID_KATCOU ? "selected" : "");
+                                }else if(!empty($dataTemp['kat'])){
+                                    $selected = ($dataTemp['kat'] == $item->ID_KATCOU ? "selected" : "");
+                                }   
+                                
+                                echo '
+                                    <option value="'.$item->ID_KATCOU.'" '.$selected.'>'.$item->NAMA_KATCOU.'</option>
+                                ';
+                            }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Deskripsi</label><span class="text-warning">*</span>
                     <textarea class="form-control" type="text" name="deskripsi" id="" required><?= (!empty($course->DESKRIPSI_COURSE) ? $course->DESKRIPSI_COURSE : (!empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "")) ?></textarea>
                 </div>

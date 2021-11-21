@@ -47,4 +47,9 @@ class KategoriCourseController extends CI_Controller{
         $this->session->set_flashdata('succ_msg', 'Berhasil mengubah status publish!');
         redirect('admin/kategori-course');
     }
+    public function destroy(){
+        $this->KategoriCourse->delete(['ID_KATCOU' => $_POST['id']]);
+        $this->session->set_flashdata('succ_msg', 'Kategori Course berhasil dihapus');
+        redirect('admin/kategori-course');
+    }
 }

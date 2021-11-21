@@ -8,12 +8,14 @@
             <nav class="sub-nav p-2 position-absolute d-flex flex-column align-items-start">
 
                 <!-- Tambah parameter di link nya  -->
-
-                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Leader</a></span>
-                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Management</a></span>
-                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Administrasi</a></span>
-                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Ekonomi</a></span>
-                <span class="sub-link"><a href="<?= site_url()?>home/course_list">Psikologi</a></span>
+                <?php
+                    $kategoris = $this->KategoriCourse->get(['ISPUBLISHED_KATCOU' => '1']);
+                    foreach ($kategoris as $item) {
+                        echo '
+                            <span class="sub-link"><a href="<?= site_url()?>home/course_list">'.$item->NAMA_KATCOU.'</a></span>
+                        ';
+                    }
+                ?>
             </nav>
         </button>
         <a href="<?= site_url()?>event-list" class="links <?= uri_string() == 'home/eventList' ? 'active':'' ?>">Event</a>

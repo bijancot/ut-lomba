@@ -12,7 +12,7 @@ class MaterialController extends CI_Controller{
         $data['title']      = 'Materi';
         $data['sidebar']    = 'course';
         $data['course']     = $this->Course->getById($id);
-        $data['materials']  = $this->Material->getAll();
+        $data['materials']  = $this->Material->get(['ID_COURSE' => $id]);
 
         $this->template->admin('adm/material/material', $data);
     }

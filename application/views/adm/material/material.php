@@ -55,7 +55,6 @@
                             <th style="">Materi</th>
                             <th style="">Topik</th>
                             <th style="">Konten File</th>
-                            <th style="">Deskripsi</th>
                             <th style="">Resource</th>
                             <th style="">Aksi</th>                            
                         </tr>
@@ -68,8 +67,7 @@
                                     <tr>
                                         <td class="text-center">'.$no.'</td>
                                         <td>'.$item->NAMA_MATERIAL.'</td>
-                                        <td>'.$item->NAMA_MATERIAL.'</td>
-                                        <td>'.$item->DESKRIPSI_MATERIAL.'</td>
+                                        <td><a href="'.$item->CONTENT_MATERIAL.'">'.$item->CONTENT_MATERIAL.'</a></td>
                                         <td>'.$item->NAMA_MATERIAL.'</td>
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="'.site_url('admin/material/edit/'.$item->ID_MATERIAL).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>

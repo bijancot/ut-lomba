@@ -2,13 +2,13 @@
 
 class Course extends CI_Model{
     public function getAll(){
-        return $this->db->order_by('created_at', 'desc')->get('course')->result();
+        return $this->db->order_by('created_at', 'desc')->get('v_course')->result();
     }
     public function getById($id){
-        return $this->db->get_where('course', ['ID_COURSE' => $id])->row();
+        return $this->db->get_where('v_course', ['ID_COURSE' => $id])->row();
     }
     public function get($param){
-        return $this->db->get('course', $param)->result();
+        return $this->db->get('v_course', $param)->result();
     }
     public function insert($param){
         $this->db->insert('course', $param);

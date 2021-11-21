@@ -61,6 +61,7 @@ class CourseController extends CI_Controller{
         $formData['ID_COURSE']          = $_POST['idCourse'];
         $formData['NAMA_COURSE']        = $_POST['nama'];
         $formData['DESKRIPSI_COURSE']   = $_POST['deskripsi'];
+        $formData['ID_KATCOU']          = $_POST['kat'];
 
         if(!empty($_FILES['poster']['name'])){ // cek if edit img / poster
             $upload = $this->upload_image();
@@ -71,9 +72,10 @@ class CourseController extends CI_Controller{
                 $this->session->set_flashdata('succ_msg', 'Berhasil mengubah course!');
                 redirect('admin/course');
             }else{
-                $data['title']                  = 'Ubah Course';
-                $data['sidebar']                = 'course';
-                $data['dataTemp']               = $_POST;
+                $data['title']      = 'Ubah Course';
+                $data['sidebar']    = 'course';
+                $data['kategoris']  = $this->KategoriCourse->getAll();
+                $data['dataTemp']   = $_POST;
 
                 $this->session->set_flashdata('err_msg', $upload['msg']);
                 $this->template->admin('adm/course/course_edit', $data);
