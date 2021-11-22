@@ -12,7 +12,7 @@
                     $kategoris = $this->KategoriCourse->get(['ISPUBLISHED_KATCOU' => '1']);
                     foreach ($kategoris as $item) {
                         echo '
-                            <span class="sub-link"><a href="<?= site_url()?>home/course_list">'.$item->NAMA_KATCOU.'</a></span>
+                            <span class="sub-link"><a href="'.site_url('course-list/'.$item->ID_KATCOU).'">'.$item->NAMA_KATCOU.'</a></span>
                         ';
                     }
                 ?>

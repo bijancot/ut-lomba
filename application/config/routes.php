@@ -115,3 +115,6 @@ $route['logout']    = 'usr/AuthController/logout';
 // EVENT
 $route['event-list']    = 'usr/EventController/vEventList';
 $route['event/(:any)']  = 'usr/EventController/vEvent/$1';
+
+// COURSE
+$route['course-list/(:any)'] = 'usr/CourseController/vCourseList/$1';

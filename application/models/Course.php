@@ -8,7 +8,10 @@ class Course extends CI_Model{
         return $this->db->get_where('v_course', ['ID_COURSE' => $id])->row();
     }
     public function get($param){
-        return $this->db->get('v_course', $param)->result();
+        return $this->db->get_where('v_course', $param)->result();
+    }
+    public function getListIdPublished(){
+        return $this->db->select('GROUP_CONCAT(ID_COURSE) AS ID_COURSES')->get_where('course', ['ISPUBLISHED_COURSE' => '1'])->row();
     }
     public function insert($param){
         $this->db->insert('course', $param);
