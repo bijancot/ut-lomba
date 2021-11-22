@@ -7,18 +7,25 @@
         <div class="row mt-5">
             <div class="col-12 col-lg-6 pe-5">
                 <div class="d-flex flex-row justify-content-between">
-                    <p class="fs-5 font-w-600">Done<span class="iconify ms-2 fs-3 color-success" data-icon="fluent:checkmark-circle-12-filled"></span></p>
-                    <p><span class="font-w-600">Kategori :</span> Pengembangan Diri</p>
+                    <?php
+                        if($course->STAT_CU == "2"){
+                            echo '
+                                <p class="fs-5 font-w-600">Done<span class="iconify ms-2 fs-3 color-success" data-icon="fluent:checkmark-circle-12-filled"></span></p>
+                            ';        
+                        }else{
+                            echo '
+                                <p class="fs-5 font-w-600">Progress: '.$course->PROGRESS_CU.'%</p>
+                            ';
+                        }
+                    ?>
+                    
+                    <p><span class="font-w-600">Kategori :</span> <?= $course->NAMA_KATCOU?></p>
                 </div>
-                <p class="fs-2 font-w-600 mt-3">Strategi Mengembangkan dan Mempertahankan Karyawan </p>
+                <p class="fs-2 font-w-600 mt-3"><?= $course->NAMA_COURSE?></p>
                 <div class="desc-text-container mb-5">
 
                     <p class="color-secondary-dark">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, consequuntur? Asperiores commodi esse natus doloremque corrupti architecto consequatur accusamus voluptatem aperiam earum sunt sit quas consectetur quibusdam beatae, ut laudantium?
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam totam laudantium, repellat perspiciatis consectetur repellendus, veritatis illo maiores dolor commodi dolorem doloremque fugit voluptate perferendis similique omnis autem delectus doloribus!
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam totam laudantium, repellat perspiciatis consectetur repellendus, veritatis illo maiores dolor commodi dolorem doloremque fugit voluptate perferendis similique omnis autem delectus doloribus!
+                        <?= $course->DESKRIPSI_COURSE?>
                     </p>
                     <div class="gradient-decor d-flex justify-content-center align-items-end">
                         <button class="border-0 outline-none bg-transparent fs-5 font-w-500 d-flex align-items-center" id="toggleSee">
@@ -29,12 +36,12 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <img class="course-image" src="<?= site_url() ?>assets/src/img/course.png">
+                <img class="course-image" src="<?= $course->IMG_COURSE?>">
                 <div class="d-flex flex-row justify-content-end align-items-center mt-4">
-                    <p class="font-w-600 mb-0">Share :</p>
+                    <!-- <p class="font-w-600 mb-0">Share :</p>
                     <button class="border-0 bg-transparent"><span class="iconify fs-5 ms-3" data-icon="brandico:facebook"></span></button>   
                     <button class="border-0 bg-transparent"><span class="iconify fs-5 ms-3" data-icon="brandico:twitter-bird"></span></button>   
-                    <button class="border-0 bg-transparent"><span class="iconify fs-4 ms-3" data-icon="ant-design:instagram-filled"></span></button>   
+                    <button class="border-0 bg-transparent"><span class="iconify fs-4 ms-3" data-icon="ant-design:instagram-filled"></span></button>    -->
                 </div>
             </div>
         </div>
@@ -73,3 +80,35 @@
         </div>
     </div>
 </div>
+<script>
+    $('.course-card-title').click(function(){
+        const id = $(this).data('id')
+        const no = $(this).data('no')
+        $.ajax({
+            url: "<?= site_url('course/ajxGetMU')?>",
+            method: "POST",
+            data: {id: id },
+            success: function(res){
+                res = JSON.parse(res)
+                $('#title').html(`Materi ${no} : ${res.NAMA_MATERIAL}`);
+                $('#desc').html(`${res.DESKRIPSI_MATERIAL}`);
+                $('#content').attr('src', res.CONTENT_MATERIAL);
+
+                let html = "";
+                const resources = res.RESOURCE_MATERIAL.split(';');
+                for(const item of resources){
+                    baseUrl = "<?= site_url()?>"
+                    html += `
+                        <a href="${item}" class="course-pdf d-flex flex-wrap flex-col py-3">
+                            <button class="course-card-title option">
+                                <img src="${baseUrl}assets/src/img/pdf.svg" width="24" height="24" class="me-2">
+                                Materi Tambahan
+                            </button>
+                        </a>
+                    `;
+                }
+                $('#resources').html(html);
+            }
+        })
+    })
+</script>

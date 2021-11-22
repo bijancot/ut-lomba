@@ -15,16 +15,16 @@
                 foreach ($courses as $item) {
                     if($item->STAT_CU == "0"){
                         $progress   = "Progress ".$item->PROGRESS_CU."%";
-                        $btn        = '<a href="<?= site_url() ?>home/course" class="auth-btn">Mulai</a>';
+                        $btn        = '<a href="'.site_url('course/'.$item->ID_CU).'" class="auth-btn">Mulai</a>';
                     }else if($item->STAT_CU == "1"){
                         $progress   = "Progress ".$item->PROGRESS_CU."%";
-                        $btn        = '<a href="<?= site_url() ?>home/course" class="auth-btn">Mulai</a>';
+                        $btn        = '<a href="'.site_url('course/'.$item->ID_CU).'" class="auth-btn">Lanjut</a>';
                     }else if($item->STAT_CU == "2"){
                         $progress   = '
                                 Done
                             <span class="iconify ms-2 fs-3 color-success" data-icon="fluent:checkmark-circle-12-filled"></span>
                         ';
-                        $btn        = '<a href="<?= site_url() ?>home/course" class="auth-btn">Selesai</a>';
+                        $btn        = '<a href="'.site_url('course/'.$item->ID_CU).'" class="auth-btn">Selesai</a>';
                     }
                     
                     echo '
@@ -50,8 +50,7 @@
                                             '.$progress.'
                                         </p>
                                     </div>
-                                        '.$btn.'
-                                    
+                                    '.$btn.'
                                 </div>
                             </div>
                         </div>        

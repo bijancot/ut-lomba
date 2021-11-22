@@ -1,23 +1,34 @@
 <div class="">
-    <p class="fs-4 font-w-600">Materi 1 : Intro Management</p>
+    <p class="fs-4 font-w-600" id="title">Materi <?= $course->STEP_CU+1 ?> : <?= $materials[$course->STEP_CU]->NAMA_MATERIAL?></p>
 
     <div class="course-video">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Jntfo3rJ5F8?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="course-pdf d-flex flex-wrap flex-col justify-content-center py-5">
-        <button class="course-card-title option">
-            <img src="<?= site_url() ?>assets/src/img/pdf.svg" width="24" height="24" class="me-2">
-            Lihat Dokumen
-        </button>
+        <iframe width="100%" height="100%" id="content" src="<?= $materials[$course->STEP_CU]->CONTENT_MATERIAL?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <div class="px-2">
         <p class="font-w-600 mt-4">Deskripsi :</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae dolores perspiciatis inventore obcaecati ullam laborum corrupti quas consectetur, cupiditate molestias sapiente amet sequi quos nesciunt nulla minima? Tenetur, atque necessitatibus?</p>
+        <p id="desc"><?= $materials[$course->STEP_CU]->DESKRIPSI_MATERIAL?></p>
+    </div>
+
+    <div id="resources">
+        <?php
+            $resources = $materials[$course->STEP_CU]->RESOURCE_MATERIAL;
+            $resources = explode(';', $resources);
+            foreach ($resources as $item) {
+                echo '
+                    <a href="'.$item.'" class="course-pdf d-flex flex-wrap flex-col py-3">
+                        <button class="course-card-title option">
+                            <img src="'.site_url().'assets/src/img/pdf.svg" width="24" height="24" class="me-2">
+                            Materi Tambahan
+                        </button>
+                    </a>
+                ';
+            }
+        ?>
     </div>
 
     <div class="px-2">
-        <p class="font-w-600 mt-5"> Kuis: </p>
+        <!-- <p class="font-w-600 mt-5"> Kuis: </p>
 
         <div class="question-wrapper">
 
@@ -93,7 +104,7 @@
                     <label for="456">456.Js</label>
                 </div>
             </div>
-        </div>
+        </div> -->
         <a href="#" type="submit" class="auth-btn">Submit Kuis</a>
     </div>
 
