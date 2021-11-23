@@ -25,6 +25,14 @@
         </a>
     </li>
 
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item <?= $sidebar == "pretest" ? "active" : "" ?>">
+        <a class="nav-link" href="<?= site_url('admin/pretest'); ?>">
+            <i class="fas fa-clipboard-list"></i>
+            <span>Pretest</span>
+        </a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 

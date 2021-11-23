@@ -96,6 +96,15 @@ $route['admin/material/(:any)']         = 'adm/MaterialController/vMaterial/$1';
 $route['admin/material/add/(:any)']     = 'adm/MaterialController/vAdd/$1';
 $route['admin/material/edit/(:any)']    = 'adm/MaterialController/vEdit/$1';
 
+// PRETEST
+$route['admin/pretest']               = 'adm/PretestController';
+$route['admin/pretest/add']           = 'adm/PretestController/vAdd';
+$route['admin/pretest/edit/(:any)']   = 'adm/PretestController/vEdit/$1';
+$route['admin/pretest/store']         = 'adm/PretestController/store';
+$route['admin/pretest/update']        = 'adm/PretestController/update';
+$route['admin/pretest/publish']       = 'adm/PretestController/publish';
+$route['admin/pretest/destroy']       = 'adm/PretestController/destroy';
+
 // EVENT
 $route['admin/event']               = 'adm/EventController';
 $route['admin/event/add']           = 'adm/EventController/vAdd';

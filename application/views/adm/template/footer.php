@@ -53,7 +53,9 @@
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/adm/js/demo/datatables.js'); ?>"></script>
 <script src="<?= base_url('assets/adm/js/app.js'); ?>"></script>
+<script src="<?= base_url('assets/src/js/general.js'); ?>"></script>
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script src="<?= site_url()?>/assets/adm/summernote/summernote.min.js"></script>
 <script>
     // Enable pusher logging - don't include this in production
 </script>

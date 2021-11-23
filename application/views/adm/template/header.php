@@ -33,6 +33,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/adm/vendor/jquery/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('assets/adm/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <link rel="stylesheet" href="<?= site_url()?>/assets/adm/summernote/summernote.min.css" />
 
 </head>
 
