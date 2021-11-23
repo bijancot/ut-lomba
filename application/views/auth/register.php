@@ -9,7 +9,7 @@
                         </div>
                     </div>
                     <div class="position-relative overflow-hidden d-flex align-items-center w-100 h-100">
-                        <form id="formRegister" action="<?= site_url('register')?>" method="post" enctype="multipart/form-data">
+                        <form id="formRegister" action="<?= site_url('register') ?>" method="post" enctype="multipart/form-data">
 
                             <div class="register-slide active" id="register-step-1">
                                 <div class="d-flex align-items-center w-100 mb-5">
@@ -38,7 +38,14 @@
 
                                 <div>
                                     <input class="auth-input mb-4" type="text" name="nama" placeholder="Nama Lengkap">
-                                    <input class="auth-input mb-4" type="text" name="jk" placeholder="Jenis Kelamin">
+                                    <div class="mb-3">
+                                        <select id="jk" name="jk">
+                                            <option value="">Jenis Kelamin</option>
+                                            <option value="1">Laki-laki</option>
+                                            <option value="2">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <!-- <input class="auth-input mb-4" type="text" name="jk" placeholder="Jenis Kelamin"> -->
                                     <input class="auth-input mb-4" type="text" name="alamat" placeholder="Alamat">
                                     <input class="auth-input mb-4" type="text" name="tmpt_lahir" placeholder="Tempat Kelahiran">
                                     <div class="d-flex gap-3 mb-4">

@@ -25,12 +25,12 @@
                         }
                     ?>
                     
+                    <form action="<?= site_url('login')?>" method="post" class="w-100">
                     <p class="brand mb-4">Masuk</p>
-                    <form action="<?= site_url('login')?>" method="post">
                         <input class="auth-input mb-4" type="text" placeholder="Email" name="email">
     
                         <div class="position-relative w-100">
-                            <input class="auth-input error mb-4" id="auth-password" type="password" placeholder="Password" name="pass">
+                            <input class="auth-input mb-4" id="auth-password" type="password" placeholder="Password" name="pass">
                             <span class="position-absolute end-0 pt-2 font-w-600 togglePassword" toggle="#auth-password">Lihat</span>
                         </div>
                         <a href="#" class="font-w-600 my-3 ps-2">Forgot your password</a>

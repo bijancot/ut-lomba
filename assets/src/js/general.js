@@ -270,6 +270,24 @@ $(document).ready(function () {
 function isNumberKey(evt){
     var charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
+    return false;
     return true;
 }
+
+
+
+
+$(document).ready(function () {
+    $('#labelSubmit').hide();
+    $("#submit").change(function () {
+        filename = this.files[0].name;
+        $('#labelSubmit').show();
+        $('#labelSubmit i').text(filename);
+        $('#buttonSubmit').hide();
+    });
+    $("#deleteSubmit").click(function () {
+        $("#submit").val("");
+        $('#labelSubmit').hide();
+        $('#buttonSubmit').show();
+    });
+});
