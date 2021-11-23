@@ -34,29 +34,29 @@
                     <table class="table table-bordered" id="tableKategori" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="width: 20%;">Nama Kategori</th>
+                            <th style="width: 20%;">Nama Pretest</th>
                             <th style="width: 10%;">Status</th>
                             <th style="width: 20%;">Aksi</th>                            
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            // foreach ($katcous as $item) {
-                            //     $status         = ($item->ISPUBLISHED_KATCOU == "0" ? '<span class="badge badge-danger">Unpublished</span>' : '<span class="badge badge-success">Published</span>');
+                            foreach ($pretests as $item) {
+                                $status = ($item->ISPUBLISHED_PRETEST == "0" ? '<span class="badge badge-danger">Unpublished</span>' : '<span class="badge badge-success">Published</span>');
 
-                            //     echo '
-                            //         <tr>
-                            //             <td>'.$item->NAMA_KATCOU.'</td>
-                            //             <td>'.$status.'</td>
-                            //             <td>
-                            //                 <a class="btn btn-sm btn-primary" href="'.site_url('admin/kategori-course/edit/'.$item->ID_KATCOU).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            //                 <a class="btn btn-sm btn-success mdlPublish" data-id="'.$item->ID_KATCOU.'" data-stat="'.$item->ISPUBLISHED_KATCOU.'" data-toggle="modal" data-target="#mdlPublish" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
-                            //                 <a class="btn btn-sm btn-danger mdlHapus" data-id="'.$item->ID_KATCOU.'" data-label="'.$item->NAMA_KATCOU.'" data-toggle="modal" data-target="#mdlHapus" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>
-                            //             </td>                            
-                            //         </tr>
+                                echo '
+                                    <tr>
+                                        <td>'.$item->NAMA_PRETEST.'</td>
+                                        <td>'.$status.'</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-primary" href="'.site_url('admin/pretest/edit/'.$item->ID_PRETEST).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-sm btn-success mdlPublish" data-id="'.$item->ID_PRETEST.'" data-stat="'.$item->ISPUBLISHED_PRETEST.'" data-toggle="modal" data-target="#mdlPublish" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
+                                            <a class="btn btn-sm btn-danger mdlHapus" data-id="'.$item->ID_PRETEST.'" data-label="'.$item->NAMA_PRETEST.'" data-toggle="modal" data-target="#mdlHapus" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>
+                                        </td>                            
+                                    </tr>
                                 
-                            //     ';
-                            // }
+                                ';
+                            }
                         ?>
                     </tbody>
                 </table>
@@ -69,18 +69,18 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Publish Kategori Course</h5>
+                <h5 class="modal-title">Publish Pretest</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body text-center">
-                <p>Apakah anda yakin untuk <span id="mdlPublish_label"></span> karegori course ?</p>
+                <p>Apakah anda yakin untuk <span id="mdlPublish_label"></span> pretest ?</p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <form action="<?= site_url('admin/kategori-course/publish')?>" method="post">
+                <form action="<?= site_url('admin/pretest/publish')?>" method="post">
                     <input type="hidden" name="id" id="mdlPublish_id">
                     <input type="hidden" name="stat" id="mdlPublish_stat">
                     <button type="submit" class="btn btn-success">Simpan</button>
@@ -94,18 +94,18 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Hapus Kategori Course</h5>
+                <h5 class="modal-title">Hapus Pretest</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body text-center">
-                <p>Apakah anda yakin untuk menghapus kategori course <span></span> ?</p>
+                <p>Apakah anda yakin untuk menghapus pretest <span></span> ?</p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <form action="<?= site_url('admin/kategori-course/destroy')?>" method="post">
+                <form action="<?= site_url('admin/pretest/destroy')?>" method="post">
                     <input type="hidden" name="id" id="mdlHapus_id">
                     <button type="submit" class="btn btn-success">Hapus</button>
                 </form>

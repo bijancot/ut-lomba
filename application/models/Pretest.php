@@ -2,7 +2,7 @@
 
 class Pretest extends CI_Model{
     public function getAll(){
-        return $this->db->get('pretest')->result();
+        return $this->db->order_by('NAMA_PRETEST ASC')->get('pretest')->result();
     }
     public function getById($id){
         return $this->db->get_where('pretest', ['ID_PRETEST' => $id])->row();

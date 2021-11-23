@@ -1,12 +1,15 @@
 <?php
 
 class PretestController extends CI_Controller{
-    public function __consturct(){
+    public function __construct(){
         parent::__construct();
+        $this->load->model('Pretest');
+        $this->load->library('upload');
     }
     public function index(){
-        $data['title']   = "Pretest";
-        $data['sidebar'] = "pretest";
+        $data['title']      = "Pretest";
+        $data['sidebar']    = "pretest";
+        $data['pretests']   = $this->Pretest->getAll();
 
         $this->template->admin('adm/pretest/pretest', $data);
     }
@@ -16,29 +19,107 @@ class PretestController extends CI_Controller{
 
         $this->template->admin('adm/pretest/pretest_add', $data);
     }
-    public function store(){
-        print_r($_POST);
-        // $upload = $this->upload_image();
-        // if($upload['status'] == true){ // cek if upload success
-        //     $formData['NAMA_EVENT']             = $_POST['judul'];
-        //     $formData['DESKRIPSI_EVENT']        = $_POST['deskripsi'];
-        //     $formData['LOKASI_EVENT']           = $_POST['lokasi'];
-        //     $formData['TGL_EVENT']              = $_POST['tgl'];
-        //     $formData['LINK_EVENT']             = $_POST['link'];
-        //     $formData['PENYELENGGARA_EVENT']    = $_POST['penyelenggara'];
-        //     $formData['NARAHUBUNG_EVENT']       = $_POST['narahubung'];
-        //     $formData['IMG_EVENT']              = $upload['link'];
-        //     $this->Event->insert($formData);
-            
-        //     $this->session->set_flashdata('succ_msg', 'Berhasil menambahkan event baru!');
-        //     redirect('admin/event');
-        // }else{
-        //     $data['title']      = 'Tambah Event';
-        //     $data['sidebar']    = 'event';
-        //     $data['dataTemp']   = $_POST;
+    public function vEdit($id){
+        $data['title']      = 'Ubah Pretest';
+        $data['sidebar']    = 'pretest';
+        $data['pretest']    = $this->Pretest->getById($id);
 
-        //     $this->session->set_flashdata('err_msg', $upload['msg']);
-        //     $this->template->admin('adm/event/event_add', $data);
-        // }
+        $this->template->admin('adm/pretest/pretest_edit', $data);
+    }
+    public function store(){
+        $formData['NAMA_PRETEST']               = $_POST['nama'];
+        $formData['PERATURAN_PRETEST']          = $_POST['peraturan'];
+        $formData['SOAL_PRETEST']               = $_POST['soal'];
+        $formData['FORMATFILE_PRETEST']         = $_POST['frmtFile'];
+        $formData['FORMATPENGERJAAN_PRETEST']   = $_POST['pengerjaan'];
+        $formData['DEADLINE_PRETEST']           = $_POST['durHa'].';'.$_POST['durJa'].';'.$_POST['durMe'];
+
+        if($_FILES['poster']['name'] != ""){
+            $upload = $this->upload_image();
+            if($upload['status'] == true){ // cek if upload success
+                $formData['IMG_PRETEST']    = $upload['link'];
+                $this->Pretest->insert($formData);
+                
+                $this->session->set_flashdata('succ_msg', 'Berhasil menambahkan pretest baru!');
+                redirect('admin/pretest');
+            }else{
+                $data['title']      = 'Tambah Pretest';
+                $data['sidebar']    = 'pretest';
+                $data['dataTemp']   = $_POST;
+
+                $this->session->set_flashdata('err_msg', $upload['msg']);
+                $this->template->admin('adm/pretest/pretest_add', $data);
+            }
+        }else{
+            $this->Pretest->insert($formData);
+            
+            $this->session->set_flashdata('succ_msg', 'Berhasil menambahkan pretest baru!');
+            redirect('admin/pretest');
+        }
+        
+    }
+    public function update(){
+        $formData['ID_PRETEST']                 = $_POST['id'];
+        $formData['NAMA_PRETEST']               = $_POST['nama'];
+        $formData['PERATURAN_PRETEST']          = $_POST['peraturan'];
+        $formData['SOAL_PRETEST']               = $_POST['soal'];
+        $formData['FORMATFILE_PRETEST']         = $_POST['frmtFile'];
+        $formData['FORMATPENGERJAAN_PRETEST']   = $_POST['pengerjaan'];
+        $formData['DEADLINE_PRETEST']           = $_POST['durHa'].';'.$_POST['durJa'].';'.$_POST['durMe'];
+
+        if($_FILES['poster']['name'] != ""){
+            $upload = $this->upload_image();
+            if($upload['status'] == true){ // cek if upload success
+                $formData['IMG_PRETEST']    = $upload['link'];
+                $this->Pretest->update($formData);
+                
+                $this->session->set_flashdata('succ_msg', 'Berhasil mengubah pretest!');
+                redirect('admin/pretest');
+            }else{
+                $data['title']      = 'Tambah Pretest';
+                $data['sidebar']    = 'pretest';
+                $data['dataTemp']   = $_POST;
+
+                $this->session->set_flashdata('err_msg', $upload['msg']);
+                $this->template->admin('adm/pretest/pretest_add', $data);
+            }
+        }else{
+            $this->Pretest->update($formData);
+            
+            $this->session->set_flashdata('succ_msg', 'Berhasil mengubah pretest!');
+            redirect('admin/pretest');
+        }
+    }
+    public function publish(){
+        $this->Pretest->update(['ID_PRETEST' => $_POST['id'], 'ISPUBLISHED_PRETEST' => $_POST['stat']]);
+        $this->session->set_flashdata('succ_msg', 'Berhasil mengubah status publish!');
+        redirect('admin/pretest');
+    }
+    public function destroy(){
+        $this->Pretest->delete(['ID_PRETEST' => $_POST['id']]);
+        $this->session->set_flashdata('succ_msg', 'Pretest berhasil dihapus');
+        redirect('admin/pretest');
+    }
+    public function upload_image(){
+        $conf['upload_path']    = "./uploads/pretest/";
+        $conf['allowed_types']  = "jpg|png|jpeg|bmp";
+        $conf['max_size']       = 2048;
+        $conf['file_name']      = time();
+        $conf['encrypt_name']   = TRUE;
+
+        $this->upload->initialize($conf);
+        if($this->upload->do_upload('poster')){
+            $img = $this->upload->data();
+            return [
+                    'status'=> true,
+                    'msg'   => 'Data berhasil terupload',
+                    'link'  => base_url('uploads/pretest/'.$img['file_name'])
+                ];
+        }else{
+            return [
+                'status'=> false,
+                'msg'   => $this->upload->display_errors(),
+            ];
+        }
     }
 }

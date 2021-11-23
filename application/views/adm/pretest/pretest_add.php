@@ -25,12 +25,12 @@
                     <input class="form-control" type="text" value="<?= !empty($dataTemp['nama']) ? $dataTemp['nama'] : "" ?>" name="nama" id="" required>
                 </div>
                 <div class="form-group">
-                    <label>Poster (max 2mb)</label><span class="text-warning">*</span>
+                    <label>Poster (max 2mb)</label>
                     <br>
                     <div id="boxImg" class="text-center mt-3 mb-3 p-3" style="border: 1px solid #ddd;border-radius: 10px;cursor: pointer;">
                         <img style="max-width: 250px;" id="blah" class="" src="<?= base_url('assets/adm/img/dummy-post.jpg')?>" />
                     </div>
-                    <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="img" style="cursor: pointer;" id="imgPoster" required>
+                    <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
                 </div>
                 <div class="form-group">
                     <label>Peraturan</label><span class="text-warning">*</span>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label>Soal</label><span class="text-warning">*</span>
-                    <textarea class="summernote" name="peraturan" required><?= !empty($dataTemp['peraturan']) ? $dataTemp['peraturan'] : "" ?></textarea>
+                    <textarea class="summernote" name="soal" required><?= !empty($dataTemp['soal']) ? $dataTemp['soal'] : "" ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>Format File</label><span class="text-warning">*</span>
@@ -48,7 +48,7 @@
                         <option value="ppt|pptx" <?= !empty($dataTemp['frmtFile']) == "ppt|pptx" ? "selected" : "" ?>>PPT</option>
                         <option value="doc|docx" <?= !empty($dataTemp['frmtFile']) == "doc|docx" ? "selected" : "" ?>>DOC</option>
                         <option value="zip|rar" <?= !empty($dataTemp['frmtFile']) == "zip|rar" ? "selected" : "" ?>>ZIP/RAR</option>
-                        <option value="zip|rar" <?= !empty($dataTemp['frmtFile']) == "zip|rar" ? "selected" : "" ?>>ZIP/RAR</option>
+                        <option value="txt" <?= !empty($dataTemp['frmtFile']) == "txt" ? "selected" : "" ?>>TXT</option>
                     </select>
                 </div>
                 <label>Durasi</label><span class="text-warning">*</span>
