@@ -6,9 +6,14 @@
             Pretest <span class="iconify ms-3" data-icon="akar-icons:chevron-down"></span>
 
             <nav class="sub-nav p-2 position-absolute d-flex flex-column align-items-start">
-                <span class="sub-link"><a href="<?= site_url() ?>home/pretest">Leader</a></span>
-                <span class="sub-link"><a href="<?= site_url() ?>home/pretest">UI/UX Designer</a></span>
-                <span class="sub-link"><a href="<?= site_url() ?>home/pretest">Programmer </a></span>
+                <?php
+                    $pretests = $this->Pretest->get(['ISPUBLISHED_PRETEST' => '1', 'orderBy' => 'NAMA_PRETEST ASC']);
+                    foreach ($pretests as $item) {
+                        echo '
+                            <span class="sub-link"><a href="'.site_url('pretest/'.$item->ID_PRETEST).'">'.$item->NAMA_PRETEST.'</a></span>        
+                        ';
+                    }
+                ?>
             </nav>
         </button>
         <button class="links border-0 bg-transparent position-relative nav-sublink">
@@ -17,7 +22,7 @@
             <nav class="sub-nav p-2 position-absolute d-flex flex-column align-items-start">
 
                 <?php
-                $kategoris = $this->KategoriCourse->get(['ISPUBLISHED_KATCOU' => '1']);
+                $kategoris = $this->KategoriCourse->get(['ISPUBLISHED_KATCOU' => '1', 'orderBy' => 'NAMA_KATCOU ASC']);
                 foreach ($kategoris as $item) {
                     echo '
                             <span class="sub-link"><a href="' . site_url('course-list/' . $item->ID_KATCOU) . '">' . $item->NAMA_KATCOU . '</a></span>

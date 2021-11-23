@@ -5,21 +5,23 @@
         </div>
 
         <div class="container">
-            <div class="w-full border b-radius-28 text-center my-5 pretest-img">
-                <img src="<?= site_url() ?>assets/src/img/pretest.png">
-            </div>
+            <?php
+                if($pu->IMG_PRETEST != null){
+                    echo '
+                        <div class="w-full border b-radius-28 text-center my-5 pretest-img">
+                            <img src="'.$pu->IMG_PRETEST.'">
+                        </div>
+                    ';
+                }
+            ?>
+            
 
             <p class="fs-3 font-w-600 my-5">
-                UIUX Designer Test
+                <?= $pu->NAMA_PRETEST?> Test
             </p>
 
             <article>
-                <p class="font-w-600 color-secondary-dark">
-                    Pernahkah Anda mencoba tidur siang sebentar di kereta hanya untuk bangun dan mendapati diri Anda berada di ujung antrean? Bagaimana Anda bisa membantu penumpang bangun tepat sebelum kereta tiba di stasiun mereka?
-                </p>
-                <p>
-                    Untuk berlatih untuk latihan desain UX papan tulis di tempat, fokuslah pada pemecahan masalah dan atur proses berpikir Anda. Ilustrasikan ide Anda dengan sketsa dan gambar rangka. Buat studi kasus desain UX untuk portofolio anda. Untuk membuat studi kasus desain UX yang komprehensif untuk portofolio Anda, Anda dapat melakukan riset pengguna untuk memvalidasi hipotesis Anda. Anda juga dapat menunjukkan desain dan prototipe dengan ketelitian tinggi.
-                </p>
+                <?= $pu->SOAL_PRETEST?>
             </article>
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -43,7 +45,12 @@
                             <tr>
                                 <td>Waktu Tersisa</td>
                                 <td>:</td>
-                                <td>2 hari 17 jam</td>
+                                <?php
+                                    $currDate   = date_create(date('Y-m-d H:i:s'));
+                                    $deadlinePU = date_create($pu->DEADLINE_PU);
+                                    $diff       = date_diff($deadlinePU, $currDate);
+                                ?>
+                                <td><?= $diff->format('%d hari %h jam %i menit')?></td>
                             </tr>
                             <tr>
                                 <td>File yang dikumpul</td>
@@ -53,17 +60,12 @@
                             <tr>
                                 <td>Format pengerjaan</td>
                                 <td>: </td>
-                                <td>hasil riset, wireframe, ui design, prototype</td>
+                                <td><?= $pu->FORMATPENGERJAAN_PRETEST?></td>
                             </tr>
                             <tr>
                                 <td>Format File</td>
                                 <td>: </td>
-                                <td>PDF</td>
-                            </tr>
-                            <tr>
-                                <td>Komen</td>
-                                <td>: </td>
-                                <td>Tidak ada komen</td>
+                                <td><?= str_replace('|', '/', $pu->FORMATFILE_PRETEST)?></td>
                             </tr>
                         </tbody>
                     </table>

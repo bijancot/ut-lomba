@@ -16,6 +16,7 @@
             <span>Course</span>
         </a>
     </li>
+    <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item <?= $sidebar == "kategori-course" ? "active" : "" ?>">
@@ -24,6 +25,7 @@
             <span>Kategori Course</span>
         </a>
     </li>
+    <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item <?= $sidebar == "pretest" ? "active" : "" ?>">
@@ -64,7 +66,7 @@
     </li> -->
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <!-- <hr class="sidebar-divider my-0"> -->
 
     <!-- <li class="nav-item active">
         <a class="nav-link" href="<?= site_url('week'); ?>">
