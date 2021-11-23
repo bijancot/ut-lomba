@@ -51,4 +51,16 @@ class MainController extends CI_Controller
 
         $this->template->index('general/pretest', $data);
     }
+    public function pretestCourse()
+    {
+        $data['title']  = 'pretestCourse'; // PLACEHOLDER VARIABLE DATA
+
+        $this->template->index('general/pretestCourse', $data);
+    }
+    public function pretestSubmit()
+    {
+        $data['title']  = 'pretestSubmit'; // PLACEHOLDER VARIABLE DATA
+
+        $this->template->index('general/pretestSubmit', $data);
+    }
 }
