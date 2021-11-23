@@ -104,6 +104,30 @@
   </div>
 </div>
 <!-- END NEXT MATERIAL MODAL -->
+<!-- FINISH MATERIAL MODAL -->
+<div class="modal fade" id="finishMaterialModal" tabindex="-1" aria-labelledby="finishMaterialModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content border-0">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="<?= base_url('assets/src/img/icon-materi.svg')?>" style="width: 300px;" alt="material">
+        <p class="my-3" style="font-weight: 600;">Apakah anda sudah memahami materi dan menyelesaikan course ini ?</p>
+      </div>
+      <div class="modal-footer border-top-0">
+        <form id="formMateri" action="<?= site_url('course/finish-materi')?>" method="post">
+          <input type="hidden" id="idMateri" name="id" value="<?= $materials[$course->STEP_CU]->ID_MU?>" />
+          <input type="hidden" id="idMateri" name="idcu" value="<?= $course->ID_CU?>" />
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Belajar Lagi</button>
+          <button type="submit" class="btn btn-warning text-white">Selesai</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END FINISH MATERIAL MODAL -->
 <script>
     $('.btnCard').click(function(){
         const id = $(this).data('id')
@@ -113,11 +137,24 @@
             method: "POST",
             data: {id: id },
             success: function(res){
+                const htmlDone = `<span class="iconify fs-3 color-success" data-icon="fluent:checkmark-circle-12-filled"></span>`;
+
                 res = JSON.parse(res)
-                $('#title').html(`Materi ${no} : ${res.NAMA_MATERIAL}`);
+                $('#title').html(`${res.STAT_MU == "2" ? htmlDone : ""} Materi ${no} : ${res.NAMA_MATERIAL}`);
                 $('#desc').html(`${res.DESKRIPSI_MATERIAL}`);
                 $('#content').attr('src', res.CONTENT_MATERIAL);
                 $('#idMateri').val(id);
+
+                let htmlBtn = ``;
+                if(res.STAT_MU != "2"){
+                    const countMaterial = "<?= count($materials)?>";
+                    if(countMaterial == no){
+                        htmlBtn += `<a href="#" data-bs-toggle="modal" data-bs-target="#finishMaterialModal" class="auth-btn">Selesai</a>`;
+                    }else{
+                        htmlBtn = `<a href="#" data-bs-toggle="modal" data-bs-target="#nextMaterialModal" class="auth-btn">Materi Selanjutnya</a>`;
+                    }
+                }
+                $('#btnSubmit').html(htmlBtn);
 
                 let html = "";
                 const resources = res.RESOURCE_MATERIAL.split(';');
@@ -133,6 +170,8 @@
                     `;
                 }
                 $('#resources').html(html);
+
+                
             }
         })
     })

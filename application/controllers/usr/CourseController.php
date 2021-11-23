@@ -81,7 +81,7 @@ class CourseController extends CI_Controller {
 
         $newStepCU      = $cu->STEP_CU + 1;
         $newProgressCU  = ($newStepCU / count($mus)) * 100;
-        $this->CourseUser->update(['ID_CU' => $_POST['idcu'], 'STEP_CU' => $newStepCU, 'PROGRESS_CU' => $newProgressCU]);
+        $this->CourseUser->update(['ID_CU' => $_POST['idcu'], 'PROGRESS_CU' => $newProgressCU, 'STAT_CU' => '2']);
 
         redirect('course/'.$_POST['idcu']);
     }
