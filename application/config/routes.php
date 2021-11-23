@@ -118,5 +118,6 @@ $route['event/(:any)']  = 'usr/EventController/vEvent/$1';
 
 // COURSE
 $route['course/ajxGetMU']    = 'usr/CourseController/ajxGetMU';
+$route['course/next-materi'] = 'usr/CourseController/nextMateri';
 $route['course-list/(:any)'] = 'usr/CourseController/vCourseList/$1';
 $route['course/(:any)']      = 'usr/CourseController/vCourse/$1';

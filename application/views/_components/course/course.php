@@ -4,15 +4,20 @@
             <?php
                 $no = 1;
                 foreach ($materials as $item) {
-                    $status = "";
+                    $status  = "";
+                    $data       = 'data-id="'.$item->ID_MU.'" data-no="'.$no.'"';
+                    $btnCard    = "btnCard";
                     if($item->STAT_MU == "1"){
-                        $status = 'current';
+                        $status     = 'current';
                     }else if($item->STAT_MU == "2"){
-                        $status = 'active';
+                        $status     = 'active';
+                    }else{
+                        $data       = "";
+                        $btnCard    = "";
                     }
 
                     echo '
-                        <button data-id="'.$item->ID_MU.'" data-no="'.$no.'" class="course-card-title '.$status.'">
+                        <button '.$data.' class=" course-card-title '.$btnCard.' '.$status.'">
                             Materi '.$no.' : '.$item->NAMA_MATERIAL.'
                         </button>        
                     ';

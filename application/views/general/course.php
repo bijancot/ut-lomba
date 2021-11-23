@@ -80,8 +80,32 @@
         </div>
     </div>
 </div>
+<!-- NEXT MATERIAL MODAL -->
+<div class="modal fade" id="nextMaterialModal" tabindex="-1" aria-labelledby="nextMaterialModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content border-0">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="<?= base_url('assets/src/img/icon-materi.svg')?>" style="width: 300px;" alt="material">
+        <p class="my-3" style="font-weight: 600;">Apakah anda sudah memahami materi dan lanjut ke materi selanjutnya ?</p>
+      </div>
+      <div class="modal-footer border-top-0">
+        <form id="formMateri" action="<?= site_url('course/next-materi')?>" method="post">
+          <input type="hidden" id="idMateri" name="id" value="<?= $materials[$course->STEP_CU]->ID_MU?>" />
+          <input type="hidden" id="idMateri" name="idcu" value="<?= $course->ID_CU?>" />
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Belajar Lagi</button>
+          <button type="submit" class="btn btn-warning text-white">Lanjut</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END NEXT MATERIAL MODAL -->
 <script>
-    $('.course-card-title').click(function(){
+    $('.btnCard').click(function(){
         const id = $(this).data('id')
         const no = $(this).data('no')
         $.ajax({
@@ -93,6 +117,7 @@
                 $('#title').html(`Materi ${no} : ${res.NAMA_MATERIAL}`);
                 $('#desc').html(`${res.DESKRIPSI_MATERIAL}`);
                 $('#content').attr('src', res.CONTENT_MATERIAL);
+                $('#idMateri').val(id);
 
                 let html = "";
                 const resources = res.RESOURCE_MATERIAL.split(';');

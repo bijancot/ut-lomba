@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div> -->
-        <a href="#" type="submit" class="auth-btn">Submit Kuis</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#nextMaterialModal" class="auth-btn">Materi Selanjutnya</a>
     </div>
 
 </div>

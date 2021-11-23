@@ -39,8 +39,14 @@ class CourseController extends CI_Controller {
         $materialUsers  = $this->MaterialUser->get(['ID_CU' => $idCU]);
         if($materialUsers == null){
             $materials = $this->Material->get(['ID_COURSE' => $courseUser->ID_COURSE]);
+            $firstMateri = true;
             foreach ($materials as $item) {
-                $this->MaterialUser->insert(['ID_CU' => $idCU, 'ID_MATERIAL' => $item->ID_MATERIAL]);
+                if($firstMateri == true){
+                    $this->MaterialUser->insert(['ID_CU' => $idCU, 'ID_MATERIAL' => $item->ID_MATERIAL, 'STAT_MU' => '1']);
+                }else{
+                    $this->MaterialUser->insert(['ID_CU' => $idCU, 'ID_MATERIAL' => $item->ID_MATERIAL]);
+                }
+                $firstMateri = false;
             }
             $materialUsers  = $this->MaterialUser->get(['ID_CU' => $idCU]);
         }
@@ -53,5 +59,30 @@ class CourseController extends CI_Controller {
     public function ajxGetMU(){
         $mu = $this->MaterialUser->getById($_POST['id']);
         echo json_encode($mu);
+    }
+    public function nextMateri(){
+        $cu     = $this->CourseUser->getById($_POST['idcu']);
+        $mus    = $this->MaterialUser->get(['ID_CU' => $_POST['idcu']]);
+
+        $this->MaterialUser->update(['ID_MU' => $_POST['id'], 'STAT_MU' => "2"]);
+        $this->MaterialUser->update(['ID_MU' => ($_POST['id']+1), 'STAT_MU' => "1"]);
+
+        $newStepCU      = $cu->STEP_CU + 1;
+        $newProgressCU  = ($newStepCU / count($mus)) * 100;
+        $this->CourseUser->update(['ID_CU' => $_POST['idcu'], 'STEP_CU' => $newStepCU, 'PROGRESS_CU' => $newProgressCU]);
+
+        redirect('course/'.$_POST['idcu']);
+    }
+    public function finishMateri(){
+        $cu     = $this->CourseUser->getById($_POST['idcu']);
+        $mus    = $this->MaterialUser->get(['ID_CU' => $_POST['idcu']]);
+
+        $this->MaterialUser->update(['ID_MU' => $_POST['id'], 'STAT_MU' => "2"]);
+
+        $newStepCU      = $cu->STEP_CU + 1;
+        $newProgressCU  = ($newStepCU / count($mus)) * 100;
+        $this->CourseUser->update(['ID_CU' => $_POST['idcu'], 'STEP_CU' => $newStepCU, 'PROGRESS_CU' => $newProgressCU]);
+
+        redirect('course/'.$_POST['idcu']);
     }
 }
