@@ -4,101 +4,23 @@
             <p class="fs-4 font-w-600">Pretest</p>
         </div>
 
-        <p class="fs-3 font-w-600 my-5">
-            Lorem ipsum dolor sit amet, consectetur.
-        </p>
+        <div class="container">
+            <p class="fs-3 font-w-600 my-5">
+                Peraturan Pretest
+            </p>
 
-        <div class="px-2">
-            <p class="font-w-600 mt-5"> Kuis: </p>
+            <article>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices sem id aliquet sed quis. Ipsum eget hac nunc, nunc enim. Neque, pellentesque arcu amet, et duis aliquet ultrices imperdiet nunc. Ac mattis eu, volutpat, amet mi. Enim ipsum enim sed leo commodo, sit ut tincidunt. Lectus sed sed risus donec tortor in vel vulputate. Sed nunc placerat aliquet felis. Felis mattis tristique a nulla lorem. Dis praesent egestas tempus, bibendum risus volutpat. In diam ultricies pellentesque tempor tempor felis vivamus vel nulla. Cras bibendum montes, mauris dui ultrices habitant diam libero facilisis.
+                    <br><br>
+                    Hac nisl velit nec erat. Etiam pellentesque sit lacinia lectus risus, tincidunt nulla. Pellentesque tempor massa vulputate placerat rutrum tortor praesent et. Viverra vitae viverra nam aliquam non vitae sollicitudin. Sed tincidunt sit urna a arcu. Orci gravida sapien mauris, neque rhoncus diam dolor. Sit amet at fermentum, ullamcorper urna. Dolor imperdiet condimentum est platea.
+                    <br><br>
+                    Sed vehicula gravida malesuada interdum. A a, lorem sapien sagittis viverra eros, turpis odio nibh. Vitae cursus non commodo nisl in. Ultricies sagittis, donec ut nec pharetra ante nec. Aliquam lacus, eu, a pellentesque nisl senectus pretium lorem posuere. Nunc aliquet lorem sodales et lacus odio et orci ut. In nunc nam gravida id vestibulum platea.
+                </p>
+            </article>
 
-            <div class="question-wrapper with-number">
-
-                <div class="question-numbering">
-                    1
-                </div>
-
-                <div>
-                    <div class="course-card-title question pretest">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum fermentum risus eu eu sapien pharetra, praesent pharetra.
-                    </div>
-                    <div class="d-flex flex-wrap mt-4">
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="html" name="question1" value="HTML">
-                            <label for="html">HTML</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="css" name="question1" value="CSS">
-                            <label for="css">CSS</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="php" name="question1" value="PHP">
-                            <label for="php">PHP</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="vue" name="question1" value="Vue">
-                            <label for="vue">Vue.Js</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="question-wrapper with-number">
-                <div class="question-numbering">
-                    2
-                </div>
-
-                <div>
-                    <div class="course-card-title question">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum fermentum risus eu eu sapien pharetra, praesent pharetra.
-                    </div>
-                    <div class="d-flex flex-wrap mt-4">
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="asd" name="question2" value="HTML">
-                            <label for="asd">ASD</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="qwe" name="question2" value="HTML">
-                            <label for="qwe">QWE</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="zxc" name="question2" value="HTML">
-                            <label for="zxc">ZXC</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="wer" name="question2" value="HTML">
-                            <label for="wer">Vue.Js</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="question-wrapper with-number">
-                <div class="question-numbering">
-                    2
-                </div>
-
-                <div>
-
-                    <div class="course-card-title question">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum fermentum risus eu eu sapien pharetra, praesent pharetra.
-                    </div>
-                    <div class="d-flex flex-wrap mt-4">
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="123" name="question3" value="HTML">
-                            <label for="123">123 Roger 1234566</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="234" name="question3" value="HTML">
-                            <label for="234">1sampai9</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="345" name="question3" value="HTML">
-                            <label for="345">345</label>
-                        </div>
-                        <div class="course-card-title option multiple-choice-wrapper">
-                            <input type="radio" id="456" name="question3" value="HTML">
-                            <label for="456">456.Js</label>
-                        </div>
-                    </div>
-                </div>
+            <div class="w-full d-flex">
+                <a href="<?= site_url() ?>home/pretest/course" class="auth-btn px-5 my-5 mx-auto w-auto">Mulai Tes</a>
             </div>
         </div>
 

@@ -53,13 +53,15 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// --- GUEST --- wkwk sorry ngasal
+// --- GUEST ---
 $route['home'] = 'guest/MainController';
 $route['home/course_list'] = 'guest/MainController/course_list';
 $route['home/course'] = 'guest/MainController/course';
 // $route['home/eventList'] = 'guest/MainController/eventList';
 $route['home/event'] = 'guest/MainController/event';
 $route['home/pretest'] = 'guest/MainController/pretest';
+$route['home/pretest/course'] = 'guest/MainController/pretestCourse';
+$route['home/pretest/submit'] = 'guest/MainController/pretestSubmit';
 $route['home/about'] = 'guest/MainController/about';
 $route['profile'] = 'guest/UserController/profile';
 // $route['login'] = 'guest/AuthController';

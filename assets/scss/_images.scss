@@ -88,3 +88,17 @@
     -webkit-border-radius: 15px;
     border-radius: 15px;
 }
+
+.pretest-img {
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
+
+        @media (min-width: 992px) {
+            width: auto;
+            height: 100%;
+        }
+    }
+}
