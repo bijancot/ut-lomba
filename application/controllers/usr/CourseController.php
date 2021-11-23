@@ -30,7 +30,14 @@ class CourseController extends CI_Controller {
 
         $data['title']      = 'Course List';
         $data['kategori']   = $this->KategoriCourse->getById($idKat);
-        $data['courses']    = $this->CourseUser->get(['EMAIL_USER' => $email, 'ID_KATCOU' => $idKat]);
+
+        if($this->session->userdata('is_logged')){
+            $data['is_logged'] = true;
+            $data['courses']    = $this->CourseUser->get(['EMAIL_USER' => $email, 'ID_KATCOU' => $idKat]);
+        }else{
+            $data['is_logged'] = false;
+            $data['courses']    = $this->Course->get(['ID_KATCOU' => $idKat]);
+        }
 
         $this->template->index('general/courseList', $data);
     }
@@ -49,6 +56,7 @@ class CourseController extends CI_Controller {
                 $firstMateri = false;
             }
             $materialUsers  = $this->MaterialUser->get(['ID_CU' => $idCU]);
+            $this->CourseUser->update(['ID_CU' => $idCU, 'STAT_CU' => "1"]);
         }
 
         $data['title']      = 'Course';        
