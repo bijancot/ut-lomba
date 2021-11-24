@@ -135,6 +135,8 @@ $route['course-list/(:any)']    = 'usr/CourseController/vCourseList/$1';
 $route['course/(:any)']         = 'usr/CourseController/vCourse/$1';
 
 // PRETEST
+$route['pretest/collect']           = 'usr/PretestController/collect';
 $route['pretest/(:any)']            = 'usr/PretestController/vPretest/$1';
 $route['pretest/do/(:any)']         = 'usr/PretestController/vDo/$1';
+$route['pretest/submit/(:any)']     = 'usr/PretestController/vSubmit/$1';
 $route['pretest/start/(:any)']      = 'usr/PretestController/start/$1';

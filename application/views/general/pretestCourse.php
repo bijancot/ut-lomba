@@ -46,21 +46,56 @@
                                 <td>Waktu Tersisa</td>
                                 <td>:</td>
                                 <?php
-                                    $currDate   = date_create(date('Y-m-d H:i:s'));
-                                    $deadlinePU = date_create($pu->DEADLINE_PU);
-                                    $diff       = date_diff($deadlinePU, $currDate);
+                                    $currDate       = date_create(date('Y-m-d H:i:s'));
+                                    $deadlinePU     = date_create($pu->DEADLINE_PU);
+                                    if($pu->STAT_PU == "1"){
+                                        $diff           = date_diff($deadlinePU, $currDate);
+                                        $statusCollect  = $diff->format('%d hari %h jam %i menit');
+                                    }else if($pu->STAT_PU == "2"){
+                                        $submitedAt = date_create($pu->submited_at);
+                                        if($submitedAt > $deadlinePU){
+                                            $diff           = date_diff($currDate, $submitedAt);
+                                            $statusCollect  = '
+                                                <div class="bg-lighter-danger color-danger font-w-600 b-radius-6 p-3 py-2">
+                                                    Pegumpulan terlambat '.$diff->format('%d hari %h jam %i menit').'
+                                                </div>
+                                            ';
+                                        }else{
+                                            $statusCollect  = '
+                                                <div class="bg-lighter-success color-success font-w-600 b-radius-6 p-3 py-2">
+                                                    Pegumpulan telah disubmit pada '.date_format($submitedAt, 'j M Y H:i').'
+                                                </div>
+                                            ';
+                                        }
+                                    }
+                                    
                                 ?>
-                                <td><?= $diff->format('%d hari %h jam %i menit')?></td>
+                                <td><?= $statusCollect?></td>
                             </tr>
                             <tr>
                                 <td>File yang dikumpul</td>
                                 <td>: </td>
-                                <td>-</td>
+                                <?php
+                                    if($pu->JAWABAN_PU != null){
+                                        echo '
+                                            <td>
+                                                <a href="'.$pu->JAWABAN_PU.'" class="course-pdf d-flex flex-wrap flex-col">
+                                                    <button class="course-card-title option">
+                                                        <img src="'.site_url().'assets/src/img/pdf.svg" width="24" height="24" class="me-2">
+                                                        File Submit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        ';
+                                    }else{
+                                        echo '<td>-</td>';
+                                    }
+                                ?>
                             </tr>
                             <tr>
                                 <td>Format pengerjaan</td>
                                 <td>: </td>
-                                <td><?= $pu->FORMATPENGERJAAN_PRETEST?></td>
+                                <td><?= $pu->FORMATPENGERJAAN_PRETEST ?></td>
                             </tr>
                             <tr>
                                 <td>Format File</td>
@@ -69,9 +104,15 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="w-full d-flex">
-                        <a href="<?= site_url() ?>home/pretest/submit" class="auth-btn px-5 my-5 mx-auto w-auto">Kumpulkan</a>
-                    </div>
+                    <?php
+                        if($pu->STAT_PU == "1"){
+                            echo '
+                                <div class="w-full d-flex">
+                                    <a href="'.site_url("pretest/submit/".$pu->ID_PU) .'" class="auth-btn px-5 my-5 mx-auto w-auto">Kumpulkan</a>
+                                </div>
+                            ';
+                        }
+                    ?>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <article class="container p-5">
