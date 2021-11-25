@@ -114,6 +114,11 @@ $route['admin/event/update']        = 'adm/EventController/update';
 $route['admin/event/publish']       = 'adm/EventController/publish';
 $route['admin/event/destroy']       = 'adm/EventController/destroy';
 
+// NEXT GEN LEADERS
+$route['admin/ngl']                 = 'adm/NGLController';
+$route['admin/ngl/course/(:any)']   = 'adm/NGLController/vCourse/$1';
+$route['admin/ngl/pretest/(:any)']  = 'adm/NGLController/vPretest/$1';
+$route['admin/ngl/review']          = 'adm/NGLController/review';
 
 // --- USER ---
 // AUTH

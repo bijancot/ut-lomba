@@ -54,10 +54,15 @@
                                     }else if($pu->STAT_PU == "2"){
                                         $submitedAt = date_create($pu->submited_at);
                                         if($submitedAt > $deadlinePU){
-                                            $diff           = date_diff($currDate, $submitedAt);
+                                            $diff   = date_diff($submitedAt, $deadlinePU);
+
+                                            $hari   = ($diff->format("%d") != "0" ? $diff->format("%d")." hari " : "");
+                                            $jam    = ($diff->format("%h") != "0" ? $diff->format("%h")." jam " : "");
+                                            $menit  = ($diff->format("%i") != "0" ? $diff->format("%i")." menit" : "");
+
                                             $statusCollect  = '
                                                 <div class="bg-lighter-danger color-danger font-w-600 b-radius-6 p-3 py-2">
-                                                    Pegumpulan terlambat '.$diff->format('%d hari %h jam %i menit').'
+                                                    Pegumpulan terlambat '.$hari.$jam.$menit.'
                                                 </div>
                                             ';
                                         }else{
