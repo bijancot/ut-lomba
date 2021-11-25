@@ -5,7 +5,7 @@
             <p class="fs-55 t1 font-w-400" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="50" data-aos-once="true">Be Yourself,</p>
             <p class="fs-55 t2 font-w-700" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="100" data-aos-once="true">Become a Leader</p>
             <p class="fs-4" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300" data-aos-once="true">United tractors next generation leaders</p>
-            <a href="#" class="auth-btn px-7 w-auto me-auto mt-4">Daftar</a>
+            <a href="<?= site_url('sign-up') ?>" class="auth-btn px-7 w-auto me-auto mt-4">Daftar</a>
         </div>
     </div>
 
@@ -97,7 +97,7 @@
                 <div>
                     <p class="fs-55 t1 font-w-400">Jadi Leader</p>
                     <p class="fs-55 t2 font-w-700 mb-3">UT NGL</p>
-                    <a href="#" class="auth-btn bg-white px-7 w-auto me-auto">Daftar</a>
+                    <a href="<?= site_url('sign-up') ?>" class="auth-btn bg-white px-7 w-auto me-auto">Daftar</a>
                 </div>
             </div>
             <div class="col">
