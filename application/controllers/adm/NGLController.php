@@ -3,6 +3,9 @@
 class NGLController extends CI_Controller{
     public function __construct(){
         parent::__construct();
+        if($this->session->userdata('is_logged_admin') != true){
+            redirect('admin');
+        }
         $this->load->model('User');
         $this->load->model('CourseUser');
         $this->load->model('PretestUser');

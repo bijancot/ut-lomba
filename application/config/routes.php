@@ -69,7 +69,9 @@ $route['profile'] = 'guest/UserController/profile';
 
 // --- ADMIN ---
 // COURSE
-$route['adm-login']                 = 'adm/AuthController/vLogin';
+$route['admin']                     = 'adm/AuthController/vLogin';
+$route['admin/auth']                = 'adm/AuthController/auth';
+$route['admin/logout']              = 'adm/AuthController/logout';
 $route['admin/course']              = 'adm/CourseController';
 $route['admin/course/add']          = 'adm/CourseController/vAdd';
 $route['admin/course/edit/(:any)']  = 'adm/CourseController/vEdit/$1';
