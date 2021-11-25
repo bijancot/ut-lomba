@@ -13,7 +13,7 @@
                         $status     = 'active';
                     }else{
                         $data       = "";
-                        $btnCard    = "";
+                        $btnCard    = "color-secondary-dark";
                     }
 
                     echo '

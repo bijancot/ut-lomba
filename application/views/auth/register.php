@@ -81,15 +81,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <select id="agama" name="agama">
-                                        <option value="">Agama</option>
-                                        <option value="Islam">Islam</option>
-                                        <option value="Protestan">Protestan</option>
-                                        <option value="Katolik">Katolik</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Buddha">Buddha</option>
-                                        <option value="Khonghucu">Khonghucu</option>
-                                    </select>
+                                    
                                     <input class="auth-input mb-4" type="number" name="nik" placeholder="NIK" onkeypress="return isNumberKey(event)">
                                 </div>
 
@@ -107,7 +99,15 @@
                                     <input class="auth-input mb-4" type="text" name="pt" placeholder="Perguruan Tinggi">
                                     <input class="auth-input mb-4" type="number" name="nim" placeholder="NIM" onkeypress="return isNumberKey(event)">
                                     <input class="auth-input mb-4" type="text" name="ps" placeholder="Program Studi">
-                                    <input class="auth-input mb-4" type="text" name="jenjang" placeholder="Jenjang">
+                                    <select id="agama" name="jenjang">
+                                        <option value="">Jenjang</option>
+                                        <option value="D1">D1</option>
+                                        <option value="D2">D2</option>
+                                        <option value="D3">D3</option>
+                                        <option value="D4">D4</option>
+                                        <option value="S1">S1</option>
+                                        <option value="S2">S2</option>
+                                    </select>
                                     <input class="auth-input mb-4" type="number" name="semester" placeholder="Semester" onkeypress="return isNumberKey(event)">
                                 </div>
 

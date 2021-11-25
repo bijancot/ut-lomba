@@ -41,7 +41,7 @@ class MainController extends CI_Controller
     }
     public function about()
     {
-        $data['title']  = 'about'; // PLACEHOLDER VARIABLE DATA
+        $data['title']  = 'About'; // PLACEHOLDER VARIABLE DATA
 
         $this->template->index('general/about', $data);
     }

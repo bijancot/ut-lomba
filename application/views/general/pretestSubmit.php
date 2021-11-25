@@ -1,3 +1,4 @@
+
 <div class="min-vh-100 p-head">
     <div class="container-xxl p-md-5">
         <div class="border-bottom w-100 py-3">
@@ -26,7 +27,7 @@
                     ';
                 }
             ?>
-            <form action="<?= site_url('pretest/collect')?>" enctype="multipart/form-data" method="post">
+            <form action="<?= site_url('pretest/collect')?>" enctype="multipart/form-data" method="post" id="formSubmitPretest">
                 <div class="input-file">
                     <span class="course-card-title button-file mb-0" id="buttonSubmit">
                         Pilih File
@@ -47,6 +48,7 @@
                 <div class="w-full d-flex">
                     <input type="hidden" name="id" value="<?= $pu->ID_PU?>">
                     <input type="hidden" name="type" value="<?= $pu->FORMATFILE_PRETEST?>">
+                    <!-- <a type="button" data-bs-toggle="modal" data-bs-target="#finishPretestModal" class="auth-btn px-5 my-5 mx-auto w-auto">Kumpulkan</a> -->
                     <button type="submit" class="auth-btn px-5 my-5 mx-auto w-auto">Kumpulkan</button>
                 </div>
             </form>
@@ -55,3 +57,30 @@
 
     </div>
 </div>
+<!-- FINISH Pretest MODAL -->
+<div class="modal fade" id="finishPretestModal" tabindex="-1" aria-labelledby="finishPretestModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content border-0">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="<?= base_url('assets/src/img/icon-materi.svg')?>" style="width: 300px;" alt="material">
+        <p class="my-3" style="font-weight: 600;">Apakah anda yakin untuk mengumpulkan pretest ?</p>
+      </div>
+      <div class="modal-footer border-top-0">
+          <div id="btnSubmit" class="btn btn-warning text-white">Kumpulkan</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END FINISH MATERIAL MODAL -->
+<script>
+    $(document).ready(){
+        $('#btnSubmit').click(function(){
+            alert('ilham')
+            $("#formSubmitPretest").submit();
+        })
+    }
+</script>

@@ -21,13 +21,13 @@ class PretestController extends CI_Controller{
         $this->template->index('general/pretest', $data);
     }
     public function vDo($idPU){
-        $data['title']  = 'pretestCourse'; // PLACEHOLDER VARIABLE DATA
+        $data['title']  = 'Pretest'; // PLACEHOLDER VARIABLE DATA
         $data['pu']     = $this->PretestUser->getById($idPU);
 
         $this->template->index('general/pretestCourse', $data);
     }
     public function vSubmit($idPU){
-        $data['title']  = 'pretestCourse'; // PLACEHOLDER VARIABLE DATA
+        $data['title']  = 'Pretest'; // PLACEHOLDER VARIABLE DATA
         $data['pu']     = $this->PretestUser->getById($idPU);
 
         $this->template->index('general/pretestSubmit', $data);

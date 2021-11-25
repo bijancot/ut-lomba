@@ -7,17 +7,17 @@ class AuthController extends CI_Controller{
         $this->load->library('upload');
     }
     public function vHome(){
-        $data['home']  = 'Home'; // PLACEHOLDER VARIABLE DATA
+        $data['title']  = 'Home'; // PLACEHOLDER VARIABLE DATA
 
         $this->template->index('general/home', $data);
     }
     public function vSignUp(){
-        $data['register']  = 'register'; // PLACEHOLDER VARIABLE DATA
+        $data['title']      = 'Daftar'; // PLACEHOLDER VARIABLE DATA
 
         $this->template->index('auth/register', $data);
     }
     public function vSignIn(){
-        $data['title']  = 'login'; // PLACEHOLDER VARIABLE DATA
+        $data['title']  = 'Masuk'; // PLACEHOLDER VARIABLE DATA
 
         $this->template->index('auth/login', $data);
     }

@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>United Tractors</title>
+    <title>UTNGL - <?= $title?></title>
 
+    <link rel="icon" href="<?= base_url('assets/adm/img/favicon/favicon-16x16.png'); ?>" sizes="16x16">
+    <link rel="icon" href="<?= base_url('assets/adm/img/favicon/favicon-32x32.png'); ?>" sizes="32x32">
     <!-- PLACE INCLUDES HERE -->
 
     <!-- Bootstrap 5.0.2 CDN -->

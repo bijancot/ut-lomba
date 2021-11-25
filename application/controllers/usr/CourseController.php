@@ -28,7 +28,7 @@ class CourseController extends CI_Controller {
     public function vCourseList($idKat){
         $email = $this->session->userdata('email');
 
-        $data['title']      = 'Course List';
+        $data['title']      = 'Course';
         $data['kategori']   = $this->KategoriCourse->getById($idKat);
 
         if($this->session->userdata('is_logged')){
