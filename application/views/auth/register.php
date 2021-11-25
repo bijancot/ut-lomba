@@ -16,7 +16,7 @@
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">1/4</p>
                                 </div>
-                                <div>
+                                <div class="w-100">
                                     <input class="auth-input mb-4" type="text" name="email" placeholder="Alamat Email">
                                     <input class="auth-input mb-4" type="number" name="telp" placeholder="Nomor Hp" onkeypress="return isNumberKey(event)">
                                     <input class="auth-input mb-4" type="password" name="pass" placeholder="Buat Password">
@@ -81,6 +81,7 @@
                                             ?>
                                         </select>
                                     </div>
+                                  
                                     <div class="mb-4">
                                         <select id="agama" name="agama">
                                             <option value="">Agama</option>
@@ -90,10 +91,11 @@
                                             <option value="Hindu">Hindu</option>
                                             <option value="Buddha">Buddha</option>
                                             <option value="Khonghucu">Khonghucu</option>
-                                            <option value="Khonghucu">Lainnya</option>
+                                            <option value="Lainnya">Lainnya</option>
 
                                         </select>
                                     </div>
+
                                     <input class="auth-input mb-4" type="number" name="nik" placeholder="NIK" onkeypress="return isNumberKey(event)">
                                 </div>
 
@@ -111,7 +113,15 @@
                                     <input class="auth-input mb-4" type="text" name="pt" placeholder="Perguruan Tinggi">
                                     <input class="auth-input mb-4" type="number" name="nim" placeholder="NIM" onkeypress="return isNumberKey(event)">
                                     <input class="auth-input mb-4" type="text" name="ps" placeholder="Program Studi">
-                                    <input class="auth-input mb-4" type="text" name="jenjang" placeholder="Jenjang">
+                                    <select id="agama" name="jenjang">
+                                        <option value="">Jenjang</option>
+                                        <option value="D1">D1</option>
+                                        <option value="D2">D2</option>
+                                        <option value="D3">D3</option>
+                                        <option value="D4">D4</option>
+                                        <option value="S1">S1</option>
+                                        <option value="S2">S2</option>
+                                    </select>
                                     <input class="auth-input mb-4" type="number" name="semester" placeholder="Semester" onkeypress="return isNumberKey(event)">
                                 </div>
 

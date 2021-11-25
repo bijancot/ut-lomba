@@ -1,5 +1,8 @@
 <div class="">
-    <p class="fs-4 font-w-600" id="title">Materi <?= $course->STEP_CU+1 ?> : <?= $materials[$course->STEP_CU]->NAMA_MATERIAL?></p>
+    <?php
+        $statMU = $materials[$course->STEP_CU]->STAT_MU == "2" ? '<span class="iconify fs-3 color-success" data-icon="fluent:checkmark-circle-12-filled"></span>' : '';
+    ?>
+    <p class="fs-4 font-w-600" id="title"><?= $statMU?> Materi <?= $course->STEP_CU+1 ?> : <?= $materials[$course->STEP_CU]->NAMA_MATERIAL?></p>
 
     <div class="course-video">
         <iframe width="100%" height="100%" id="content" src="<?= $materials[$course->STEP_CU]->CONTENT_MATERIAL?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -105,7 +108,17 @@
                 </div>
             </div>
         </div> -->
-        <a href="#" type="submit" class="auth-btn">Submit Kuis</a>
+        <div id="btnSubmit">
+            <?php
+                if($materials[$course->STEP_CU]->STAT_MU != "2"){
+                    if(count($materials) == ($course->STEP_CU+1)){
+                        echo '<a href="#" data-bs-toggle="modal" data-bs-target="#finishMaterialModal" class="auth-btn">Selesai</a>';
+                    }else{
+                        echo '<a href="#" data-bs-toggle="modal" data-bs-target="#nextMaterialModal" class="auth-btn">Materi Selanjutnya</a>';
+                    } 
+                }
+            ?>
+        </div>
     </div>
 
 </div>

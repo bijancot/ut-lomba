@@ -3,8 +3,12 @@
 class MaterialController extends CI_Controller{
     public function __construct(){
         parent::__construct();
+        if($this->session->userdata('is_logged_admin') != true){
+            redirect('admin');
+        }
         $this->load->model('Course');
         $this->load->model('Material');
+        $this->load->model('MaterialUser');
         $this->load->library('upload');
     }
 
@@ -117,6 +121,18 @@ class MaterialController extends CI_Controller{
         redirect('admin/material/edit/'.$_POST['idMaterial']);
     }
 
+    public function destroy(){
+        $materialUser = $this->MaterialUser->get(['ID_MATERIAL' => $_POST['id']]);
+        if($materialUser != null){// check if course user exist
+            $this->session->set_flashdata('err_msg', 'Opps, terdapat transaksi user terhadap materi!');
+            redirect('admin/material/'.$_POST['idCourse']);
+        }
+
+        $this->Material->delete(['ID_MATERIAL' => $_POST['id']]);
+        $this->session->set_flashdata('succ_msg', 'Materi berhasil dihapus');
+        redirect('admin/material/'.$_POST['idCourse']);
+    }
+
     public function upload_files($idCourse, $files){
         $path = 'uploads/material/course_'.$idCourse;
         if (!is_dir($path)) {
@@ -155,7 +171,7 @@ class MaterialController extends CI_Controller{
         return [
             'status'=> true,
             'msg'   => 'Data berhasil terupload',
-            'link'  => implode(';', $links)
+            'link'  => ($links != null ? implode(';', $links) : null)
         ];
     }
 }

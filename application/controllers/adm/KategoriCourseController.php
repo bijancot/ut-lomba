@@ -3,6 +3,10 @@
 class KategoriCourseController extends CI_Controller{
     public function __construct(){
         parent::__construct();
+        if($this->session->userdata('is_logged_admin') != true){
+            redirect('admin');
+        }
+        
         $this->load->model('KategoriCourse');
         $this->load->model('Course');
     }

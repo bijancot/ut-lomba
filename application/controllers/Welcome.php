@@ -20,7 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['home']  = 'Home'; // PLACEHOLDER VARIABLE DATA
+		$data['title']  = 'Home'; // PLACEHOLDER VARIABLE DATA
 
 		$this->template->index('general/home', $data);
 	}

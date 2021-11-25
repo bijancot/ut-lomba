@@ -49,10 +49,9 @@ $(document).ready(function () {
         const tgl_lahir     = $('select[name=tgl_lahir]').val();
         const bln_lahir     = $('select[name=bln_lahir]').val();
         const thn_lahir     = $('select[name=thn_lahir]').val();
-        const agama         = $('select[name=agama]').val();
         const nik           = $('input[name=nik]').val();
 
-        if(nama == "" || jk == "" || alamat == "" || tmpt_lahir == "" || tgl_lahir == "" || bln_lahir == "" || thn_lahir == "" || agama == "" || nik == ""){
+        if(nama == "" || jk == "" || alamat == "" || tmpt_lahir == "" || tgl_lahir == "" || bln_lahir == "" || thn_lahir == "" || nik == ""){
             $('#alert').attr('hidden', false);
             $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
         }else{
@@ -69,7 +68,7 @@ $(document).ready(function () {
         const pt        = $('input[name=pt]').val();
         const nim       = $('input[name=nim]').val();
         const ps        = $('input[name=ps]').val();
-        const jenjang   = $('input[name=jenjang]').val();
+        const jenjang   = $('select[name=jenjang]').val();
         const semester  = $('input[name=semester]').val();
 
         if(pt == "" || nim == "" || ps == "" || jenjang == "" || semester == ""){

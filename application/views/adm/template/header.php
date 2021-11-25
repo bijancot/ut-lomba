@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>UTNGA - <?= $title?></title>
+    <title>UTNGL - <?= $title?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/adm/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
@@ -33,6 +33,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/adm/vendor/jquery/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('assets/adm/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <link rel="stylesheet" href="<?= site_url()?>/assets/adm/summernote/summernote.min.css" />
 
 </head>
 

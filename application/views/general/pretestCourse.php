@@ -5,21 +5,23 @@
         </div>
 
         <div class="container">
-            <div class="w-full border b-radius-28 text-center my-5 pretest-img">
-                <img src="<?= site_url() ?>assets/src/img/pretest.png">
-            </div>
+            <?php
+                if($pu->IMG_PRETEST != null){
+                    echo '
+                        <div class="w-full border b-radius-28 text-center my-5 pretest-img">
+                            <img src="'.$pu->IMG_PRETEST.'">
+                        </div>
+                    ';
+                }
+            ?>
+            
 
             <p class="fs-3 font-w-600 my-5">
-                UIUX Designer Test
+                <?= $pu->NAMA_PRETEST?> Test
             </p>
 
             <article>
-                <p class="font-w-600 color-secondary-dark">
-                    Pernahkah Anda mencoba tidur siang sebentar di kereta hanya untuk bangun dan mendapati diri Anda berada di ujung antrean? Bagaimana Anda bisa membantu penumpang bangun tepat sebelum kereta tiba di stasiun mereka?
-                </p>
-                <p>
-                    Untuk berlatih untuk latihan desain UX papan tulis di tempat, fokuslah pada pemecahan masalah dan atur proses berpikir Anda. Ilustrasikan ide Anda dengan sketsa dan gambar rangka. Buat studi kasus desain UX untuk portofolio anda. Untuk membuat studi kasus desain UX yang komprehensif untuk portofolio Anda, Anda dapat melakukan riset pengguna untuk memvalidasi hipotesis Anda. Anda juga dapat menunjukkan desain dan prototipe dengan ketelitian tinggi.
-                </p>
+                <?= $pu->SOAL_PRETEST?>
             </article>
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -43,33 +45,79 @@
                             <tr>
                                 <td>Waktu Tersisa</td>
                                 <td>:</td>
-                                <td>2 hari 17 jam</td>
+                                <?php
+                                    $currDate       = date_create(date('Y-m-d H:i:s'));
+                                    $deadlinePU     = date_create($pu->DEADLINE_PU);
+                                    if($pu->STAT_PU == "1"){
+                                        $diff           = date_diff($deadlinePU, $currDate);
+                                        $statusCollect  = $diff->format('%d hari %h jam %i menit');
+                                    }else if($pu->STAT_PU == "2"){
+                                        $submitedAt = date_create($pu->submited_at);
+                                        if($submitedAt > $deadlinePU){
+                                            $diff   = date_diff($submitedAt, $deadlinePU);
+
+                                            $hari   = ($diff->format("%d") != "0" ? $diff->format("%d")." hari " : "");
+                                            $jam    = ($diff->format("%h") != "0" ? $diff->format("%h")." jam " : "");
+                                            $menit  = ($diff->format("%i") != "0" ? $diff->format("%i")." menit" : "");
+
+                                            $statusCollect  = '
+                                                <div class="bg-lighter-danger color-danger font-w-600 b-radius-6 p-3 py-2">
+                                                    Pegumpulan terlambat '.$hari.$jam.$menit.'
+                                                </div>
+                                            ';
+                                        }else{
+                                            $statusCollect  = '
+                                                <div class="bg-lighter-success color-success font-w-600 b-radius-6 p-3 py-2">
+                                                    Pegumpulan telah disubmit pada '.date_format($submitedAt, 'j M Y H:i').'
+                                                </div>
+                                            ';
+                                        }
+                                    }
+                                    
+                                ?>
+                                <td><?= $statusCollect?></td>
                             </tr>
                             <tr>
                                 <td>File yang dikumpul</td>
                                 <td>: </td>
-                                <td>-</td>
+                                <?php
+                                    if($pu->JAWABAN_PU != null){
+                                        echo '
+                                            <td>
+                                                <a href="'.$pu->JAWABAN_PU.'" class="course-pdf d-flex flex-wrap flex-col">
+                                                    <button class="course-card-title option">
+                                                        <img src="'.site_url().'assets/src/img/pdf.svg" width="24" height="24" class="me-2">
+                                                        File Submit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        ';
+                                    }else{
+                                        echo '<td>-</td>';
+                                    }
+                                ?>
                             </tr>
                             <tr>
                                 <td>Format pengerjaan</td>
                                 <td>: </td>
-                                <td>hasil riset, wireframe, ui design, prototype</td>
+                                <td><?= $pu->FORMATPENGERJAAN_PRETEST ?></td>
                             </tr>
                             <tr>
                                 <td>Format File</td>
                                 <td>: </td>
-                                <td>PDF</td>
-                            </tr>
-                            <tr>
-                                <td>Komen</td>
-                                <td>: </td>
-                                <td>Tidak ada komen</td>
+                                <td><?= str_replace('|', '/', $pu->FORMATFILE_PRETEST)?></td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="w-full d-flex">
-                        <a href="<?= site_url() ?>home/pretest/submit" class="auth-btn px-5 my-5 mx-auto w-auto">Kumpulkan</a>
-                    </div>
+                    <?php
+                        if($pu->STAT_PU == "1"){
+                            echo '
+                                <div class="w-full d-flex">
+                                    <a href="'.site_url("pretest/submit/".$pu->ID_PU) .'" class="auth-btn px-5 my-5 mx-auto w-auto">Kumpulkan</a>
+                                </div>
+                            ';
+                        }
+                    ?>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <article class="container p-5">

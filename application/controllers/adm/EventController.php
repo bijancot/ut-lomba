@@ -3,6 +3,10 @@
 class EventController extends CI_Controller{
     public function __construct(){
         parent::__construct();
+        if($this->session->userdata('is_logged_admin') != true){
+            redirect('admin');
+        }
+        
         $this->load->model('Event');
         $this->load->library('upload');
     }
@@ -33,7 +37,7 @@ class EventController extends CI_Controller{
         if($upload['status'] == true){ // cek if upload success
             $formData['NAMA_EVENT']             = $_POST['judul'];
             $formData['DESKRIPSI_EVENT']        = $_POST['deskripsi'];
-            $formData['LOKASI_EVENT']           = $_POST['lokasi'];
+            $formData['LOKASI_EVENT']           = $_POST['tempat'];
             $formData['TGL_EVENT']              = $_POST['tgl'];
             $formData['LINK_EVENT']             = $_POST['link'];
             $formData['PENYELENGGARA_EVENT']    = $_POST['penyelenggara'];

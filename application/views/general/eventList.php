@@ -14,31 +14,32 @@
             </div>
         </div>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
+    
             <?php
-                foreach ($events as $item) {
-                    echo '
-                        <div class="col">
-                            <div class="event-card">
-                                <a href="'.site_url('event/'.$item->ID_EVENT).'">
-                                    <div class="event-img-container">
-                                        <img src="'.$item->IMG_EVENT.'" onerror="$(this).hide();" alt="" class="event-card-preview">
-                                    </div>
-            
-                                    <div class="px-2">
-                                        <p class="event-date">'.date_format(date_create($item->TGL_EVENT), 'j F Y').'</p>
-                                        <p class="event-title">'.$item->NAMA_EVENT.'</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>        
-                    ';
+                if($events != null){
+                    echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">';
+                    foreach ($events as $item) {
+                        echo '
+                            <div class="col">
+                                <div class="event-card">
+                                    <a href="'.site_url('event/'.$item->ID_EVENT).'">
+                                        <div class="event-img-container">
+                                            <img src="'.$item->IMG_EVENT.'" onerror="$(this).hide();" alt="" class="event-card-preview">
+                                        </div>
+                
+                                        <div class="px-2">
+                                            <p class="event-date">'.date_format(date_create($item->TGL_EVENT), 'j F Y').'</p>
+                                            <p class="event-title">'.$item->NAMA_EVENT.'</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>        
+                        ';
+                    }
+                    echo '</div>';
+                }else{
+                    echo '<div class="text-center"><img src="'.site_url('assets/src/img/tidakadadata.svg').'" style="max-width: 400px;" /></div>';
                 }
             ?>
-            <!-- CARD -->
-            
-            <!-- END OF CARD -->
-
-        </div>
     </div>
 </div>

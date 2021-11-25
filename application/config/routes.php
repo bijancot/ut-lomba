@@ -69,7 +69,9 @@ $route['profile'] = 'guest/UserController/profile';
 
 // --- ADMIN ---
 // COURSE
-$route['adm-login']                 = 'adm/AuthController/vLogin';
+$route['admin']                     = 'adm/AuthController/vLogin';
+$route['admin/auth']                = 'adm/AuthController/auth';
+$route['admin/logout']              = 'adm/AuthController/logout';
 $route['admin/course']              = 'adm/CourseController';
 $route['admin/course/add']          = 'adm/CourseController/vAdd';
 $route['admin/course/edit/(:any)']  = 'adm/CourseController/vEdit/$1';
@@ -91,10 +93,20 @@ $route['admin/kategori-course/destroy']      = 'adm/KategoriCourseController/des
 $route['admin/material/store']          = 'adm/MaterialController/store';
 $route['admin/material/update']         = 'adm/MaterialController/update';
 $route['admin/material/destroy-res']    = 'adm/MaterialController/destroyResource';
+$route['admin/material/destroy']        = 'adm/MaterialController/destroy';
 $route['admin/material/finish']         = 'adm/MaterialController/finish';
 $route['admin/material/(:any)']         = 'adm/MaterialController/vMaterial/$1';
 $route['admin/material/add/(:any)']     = 'adm/MaterialController/vAdd/$1';
 $route['admin/material/edit/(:any)']    = 'adm/MaterialController/vEdit/$1';
+
+// PRETEST
+$route['admin/pretest']               = 'adm/PretestController';
+$route['admin/pretest/add']           = 'adm/PretestController/vAdd';
+$route['admin/pretest/edit/(:any)']   = 'adm/PretestController/vEdit/$1';
+$route['admin/pretest/store']         = 'adm/PretestController/store';
+$route['admin/pretest/update']        = 'adm/PretestController/update';
+$route['admin/pretest/publish']       = 'adm/PretestController/publish';
+$route['admin/pretest/destroy']       = 'adm/PretestController/destroy';
 
 // EVENT
 $route['admin/event']               = 'adm/EventController';
@@ -105,6 +117,12 @@ $route['admin/event/update']        = 'adm/EventController/update';
 $route['admin/event/publish']       = 'adm/EventController/publish';
 $route['admin/event/destroy']       = 'adm/EventController/destroy';
 
+// NEXT GEN LEADERS
+$route['admin/ngl']                 = 'adm/NGLController';
+$route['admin/ngl/course/(:any)']   = 'adm/NGLController/vCourse/$1';
+$route['admin/ngl/pretest/(:any)']  = 'adm/NGLController/vPretest/$1';
+$route['admin/ngl/detail/(:any)']   = 'adm/NGLController/vDetail/$1';
+$route['admin/ngl/review']          = 'adm/NGLController/review';
 
 // --- USER ---
 // AUTH
@@ -119,6 +137,15 @@ $route['event-list']    = 'usr/EventController/vEventList';
 $route['event/(:any)']  = 'usr/EventController/vEvent/$1';
 
 // COURSE
-$route['course/ajxGetMU']    = 'usr/CourseController/ajxGetMU';
-$route['course-list/(:any)'] = 'usr/CourseController/vCourseList/$1';
-$route['course/(:any)']      = 'usr/CourseController/vCourse/$1';
+$route['course/ajxGetMU']       = 'usr/CourseController/ajxGetMU';
+$route['course/next-materi']    = 'usr/CourseController/nextMateri';
+$route['course/finish-materi']  = 'usr/CourseController/finishMateri';
+$route['course-list/(:any)']    = 'usr/CourseController/vCourseList/$1';
+$route['course/(:any)']         = 'usr/CourseController/vCourse/$1';
+
+// PRETEST
+$route['pretest/collect']           = 'usr/PretestController/collect';
+$route['pretest/(:any)']            = 'usr/PretestController/vPretest/$1';
+$route['pretest/do/(:any)']         = 'usr/PretestController/vDo/$1';
+$route['pretest/submit/(:any)']     = 'usr/PretestController/vSubmit/$1';
+$route['pretest/start/(:any)']      = 'usr/PretestController/start/$1';

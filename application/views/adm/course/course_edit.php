@@ -55,7 +55,11 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi</label><span class="text-warning">*</span>
-                    <textarea class="form-control" type="text" name="deskripsi" id="" required><?= (!empty($course->DESKRIPSI_COURSE) ? $course->DESKRIPSI_COURSE : (!empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "")) ?></textarea>
+                    <textarea class="summernote" type="text" name="deskripsi" id="" required><?= (!empty($course->DESKRIPSI_COURSE) ? $course->DESKRIPSI_COURSE : (!empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "")) ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Pengumuman</label>
+                    <textarea class="summernote" type="text" name="pengumuman" id=""><?= (!empty($course->PENGUMUMAN_COURSE) ? $course->PENGUMUMAN_COURSE : (!empty($dataTemp['pengumuman']) ? $dataTemp['pengumuman'] : "")) ?></textarea>
                 </div>
                 <input type="hidden" name="idCourse" value="<?= (!empty($course->ID_COURSE) ? $course->ID_COURSE : (!empty($dataTemp['idCourse']) ? $dataTemp['idCourse'] : "")) ?>">
                 <button style="float: right;" type="submit" class="btn btn-sm btn-warning">Simpan</button>
@@ -64,6 +68,9 @@
     </div>
 </div>
 <script>
+    $(document).ready(function(){
+        $('.summernote').summernote({height: 150});
+    })
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
