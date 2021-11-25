@@ -55,7 +55,6 @@
                                         <td>'.$status.'</td>
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="'.site_url('admin/event/edit/'.$item->ID_EVENT).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                            <a class="btn btn-sm btn-info mdlInfo" data-id="'.$item->ID_EVENT.'" data-toggle="modal" data-target="#mdlInfo" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="fa fa-info"></i></a>
                                             <a class="btn btn-sm btn-success mdlPublish" data-id="'.$item->ID_EVENT.'" data-stat="'.$item->ISPUBLISHED_EVENT.'" data-toggle="modal" data-target="#mdlPublish" data-bs-toggle="tooltip" data-bs-placement="top" title="Publish"><i class="fa fa-cloud-upload-alt"></i></a>
                                             <a class="btn btn-sm btn-danger mdlHapus" data-id="'.$item->ID_EVENT.'" data-label="'.$item->NAMA_EVENT.'" data-toggle="modal" data-target="#mdlHapus" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"><i class="fa fa-trash"></i></a>
                                         </td>                            

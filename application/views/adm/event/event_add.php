@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi</label><span class="text-warning">*</span>
-                    <textarea class="form-control" type="text" name="deskripsi" id="" required><?= !empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "" ?></textarea>
+                    <textarea class="summernote" type="text" name="deskripsi" id="" required><?= !empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "" ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>Tempat</label><span class="text-warning">*</span>
@@ -62,6 +62,9 @@
     </div>
 </div>
 <script>
+    $(document).ready(function(){
+        $('.summernote').summernote({height: 150});
+    })
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();

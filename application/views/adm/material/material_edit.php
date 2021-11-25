@@ -38,25 +38,33 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi</label><span class="text-warning">*</span>
-                    <textarea class="form-control" type="text" name="deskripsi" id="" required><?= (!empty($material->DESKRIPSI_MATERIAL) ? $material->DESKRIPSI_MATERIAL : (!empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "")) ?></textarea>
+                    <textarea class="summernote" type="text" name="deskripsi" id="" required><?= (!empty($material->DESKRIPSI_MATERIAL) ? $material->DESKRIPSI_MATERIAL : (!empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "")) ?></textarea>
                 </div>
                 <label>Resource Tambahan (max 2mb)</label>
                 <?php
-                    $links = explode(';', $material->RESOURCE_MATERIAL);
-                    foreach ($links as $item) {
-                        $link = explode('/', $item);
-                        $link = $link[count($link) - 1];
-
-                        $paramLink = "'".$link."'";
-
-                        echo '
-                            <div class="input-group">
-                                <input type="text" class="form-control" value="'.$link.'" disabled style="cursor: pointer;" id="">
-                                <div class="input-group-append">
-                                    <a class="btn btn-danger" onclick="desRes('.$material->ID_MATERIAL.', '.$paramLink.')"><i class="fa fa-trash"></i></a>
+                    if($material->RESOURCE_MATERIAL != null || $material->RESOURCE_MATERIAL != ''){
+                        $links = explode(';', $material->RESOURCE_MATERIAL);
+                        foreach ($links as $item) {
+                            $link = explode('/', $item);
+                            $link = $link[count($link) - 1];
+    
+                            $paramLink = "'".$link."'";
+    
+                            echo '
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="'.$link.'" disabled style="cursor: pointer;" id="">
+                                    <div class="input-group-append">
+                                        <a class="btn btn-danger" onclick="desRes('.$material->ID_MATERIAL.', '.$paramLink.')"><i class="fa fa-trash"></i></a>
+                                    </div>
                                 </div>
+                                <a class="mb-3" href="'.$item.'"><small><i>Pratinjau</i></small></a>
+                            ';
+                        }
+                    }else{
+                        echo '
+                            <div class="input-group mb-3">
+                                <input type="file" accept=".pdf,.doc,.docx,.pptx,.ppt" class="form-control" name="file[]" style="cursor: pointer;" id="">
                             </div>
-                            <a class="mb-3" href="'.$item.'"><small><i>Pratinjau</i></small></a>
                         ';
                     }
                 ?>
@@ -103,6 +111,9 @@
     </div>
 </div>
 <script>
+    $(document).ready(function(){
+        $('.summernote').summernote({height: 150});
+    })
     let countFile = 1;
     function readURL(input) {
         if (input.files && input.files[0]) {

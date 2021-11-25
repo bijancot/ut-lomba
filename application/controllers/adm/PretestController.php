@@ -4,6 +4,7 @@ class PretestController extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('Pretest');
+        $this->load->model('PretestUser');
         $this->load->library('upload');
     }
     public function index(){
@@ -96,6 +97,12 @@ class PretestController extends CI_Controller{
         redirect('admin/pretest');
     }
     public function destroy(){
+        $pretestUser = $this->PretestUser->get(['ID_PRETEST' => $_POST['id']]);
+        if($pretestUser != null){// check if course user exist
+            $this->session->set_flashdata('err_msg', 'Opps, terdapat transaksi user terhadap pretest!');
+            redirect('admin/pretest');
+        }
+
         $this->Pretest->delete(['ID_PRETEST' => $_POST['id']]);
         $this->session->set_flashdata('succ_msg', 'Pretest berhasil dihapus');
         redirect('admin/pretest');

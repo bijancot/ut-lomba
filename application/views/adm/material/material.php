@@ -33,7 +33,7 @@
         </div>
         <div class="card-body">
             <?php
-                if(!empty($this->session->flashdata('error'))){
+                if(!empty($this->session->flashdata('err_msg'))){
                     echo '
                         <div class="alert alert-danger" role="alert">
                            '.$this->session->flashdata('err_msg').'
@@ -71,6 +71,7 @@
                                         <td>'.$item->NAMA_MATERIAL.'</td>
                                         <td>
                                             <a class="btn btn-sm btn-primary" href="'.site_url('admin/material/edit/'.$item->ID_MATERIAL).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-sm btn-danger mdlHapus" data-id="'.$item->ID_MATERIAL.'" data-toggle="modal" data-target="#mdlHapus" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 ';
@@ -106,8 +107,40 @@
         </div>
     </div>
 </div>
+<!-- Modal Delete -->
+<div class="modal fade" id="mdlHapus" tabindex="-1" aria-labelledby="mdlHapus" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Materi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Apakah anda yakin untuk menghapus materi <span></span> ?</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <form action="<?= site_url('admin/material/destroy')?>" method="post">
+                    <input type="hidden" name="id" id="mdlHapus_id">
+                    <input type="hidden" name="idCourse" value="<?= $course->ID_COURSE?>">
+                    <button type="submit" class="btn btn-success">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function(){
         $('#tableMaterial').DataTable();
+    })
+    $('#tableMaterial tbody').on('click', '.mdlHapus', function(){
+        const id = $(this).data('id');
+        const label = $(this).data('label');
+
+        $('#mdlHapus_id').val(id);
+        $('#mdlHapus_label').html(label);
     })
 </script>

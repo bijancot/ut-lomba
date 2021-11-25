@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi</label><span class="text-warning">*</span>
-                    <textarea class="form-control" type="text" name="deskripsi" id="" required><?= !empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "" ?></textarea>
+                    <textarea class="summernote" type="text" name="deskripsi" id="" required><?= !empty($dataTemp['deskripsi']) ? $dataTemp['deskripsi'] : "" ?></textarea>
                 </div>
                 <label>Resource Tambahan (max 2mb)</label>
                 <div class="input-group mb-3">
@@ -56,6 +56,9 @@
     </div>
 </div>
 <script>
+    $(document).ready(function(){
+        $('.summernote').summernote({height: 150});
+    })
     let countFile = 1;
     function readURL(input) {
         if (input.files && input.files[0]) {

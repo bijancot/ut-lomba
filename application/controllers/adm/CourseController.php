@@ -41,6 +41,7 @@ class CourseController extends CI_Controller{
             $formData['NAMA_COURSE']        = $_POST['nama'];
             $formData['ID_KATCOU']          = $_POST['kat'];
             $formData['DESKRIPSI_COURSE']   = $_POST['deskripsi'];
+            $formData['PENGUMUMAN_COURSE']  = $_POST['pengumuman'];
             $formData['IMG_COURSE']         = $upload['link'];
             $this->Course->insert($formData);
             
@@ -61,6 +62,7 @@ class CourseController extends CI_Controller{
         $formData['ID_COURSE']          = $_POST['idCourse'];
         $formData['NAMA_COURSE']        = $_POST['nama'];
         $formData['DESKRIPSI_COURSE']   = $_POST['deskripsi'];
+        $formData['PENGUMUMAN_COURSE']  = $_POST['pengumuman'];
         $formData['ID_KATCOU']          = $_POST['kat'];
 
         if(!empty($_FILES['poster']['name'])){ // cek if edit img / poster

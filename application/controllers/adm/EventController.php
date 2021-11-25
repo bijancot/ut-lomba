@@ -33,7 +33,7 @@ class EventController extends CI_Controller{
         if($upload['status'] == true){ // cek if upload success
             $formData['NAMA_EVENT']             = $_POST['judul'];
             $formData['DESKRIPSI_EVENT']        = $_POST['deskripsi'];
-            $formData['LOKASI_EVENT']           = $_POST['lokasi'];
+            $formData['LOKASI_EVENT']           = $_POST['tempat'];
             $formData['TGL_EVENT']              = $_POST['tgl'];
             $formData['LINK_EVENT']             = $_POST['link'];
             $formData['PENYELENGGARA_EVENT']    = $_POST['penyelenggara'];
