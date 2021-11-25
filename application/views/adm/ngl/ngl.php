@@ -45,12 +45,11 @@
                                         <td>'.$item->NAMA_USER.'</td>
                                         <td>'.$item->PERGURUANTINGGI_USER.'</td>
                                         <td>
-                                            <a class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="fa fa-info"></i></a>
+                                            <a class="btn btn-sm btn-success" href="'.site_url('admin/ngl/detail/'.str_replace('@', '__', $item->EMAIL_USER)).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="fa fa-info"></i></a>
                                             <a class="btn btn-sm btn-info" href="'.site_url('admin/ngl/course/'.str_replace('@', "__", $item->EMAIL_USER)).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Info"><i class="fa fa-pencil-ruler"></i></a>
                                             <a class="btn btn-sm btn-primary" href="'.site_url('admin/ngl/pretest/'.str_replace('@', "__", $item->EMAIL_USER)).'" data-bs-toggle="tooltip" data-bs-placement="top" title="Pretest"><i class="fa fa-clipboard-list"></i></a>
                                         </td>                            
                                     </tr>
-                                
                                 ';
                             }
                         ?>
