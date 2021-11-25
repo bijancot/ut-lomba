@@ -16,7 +16,7 @@
                                     <p class="brand mb-0">Daftar</p>
                                     <p class="small opacity-5 ms-auto">1/4</p>
                                 </div>
-                                <div>
+                                <div class="w-100">
                                     <input class="auth-input mb-4" type="text" name="email" placeholder="Alamat Email">
                                     <input class="auth-input mb-4" type="number" name="telp" placeholder="Nomor Hp" onkeypress="return isNumberKey(event)">
                                     <input class="auth-input mb-4" type="password" name="pass" placeholder="Buat Password">
@@ -36,7 +36,7 @@
                                     <p class="small opacity-5 ms-auto">2/4</p>
                                 </div>
 
-                                <div>
+                                <div class="w-100">
                                     <input class="auth-input mb-4" type="text" name="nama" placeholder="Nama Lengkap">
                                     <div class="mb-3">
                                         <select id="jk" name="jk">
@@ -81,7 +81,21 @@
                                             ?>
                                         </select>
                                     </div>
-                                    
+                                  
+                                    <div class="mb-4">
+                                        <select id="agama" name="agama">
+                                            <option value="">Agama</option>
+                                            <option value="Islam">Islam</option>
+                                            <option value="Protestan">Protestan</option>
+                                            <option value="Katolik">Katolik</option>
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Buddha">Buddha</option>
+                                            <option value="Khonghucu">Khonghucu</option>
+                                            <option value="Lainnya">Lainnya</option>
+
+                                        </select>
+                                    </div>
+
                                     <input class="auth-input mb-4" type="number" name="nik" placeholder="NIK" onkeypress="return isNumberKey(event)">
                                 </div>
 
@@ -95,7 +109,7 @@
                                     <p class="small opacity-5 ms-auto">3/4</p>
                                 </div>
 
-                                <div>
+                                <div class="w-100">
                                     <input class="auth-input mb-4" type="text" name="pt" placeholder="Perguruan Tinggi">
                                     <input class="auth-input mb-4" type="number" name="nim" placeholder="NIM" onkeypress="return isNumberKey(event)">
                                     <input class="auth-input mb-4" type="text" name="ps" placeholder="Program Studi">
@@ -121,7 +135,7 @@
                                     <p class="small opacity-5 ms-auto">4/4</p>
                                 </div>
 
-                                <div>
+                                <div class="w-100">
                                     <p class="mb-2">Curriculum Vitae</p>
                                     <p class="small color-secondary-dark">Unggah dengan format PDF dengan ukuran maksimal 2 MB</p>
                                     <div class="input-file">
