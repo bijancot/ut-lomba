@@ -5,7 +5,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="<?= site_url()?>/assets/src/img/logo2.svg" sizes="any" type="image/svg+xml">
+  <link rel="icon" href="<?= base_url('assets/adm/img/favicon/favicon-16x16.png'); ?>" sizes="16x16">
+    <link rel="icon" href="<?= base_url('assets/adm/img/favicon/favicon-32x32.png'); ?>" sizes="32x32">
   <!-- Bootstrap CSS -->
   <link href="<?= site_url()?>/assets/adm-auth/css/bootstrap.min.css" rel="stylesheet" />
   <link href="<?= site_url()?>/assets/adm-auth/css/bootstrap-extended.css" rel="stylesheet" />
@@ -23,7 +24,7 @@
   <!-- loader-->
 	<link href="<?= site_url()?>/assets/adm-auth/css/pace.min.css" rel="stylesheet" />
 
-  <title>Spageti - Sign In</title>
+  <title>UTNGL - Masuk</title>
 </head>
 
 <body>

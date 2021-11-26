@@ -21,6 +21,11 @@ class AuthController extends CI_Controller{
 
         $this->template->index('auth/login', $data);
     }
+    public function vKebijakan(){
+        $data['title']  = 'Kebijakan & Privacy'; // PLACEHOLDER VARIABLE DATA
+    
+        $this->template->index('general/kebijakan', $data);
+    }
     public function register(){
         $formData['EMAIL_USER']             = $_POST['email'];
         $formData['TELP_USER']              = $_POST['telp'];

@@ -31,7 +31,9 @@
                         }else{
                             $btn = '<a href="'.site_url('sign-in').'" class="auth-btn">Masuk</a>';
                         }
-                        
+
+                        $deskripsi = explode("</p>", $item->DESKRIPSI_COURSE);
+                        $deskripsi = str_replace("<p>", " ", $deskripsi[0]);                        
                         echo '
                             <div class="col">
                                 <div class="event-card">
@@ -42,7 +44,7 @@
                 
                                     <div class="px-2">
                                         <p class="event-title">'.$item->NAMA_COURSE.'</p>
-                                        <p class="paragraph">'.$item->DESKRIPSI_COURSE.'</p>
+                                        <p class="paragraph">'.$deskripsi.'</p>
                 
                                         <div class="d-flex justify-content-between align-items-center mb-3 mt-auto">
                                             <div class="d-flex flex-row mini-photo-container">

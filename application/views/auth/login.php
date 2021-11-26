@@ -33,7 +33,7 @@
                             <input class="auth-input mb-4" id="auth-password" type="password" placeholder="Password" name="pass">
                             <span class="position-absolute end-0 pt-2 font-w-600 togglePassword" toggle="#auth-password">Lihat</span>
                         </div>
-                        <a href="#" class="font-w-600 my-3 ps-2">Forgot your password</a>
+                        <!-- <a href="#" class="font-w-600 my-3 ps-2">Forgot your password</a> -->
                         <button type="submit" class="auth-btn mt-3">Masuk</button>
                     </form>
                     <p class="text-center w-100 mt-3">Belum punya akun ? <a href="<?= site_url('sign-up') ?>" class="font-w-600">Daftar</a></p>

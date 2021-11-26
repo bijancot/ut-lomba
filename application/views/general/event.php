@@ -14,7 +14,7 @@
                 </div> -->
             </div>
             <div class="col-12 col-lg-6 pe-5 pt-5">
-                <p>12 November 2021</p>
+                <p><?= date_format(date_create($event->created_at), 'j F Y')?></p>
                 <p class="fs-2 font-w-600 mt-3"><?= $event->NAMA_EVENT?></p>
                 <div class="course-card-title collapsable">
                     <div class="head collapse-card active">

@@ -81,21 +81,6 @@
                                             ?>
                                         </select>
                                     </div>
-                                  
-                                    <div class="mb-4">
-                                        <select id="agama" name="agama">
-                                            <option value="">Agama</option>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Protestan">Protestan</option>
-                                            <option value="Katolik">Katolik</option>
-                                            <option value="Hindu">Hindu</option>
-                                            <option value="Buddha">Buddha</option>
-                                            <option value="Khonghucu">Khonghucu</option>
-                                            <option value="Lainnya">Lainnya</option>
-
-                                        </select>
-                                    </div>
-
                                     <input class="auth-input mb-4" type="number" name="nik" placeholder="NIK" onkeypress="return isNumberKey(event)">
                                 </div>
 
@@ -240,6 +225,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <input class="mb-4" type="checkbox" name="kebijakan" placeholder="Kebijakan & privacy" required > Saya menyetujui <a href="<?= site_url('kebijakan')?>" target="_blank">Kebijakan Privacy</a> yang berlaku 
                                 </div>
 
                                 <span class="auth-btn py-3 mt-3 finalStep">Daftar</span>

@@ -43,7 +43,7 @@ $(document).ready(function () {
     });
     $(".goToStep3").click(function () {
         const nama          = $('input[name=nama]').val();
-        const jk            = $('input[name=jk]').val();
+        const jk            = $('select[name=jk]').val();
         const alamat        = $('input[name=alamat]').val();
         const tmpt_lahir    = $('input[name=tmpt_lahir]').val();
         const tgl_lahir     = $('select[name=tgl_lahir]').val();
@@ -89,10 +89,14 @@ $(document).ready(function () {
         const dokPend2  = $('#sertif2').val();
         const dokPend3  = $('#sertif3').val();
         const rekom     = $('input[name=rekom]').val();
+        const kebijakan = $('input[name=kebijakan]').is(':checked');
 
         if(cv == "" || rekom == "" || (dokPend1 == "" && dokPend2 == "" && dokPend3 == "")){
             $('#alert').attr('hidden', false);
             $('#alert #alert-msg').html('Opps, Terdapat inputan yang masih kosong!');
+        }else if(kebijakan == false){
+            $('#alert').attr('hidden', false);
+            $('#alert #alert-msg').html('Opps, Anda belum menyetujui kebijakan dan privacy yang berlaku!');
         }else{
             $('#alert').attr('hidden', true);
             $('#formRegister').submit();

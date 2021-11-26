@@ -128,6 +128,7 @@ $route['admin/ngl/review']          = 'adm/NGLController/review';
 // AUTH
 $route['sign-in']   = 'usr/AuthController/vSignIn';
 $route['sign-up']   = 'usr/AuthController/vSignUp';
+$route['kebijakan'] = 'usr/AuthController/vKebijakan';
 $route['register']  = 'usr/AuthController/register';
 $route['login']     = 'usr/AuthController/login';
 $route['logout']    = 'usr/AuthController/logout';
